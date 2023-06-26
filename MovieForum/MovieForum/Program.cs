@@ -1,8 +1,14 @@
+using MovieForum;
+using MovieForum.Repositories;
+using MovieForum.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IMovieRepository<Movie>, MovieRepository>();
+builder.Services.AddTransient<IMovieService, MovieService>();
 
 var app = builder.Build();
 
