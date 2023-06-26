@@ -1,0 +1,25 @@
+### MAIN
+1. week 
+- planning
+
+2. week
+- database
+- api endpoints
+
+3. week
+- user authentication
+
+4. week
+- docker
+
+
+### 1. week
+
+## main page
+- list all movie
+- add movie
+- delete movie
+
+## basic movie page by ID
+- rating
+- display movie details
