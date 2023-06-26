@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using MovieForum.Services;
 
 namespace MovieForum.Controllers;
 
 [ApiController]
 [Route("/movies")]
+[Produces("application/json")] 
+[EnableCors("AllowAllHeaders")]
 
 public class MovieController : ControllerBase
 {
@@ -16,8 +19,7 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<Movie> GetMovies()
-    {
-        return _movieService.GetMovies();
-    }
+    public IActionResult GetMovies()
+        => new JsonResult(
+            _movieService.GetMovies());
 }

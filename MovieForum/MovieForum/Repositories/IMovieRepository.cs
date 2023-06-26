@@ -2,5 +2,5 @@
 
 public interface IMovieRepository<T>
 {
-    IEnumerable<Movie> GetMovies();
+    HashSet<Movie> GetMovies();
 }
