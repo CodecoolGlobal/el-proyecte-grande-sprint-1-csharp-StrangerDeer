@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
+import {isVisible} from "bootstrap/js/src/util";
 
 export class AddNewMovie extends Component {
   static displayName = AddNewMovie.name;
 
   constructor(props) {
     super(props);
-    this.state = { titleInput: "" };
+    this.state = { hasEmptySpace: false, titleInput: "" };
+  }
+  
+  clickEvent(title){
+    
+    if(!title.trim().length){
+      this.setState({hasEmptySpace: true})
+    } else{
+      this.saveMovie(title)
+    }
+    
   }
   
   saveMovie(title){
@@ -33,8 +44,9 @@ export class AddNewMovie extends Component {
                  placeholder={"Title"}
                  value={titleInput} 
                  onChange={(e) => this.setState({titleInput: e.target.value})}/>
+        {!titleInput.trim().length && this.state.hasEmptySpace ? <small>Please fill this field</small> : <></>} 
         <br/>
-          <button onClick={() => this.saveMovie(titleInput)}>Save</button>
+          <button onClick={() => this.clickEvent(titleInput)}>Save</button>
       </div>
     );
   }

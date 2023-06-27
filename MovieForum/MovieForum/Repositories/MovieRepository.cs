@@ -13,8 +13,8 @@ public class MovieRepository : IMovieRepository<Movie>
     {
         _movies = new HashSet<Movie>()
         {
-            new Movie("Abc"),
-            new Movie("Shark")
+            new Movie("The Godfather"),
+            new Movie("The Chainsaw Massacre")
         };
     }
 
