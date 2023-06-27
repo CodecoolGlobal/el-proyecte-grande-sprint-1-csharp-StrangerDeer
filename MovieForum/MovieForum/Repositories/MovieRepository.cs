@@ -18,7 +18,7 @@ public class MovieRepository : IMovieRepository<Movie>
         };
     }
 
-    public HashSet<Movie> GetMovies()
+    public HashSet<Movie> GetAllMovies()
     {
         return _movies;
     }

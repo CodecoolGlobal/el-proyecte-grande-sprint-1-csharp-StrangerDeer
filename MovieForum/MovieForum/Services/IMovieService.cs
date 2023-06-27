@@ -2,5 +2,5 @@
 
 public interface IMovieService
 {
-    HashSet<Movie> GetMovies();
+    HashSet<Movie> GetAllMovies();
 }

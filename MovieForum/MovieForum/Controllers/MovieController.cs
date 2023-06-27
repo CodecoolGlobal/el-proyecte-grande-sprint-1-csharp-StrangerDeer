@@ -19,7 +19,7 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetMovies()
+    public IActionResult GetAllMovies()
         => new JsonResult(
-            _movieService.GetMovies());
+            _movieService.GetAllMovies());
 }
