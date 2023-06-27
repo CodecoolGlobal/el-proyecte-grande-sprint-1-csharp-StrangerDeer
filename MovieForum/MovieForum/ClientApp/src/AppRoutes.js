@@ -1,4 +1,4 @@
-import { Counter } from "./components/Counter";
+import { AddNewMovie } from "./components/AddNewMovie";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 
@@ -9,7 +9,7 @@ const AppRoutes = [
   },
   {
     path: '/add-new-movie',
-    element: <Counter />
+    element: <AddNewMovie />
   },
   {
     path: '/fetch-data',
