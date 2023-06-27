@@ -45,4 +45,11 @@ public class MovieController : ControllerBase
 
         return Ok(movieWithId);
     }
+
+    [HttpDelete("{id}")]
+    public IActionResult DeleteMovieById([FromRoute] string id)
+    {
+        _movieService.DeleteMovieById(id);
+        return Ok();
+    }
 }
