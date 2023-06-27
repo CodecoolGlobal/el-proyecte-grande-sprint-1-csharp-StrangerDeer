@@ -2,7 +2,7 @@
 
 public class MovieRepository : IMovieRepository<Movie>
 {
-    private IEnumerable<Movie> _movies;
+    private HashSet<Movie> _movies;
 
     public MovieRepository()
     {
@@ -11,15 +11,20 @@ public class MovieRepository : IMovieRepository<Movie>
 
     private void SeedMovies()
     {
-        _movies = new List<Movie>()
+        _movies = new HashSet<Movie>()
         {
             new Movie("Abc"),
             new Movie("Shark")
         };
     }
 
-    public IEnumerable<Movie> GetMovies()
+    public HashSet<Movie> GetMovies()
     {
         return _movies;
+    }
+
+    public void AddNewMovie(Movie movie)
+    {
+        _movies.Add(movie);
     }
 }

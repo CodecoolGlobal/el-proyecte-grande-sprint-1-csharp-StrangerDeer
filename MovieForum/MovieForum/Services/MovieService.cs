@@ -15,4 +15,6 @@ public class MovieService : IMovieService
     {
         return _movieRepository.GetMovies();
     }
+
+    public void AddNewMovie(Movie movie) => _movieRepository.AddNewMovie(movie);
 }
