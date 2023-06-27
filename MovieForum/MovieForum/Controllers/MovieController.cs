@@ -30,7 +30,9 @@ public class MovieController : ControllerBase
     {
         var jsonObject = JsonSerializer.Deserialize<Movie>(body);
         _movieService.AddNewMovie(jsonObject);
+        return Ok();
 
+    }
 
     [HttpGet("{id}")]
     public IActionResult GetMovieById([FromRoute] string id)

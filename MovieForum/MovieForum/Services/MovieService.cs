@@ -11,9 +11,9 @@ public class MovieService : IMovieService
     {
         _movieRepository = movieRepository;
     }
-    public HashSet<Movie> GetAllMovies()
+    public HashSet<Movie> GetMovies()
     {
-        return _movieRepository.GetAllMovies();
+        return _movieRepository.GetMovies();
     }
 
     public Movie GetMovieById(string id)
