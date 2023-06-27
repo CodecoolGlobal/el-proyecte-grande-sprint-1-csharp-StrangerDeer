@@ -2,6 +2,6 @@
 
 public interface IMovieService
 {
-    IEnumerable<Movie> GetMovies();
+    HashSet<Movie> GetMovies();
     void AddNewMovie(Movie movie);
 }
