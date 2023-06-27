@@ -8,13 +8,15 @@ public class Movie
     public string Title { get; set; }
     public Guid Id { get; }
     
-    public int ReleaseYear { get; }
+    public double Ratings { get; set; }
+    public int ReleaseYear { get; set; }
     
 
-    public Movie(string title, int releaseYear)
+    public Movie(string title, int releaseYear, double ratings)
     {
         Id = Guid.NewGuid();
         Title = title;
         ReleaseYear = releaseYear;
+        Ratings = ratings;
     }
 }
