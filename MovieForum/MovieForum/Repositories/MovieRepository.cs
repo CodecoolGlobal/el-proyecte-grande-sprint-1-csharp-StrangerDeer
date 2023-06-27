@@ -34,4 +34,11 @@ public class MovieRepository : IMovieRepository<Movie>
         if (movieWithId == null) return null;
         return movieWithId;
     }
+
+    public void DeleteMovieById(string id)
+    {
+        var movieToDelete = _movies.FirstOrDefault(movie => movie.Id.Equals(Guid.Parse(id)));
+        if (movieToDelete == null) return;
+        _movies.Remove(movieToDelete);
+    }
 }
