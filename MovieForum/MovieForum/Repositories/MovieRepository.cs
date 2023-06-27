@@ -18,8 +18,15 @@ public class MovieRepository : IMovieRepository<Movie>
         };
     }
 
-    public HashSet<Movie> GetMovies()
+    public HashSet<Movie> GetAllMovies()
     {
         return _movies;
+    }
+
+    public Movie GetMovieById(string id)
+    {
+        var movieWithId = _movies.FirstOrDefault(movie => movie.Id.Equals(Guid.Parse(id)));
+        if (movieWithId == null) return null;
+        return movieWithId;
     }
 }
