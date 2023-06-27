@@ -2,12 +2,10 @@ import React, { Component } from 'react';
 
 export class Home extends Component {
   static displayName = Home.name;
-
     constructor(props) {
         super(props);
         this.state = { movies: [], loading: true };
     }
-    
     componentDidMount() {
         this.populateMovieData();
     }
@@ -16,14 +14,14 @@ export class Home extends Component {
         return (
             <div>
                 {movies.map((movie, index) =>
-                    <div key={index}>
+                    <div key={index} onClick={event => window.location.replace(`${movie.id}`)}>
                         <p>{movie.title}</p>
                     </div>
                 )}
             </div>
         );
     }
-  render() {
+    render = () => {
       let contents = this.state.loading
           ? <p><em>Loading...</em></p>
           : Home.renderMovieCards(this.state.movies);
