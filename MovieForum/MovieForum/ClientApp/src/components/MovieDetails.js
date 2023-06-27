@@ -16,6 +16,7 @@ export class MovieDetails extends Component {
         return (
             <div>
                 <p>{movie.title}</p>
+                <p>{movie.releaseyear}</p>
             </div>
         );
     }
@@ -34,7 +35,6 @@ export class MovieDetails extends Component {
     async populateMovieData(id) {
         const response = await fetch(`https://localhost:7211/movies/${id}`);
         const data = await response.json();
-        console.log(data);
         this.setState({ movie: data, loading: false });
     }
 }

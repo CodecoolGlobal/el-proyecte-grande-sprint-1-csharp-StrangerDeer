@@ -1,13 +1,20 @@
-﻿namespace MovieForum;
+﻿using System.Runtime.CompilerServices;
+using Microsoft.VisualBasic.CompilerServices;
+
+namespace MovieForum;
 
 public class Movie
 {
-    public string Title { get; }
     public Guid Id { get; }
+    public string Title { get; }
+    
+    public int Releaseyear { get; }
+    
 
-    public Movie(string title)
+    public Movie(string title, int releaseyear)
     {
-        Title = title;
         Id = Guid.NewGuid();
+        Title = title;
+        Releaseyear = releaseyear;
     }
 }
