@@ -20,7 +20,7 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetMovies()
+    public IActionResult GetAllMovies()
         => new JsonResult(
             _movieService.GetMovies());
     
@@ -30,6 +30,17 @@ public class MovieController : ControllerBase
     {
         var jsonObject = JsonSerializer.Deserialize<Movie>(body);
         _movieService.AddNewMovie(jsonObject);
-        return Ok();
+
+
+    [HttpGet("{id}")]
+    public IActionResult GetMovieById([FromRoute] string id)
+    {
+        var movieWithId = _movieService.GetMovieById(id);
+        if (movieWithId == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(movieWithId);
     }
 }
