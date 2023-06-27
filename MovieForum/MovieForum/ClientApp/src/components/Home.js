@@ -15,7 +15,7 @@ export class Home extends Component {
             <div>
                 {movies.map((movie, index) =>
                     <div key={index} onClick={event => window.location.replace(`${movie.id}`)}>
-                        <p>{movie.title}</p>
+                        <p>{movie.title} ({movie.releaseYear})</p>
                     </div>
                 )}
             </div>
