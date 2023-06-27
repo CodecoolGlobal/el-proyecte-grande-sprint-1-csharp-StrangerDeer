@@ -20,4 +20,6 @@ public class MovieService : IMovieService
     {
         return _movieRepository.GetMovieById(id);
     }
+
+    public void AddNewMovie(Movie movie) => _movieRepository.AddNewMovie(movie);
 }

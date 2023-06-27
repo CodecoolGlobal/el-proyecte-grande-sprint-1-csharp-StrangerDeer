@@ -18,9 +18,14 @@ public class MovieRepository : IMovieRepository<Movie>
         };
     }
 
-    public HashSet<Movie> GetAllMovies()
+    public HashSet<Movie> GetMovies()
     {
         return _movies;
+    }
+
+    public void AddNewMovie(Movie movie)
+    {
+        _movies.Add(movie);
     }
 
     public Movie GetMovieById(string id)

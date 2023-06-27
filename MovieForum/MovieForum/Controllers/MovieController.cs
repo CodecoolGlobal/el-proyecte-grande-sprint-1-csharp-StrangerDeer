@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Cors;
+using System.Text.Json;
 using Microsoft.AspNetCore.Mvc;
 using MovieForum.Services;
 
@@ -21,7 +22,15 @@ public class MovieController : ControllerBase
     [HttpGet]
     public IActionResult GetAllMovies()
         => new JsonResult(
-            _movieService.GetAllMovies());
+            _movieService.GetMovies());
+    
+    [Route("/add-new-movie")]
+    [HttpPost]
+    public IActionResult AddNewMovie([FromBody] JsonElement body)
+    {
+        var jsonObject = JsonSerializer.Deserialize<Movie>(body);
+        _movieService.AddNewMovie(jsonObject);
+
 
     [HttpGet("{id}")]
     public IActionResult GetMovieById([FromRoute] string id)

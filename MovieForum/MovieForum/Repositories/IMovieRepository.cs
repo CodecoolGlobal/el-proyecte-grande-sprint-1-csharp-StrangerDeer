@@ -2,6 +2,8 @@
 
 public interface IMovieRepository<T>
 {
-    HashSet<Movie> GetAllMovies();
+
+    HashSet<Movie> GetMovies();
+    void AddNewMovie(Movie movie);
     Movie GetMovieById(string id);
 }
