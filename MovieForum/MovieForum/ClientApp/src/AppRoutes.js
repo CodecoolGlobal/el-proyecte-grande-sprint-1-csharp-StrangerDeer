@@ -8,7 +8,7 @@ const AppRoutes = [
     element: <Home />
   },
   {
-    path: '/counter',
+    path: '/add-new-movie',
     element: <Counter />
   },
   {
