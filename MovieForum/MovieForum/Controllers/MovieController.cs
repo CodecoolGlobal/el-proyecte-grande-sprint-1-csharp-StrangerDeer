@@ -52,4 +52,12 @@ public class MovieController : ControllerBase
         _movieService.DeleteMovieById(id);
         return Ok();
     }
+
+    [HttpPut("{id}")]
+    public IActionResult UpdateMovie([FromRoute] string id, [FromBody] JsonElement body)
+    {
+        var updatedMovie = JsonSerializer.Deserialize<Movie>(body);
+        _movieService.UpdateMovie(id, updatedMovie);
+        return Ok();
+    }
 }

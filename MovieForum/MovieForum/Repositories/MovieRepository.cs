@@ -1,4 +1,6 @@
-﻿namespace MovieForum.Repositories;
+﻿using System.Reflection;
+
+namespace MovieForum.Repositories;
 
 public class MovieRepository : IMovieRepository<Movie>
 {
@@ -40,5 +42,29 @@ public class MovieRepository : IMovieRepository<Movie>
         var movieToDelete = _movies.FirstOrDefault(movie => movie.Id.Equals(Guid.Parse(id)));
         if (movieToDelete == null) return;
         _movies.Remove(movieToDelete);
+    }
+
+    public void UpdateMovie(string id, Movie updatedMovie)
+    {
+        var movieToUpdate = _movies.FirstOrDefault(movie => movie.Id.Equals(Guid.Parse(id)));
+        if (movieToUpdate == null) return;
+        PropertyInfo[] movieProperties = movieToUpdate.GetType().GetProperties();
+        
+        UpdateMovieProperties(movieProperties, movieToUpdate, updatedMovie);
+    }
+
+    private void UpdateMovieProperties(PropertyInfo[] movieProperties, Movie movieToUpdate, Movie updatedMovie)
+    {
+        foreach (PropertyInfo movieProperty in movieProperties)
+        {
+            if (movieProperty.CanWrite)
+            {
+                var newPropertyValue = movieProperty.GetValue(updatedMovie);
+                movieProperty
+                    .SetValue(movieToUpdate,
+                        newPropertyValue,
+                        null);
+            }
+        }
     }
 }

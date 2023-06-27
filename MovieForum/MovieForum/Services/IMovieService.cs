@@ -6,4 +6,5 @@ public interface IMovieService
     void AddNewMovie(Movie movie);
     Movie GetMovieById(string id);
     void DeleteMovieById(string id);
+    void UpdateMovie(string id, Movie updatedMovie);
 }

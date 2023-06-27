@@ -22,6 +22,7 @@ public class MovieService : IMovieService
     }
 
     public void DeleteMovieById(string id) => _movieRepository.DeleteMovieById(id);
+    public void UpdateMovie(string id, Movie updatedMovie) => _movieRepository.UpdateMovie(id, updatedMovie);
 
     public void AddNewMovie(Movie movie) => _movieRepository.AddNewMovie(movie);
 }

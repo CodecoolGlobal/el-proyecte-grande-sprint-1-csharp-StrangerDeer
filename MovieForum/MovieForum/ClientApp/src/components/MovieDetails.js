@@ -49,7 +49,7 @@ export class MovieDetails extends Component {
                 <button onClick={event => this.deleteMovie(movie.id)}>Remove movie</button>
             </div>
 
-    );
+        );
     }
 
     async populateMovieData(id) {
