@@ -22,4 +22,9 @@ public class MovieRepository : IMovieRepository<Movie>
     {
         return _movies;
     }
+
+    public Movie GetMovieById(string id)
+    {
+        return _movies.FirstOrDefault(movie => movie.Id.Equals(id));
+    }
 }

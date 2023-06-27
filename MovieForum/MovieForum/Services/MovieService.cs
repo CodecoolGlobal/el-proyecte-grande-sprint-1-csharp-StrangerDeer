@@ -15,4 +15,9 @@ public class MovieService : IMovieService
     {
         return _movieRepository.GetAllMovies();
     }
+
+    public Movie GetMovieById(string id)
+    {
+        return _movieRepository.GetMovieById(id);
+    }
 }

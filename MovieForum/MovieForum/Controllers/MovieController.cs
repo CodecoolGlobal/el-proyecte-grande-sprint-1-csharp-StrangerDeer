@@ -22,4 +22,16 @@ public class MovieController : ControllerBase
     public IActionResult GetAllMovies()
         => new JsonResult(
             _movieService.GetAllMovies());
+
+    [HttpGet("{id}")]
+    public IActionResult GetMovieById([FromRoute] string id)
+    {
+        var movieWithId = _movieService.GetMovieById(id);
+        if (movieWithId == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(movieWithId);
+    }
 }

@@ -3,4 +3,5 @@
 public interface IMovieService
 {
     HashSet<Movie> GetAllMovies();
+    Movie GetMovieById(string id);
 }
