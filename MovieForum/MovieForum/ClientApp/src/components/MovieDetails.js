@@ -11,6 +11,14 @@ export class MovieDetails extends Component {
         const id = window.location.href.split('/')[3]
         this.populateMovieData(id);
     }
+
+    static renderMovieDetails(movie) {
+        return (
+            <div>
+                <p>{movie.title}</p>
+                <p>{movie.releaseyear}</p>
+            </div>
+        );
     static deleteMovie(id) {
         fetch(`https://localhost:7211/movies/${id}`, {
             method: "delete"
@@ -55,7 +63,6 @@ export class MovieDetails extends Component {
     async populateMovieData(id) {
         const response = await fetch(`https://localhost:7211/movies/${id}`);
         const data = await response.json();
-        console.log(data);
         this.setState({ movie: data, loading: false });
     }
 }
