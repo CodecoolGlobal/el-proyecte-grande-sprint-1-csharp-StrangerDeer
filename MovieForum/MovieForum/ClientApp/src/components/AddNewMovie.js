@@ -46,8 +46,6 @@ export class AddNewMovie extends Component {
     let titleInput = this.state.inputs.Title;
     let yearInput = Number(this.state.inputs.ReleaseYear);
     
-    //console.
-    
     return (
       <div>
         <div>Movie Title</div>
