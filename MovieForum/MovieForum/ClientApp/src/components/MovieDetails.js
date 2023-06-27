@@ -19,7 +19,12 @@ export class MovieDetails extends Component {
                 <p>{movie.releaseyear}</p>
             </div>
         );
+    static deleteMovie(id) {
+        fetch(`https://localhost:7211/movies/${id}`, {
+            method: "delete"
+        }).then(() => window.location.replace("/"))
     }
+
     render() {
         let contents = this.state.loading
             ? <p><em>Loading...</em></p>
@@ -30,6 +35,15 @@ export class MovieDetails extends Component {
                 {contents}
             </div>
         );
+    }
+    static renderMovieDetails(movie) {
+        return (
+            <div>
+                <p>{movie.title}</p>
+                <button onClick={event => this.deleteMovie(movie.id)}>Remove movie</button>
+            </div>
+
+    );
     }
 
     async populateMovieData(id) {
