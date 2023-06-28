@@ -11,10 +11,10 @@ export class MovieDetails extends Component {
             "ReleaseYear": 0,
             "Story": "",
             "Ratings": 0,
-            "Genres": {}
+            "Genre": ""
             
         }
-        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, genres: [], checkedGenres: {}};
+        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, genres: []};
     }
     
     updateMovie(id){
@@ -34,9 +34,6 @@ export class MovieDetails extends Component {
     async toggleEditFields(id) {
         if (this.state.editAllowed === true) {
             await this.setState({editAllowed: false})
-            await this.setState({
-                movieDetails: {...this.state.movieDetails, "Genres": this.state.checkedGenres}
-            })
             await console.log(this.state.movieDetails)
             await this.updateMovie(id);
         } else if (this.state.editAllowed !== true) {
@@ -55,6 +52,7 @@ export class MovieDetails extends Component {
         }).then(() => window.location.replace("/"))
     }
     renderMovieDetails(movie) {
+        
         const movieId = movie.id;
         let genres = this.state.genres;
         let movieTitle = this.state.movieDetails.Title;
@@ -70,18 +68,6 @@ export class MovieDetails extends Component {
             this.updateMovie(id);
         }
         
-        const addGenreToList = async (name, index) => {
-            await this.setState({
-                checkedGenres: {...this.state.checkedGenres, [index]: name}
-            })
-        }
-        
-        const removeGenreFromList = async (name, index) => {
-            delete this.state.checkedGenres[index];
-            await this.setState({
-                checkedGenres: this.state.checkedGenres
-            })
-        }
         const setInputValue = (key, value) => {
             setObjValue({movieDetails: {...this.state.movieDetails, [key]: value}})}
         
@@ -108,21 +94,14 @@ export class MovieDetails extends Component {
                         <input value={movieStory}
                                 onChange={(e) => setInputValue("Story", e.target.value)}/>
                         <div>Please choose the correct genres for this movie!</div>
+                        <br/>
+                        
+                        <select onChange={(event) => setInputValue("Genre", event.target.value)}>
+                            <option disabled selected hidden>Select a genre</option>
                         {genres.map((genre, index) => 
-                            <div key={index}>
-                                <input type="checkbox" className="genre-checkbox" name="genres"
-                                       checked={this.state.checkedGenres.hasOwnProperty(index) ? 'checked' : ''}
-                                       value={genre.name}
-                                       onChange={(e) => {
-                                           if (e.target.checked) {
-                                               addGenreToList(genre.name, index);
-                                           } else {
-                                               removeGenreFromList(genre.name, index);
-                                           }}}
-                                />
-                                <label htmlFor="genres"> {genre.name}</label>
-                            </div>
+                            <option key={index} value={genre.name}>{genre.name}</option>
                         )}
+                        </select>
                         
                         <br/><br/>
                         
@@ -180,7 +159,7 @@ export class MovieDetails extends Component {
                 "ReleaseYear": movieData.releaseYear,
                 "Story": movieData.story,
                 "Ratings": movieData.ratings,
-                "Genres": {}
+                "Genre": ""
             }
         })
         
