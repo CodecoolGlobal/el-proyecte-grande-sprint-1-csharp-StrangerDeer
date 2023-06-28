@@ -59,11 +59,15 @@ export class MovieDetails extends Component {
         let movieRelease = this.state.movieDetails.ReleaseYear;
         let movieStory = this.state.movieDetails.Story;
         let movieGenre = this.state.movieDetails.Genre;
+        let movieRatings = this.state.movieDetails.Ratings;
+        
+        console.log(movieRatings);
 
         const setObjValue = (setObject) => {this.setState(setObject)};
 
         const toggleStars = (rateValue) => {
             setInputValue("Ratings", Number(rateValue))
+            return rateValue;
         }
         const rateMovie = (id) => {
             this.updateMovie(id);
@@ -115,21 +119,32 @@ export class MovieDetails extends Component {
                         <p>{movieRelease}</p>
                         <p>{movieGenre !== null ? movieGenre : ''}</p>
                         <p>{movieStory}</p>
+                        
                         <div className="rate">
                             <input type="radio" id="star5" name="rate" value="5"
-                                   onClick={() => {toggleStars(5)}}/>
+                                   checked={movieRatings === 5}
+                                   onClick={e => toggleStars(5)}
+                                   onChange={e => toggleStars(5)}/>
                             <label htmlFor="star5" title="text">5 stars</label>
                             <input type="radio" id="star4" name="rate" value="4"
-                                   onClick={e => toggleStars(4)}/>
+                                   checked={movieRatings === 4}
+                                   onClick={e => toggleStars(4)}
+                                   onChange={e => toggleStars(4)}/>
                             <label htmlFor="star4" title="text">4 stars</label>
                             <input type="radio" id="star3" name="rate" value="3"
-                                   onClick={e => toggleStars(3)}/>
+                                   checked={movieRatings === 3}
+                                   onClick={e => toggleStars(3)}
+                                   onChange={e => toggleStars(3)}/>
                             <label htmlFor="star3" title="text">3 stars</label>
                             <input type="radio" id="star2" name="rate" value="2"
-                                   onClick={e => toggleStars(2)}/>
+                                   checked={movieRatings === 2}
+                                   onClick={e => toggleStars(2)}
+                                   onChange={e => toggleStars(2)}/>
                             <label htmlFor="star2" title="text">2 stars</label>
                             <input type="radio" id="star1" name="rate" value="1"
-                                   onClick={e => toggleStars(1)}/>
+                                   checked={movieRatings === 1}
+                                   onClick={e => toggleStars(1)}
+                                   onChange={e => toggleStars(1)}/>
                             <label htmlFor="star1" title="text">1 star</label>
                         </div>
                         <br/><br/>
