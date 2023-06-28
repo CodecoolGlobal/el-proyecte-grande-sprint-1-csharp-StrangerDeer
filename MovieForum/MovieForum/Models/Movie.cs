@@ -5,18 +5,20 @@ namespace MovieForum;
 
 public class Movie
 {
-    public string Title { get; set; }
     public Guid Id { get; }
-    
-    public double Ratings { get; set; }
+    public string Title { get; set; }
     public int ReleaseYear { get; set; }
+    public string Story { get; }
+    public double Ratings { get; set; }
+    
     
 
-    public Movie(string title, int releaseYear, double ratings)
+    public Movie(string title, int releaseYear, string story, double ratings)
     {
         Id = Guid.NewGuid();
         Title = title;
         ReleaseYear = releaseYear;
+        Story = story;
         Ratings = ratings;
     }
 }
