@@ -10,13 +10,15 @@ export class MovieDetails extends Component {
             "Title": "",
             "ReleaseYear": 0,
             "Story": "",
-            "Ratings": 0
+            "Ratings": 0,
+            "Genres": {}
             
         }
-        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false};
+        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, genres: [], checkedGenres: {}};
     }
     
     updateMovie(id){
+        console.log("put:")
         console.log(this.state.movieDetails)
         fetch(`https://localhost:7211/movies/${id}`, {
             method: "put",
@@ -26,13 +28,17 @@ export class MovieDetails extends Component {
                 "Access-Control-Allow-Origin" : "*",
                 "Access-Control-Allow-Credentials" : true
             }
-        }).then(e => this.componentDidMount())
+        })//.then(e => this.componentDidMount())
     }
     
-    toggleEditFields(id) {
+    async toggleEditFields(id) {
         if (this.state.editAllowed === true) {
-            this.setState({editAllowed: false})
-            this.updateMovie(id);
+            await this.setState({editAllowed: false})
+            await this.setState({
+                movieDetails: {...this.state.movieDetails, "Genres": this.state.checkedGenres}
+            })
+            await console.log(this.state.movieDetails)
+            await this.updateMovie(id);
         } else if (this.state.editAllowed !== true) {
             this.setState({editAllowed: true})
         }
@@ -50,11 +56,11 @@ export class MovieDetails extends Component {
     }
     renderMovieDetails(movie) {
         const movieId = movie.id;
-        
+        let genres = this.state.genres;
         let movieTitle = this.state.movieDetails.Title;
         let movieRelease = this.state.movieDetails.ReleaseYear;
         let movieStory = this.state.movieDetails.Story;
-        
+
         const setObjValue = (setObject) => {this.setState(setObject)};
 
         const toggleStars = (rateValue) => {
@@ -62,6 +68,19 @@ export class MovieDetails extends Component {
         }
         const rateMovie = (id) => {
             this.updateMovie(id);
+        }
+        
+        const addGenreToList = async (name, index) => {
+            await this.setState({
+                checkedGenres: {...this.state.checkedGenres, [index]: name}
+            })
+        }
+        
+        const removeGenreFromList = async (name, index) => {
+            delete this.state.checkedGenres[index];
+            await this.setState({
+                checkedGenres: this.state.checkedGenres
+            })
         }
         const setInputValue = (key, value) => {
             setObjValue({movieDetails: {...this.state.movieDetails, [key]: value}})}
@@ -88,6 +107,23 @@ export class MovieDetails extends Component {
                         <br/>
                         <input value={movieStory}
                                 onChange={(e) => setInputValue("Story", e.target.value)}/>
+                        <div>Please choose the correct genres for this movie!</div>
+                        {genres.map((genre, index) => 
+                            <div key={index}>
+                                <input type="checkbox" className="genre-checkbox" name="genres"
+                                       checked={this.state.checkedGenres.hasOwnProperty(index) ? 'checked' : ''}
+                                       value={genre.name}
+                                       onChange={(e) => {
+                                           if (e.target.checked) {
+                                               addGenreToList(genre.name, index);
+                                           } else {
+                                               removeGenreFromList(genre.name, index);
+                                           }}}
+                                />
+                                <label htmlFor="genres"> {genre.name}</label>
+                            </div>
+                        )}
+                        
                         <br/><br/>
                         
                         <button onClick={event => this.toggleEditFields(movieId)}>Save movie informations</button><br/>
@@ -135,16 +171,21 @@ export class MovieDetails extends Component {
     }
 
     async populateMovieData(id) {
-        const response = await fetch(`https://localhost:7211/movies/${id}`);
-        const data = await response.json();
-        this.setState({movie: data, loading: false})
+        const movieResponse = await fetch(`https://localhost:7211/movies/${id}`);
+        const movieData = await movieResponse.json();
+        this.setState({movie: movieData, loading: false})
         this.setState({
             movieDetails: {
-                "Title": data.title,
-                "ReleaseYear": data.releaseYear,
-                "Story": data.story,
-                "Ratings": data.ratings
+                "Title": movieData.title,
+                "ReleaseYear": movieData.releaseYear,
+                "Story": movieData.story,
+                "Ratings": movieData.ratings,
+                "Genres": {}
             }
         })
+        
+        const genreResponse = await fetch(`https://localhost:7211/api/genres`);
+        const genreData = await genreResponse.json();
+        this.setState({genres: genreData});
     }
 }
