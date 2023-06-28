@@ -12,10 +12,12 @@ export class Home extends Component {
 
     static renderMovieCards(movies) {
         return (
-            <div>
+            <div className="movies-display">
                 {movies.map((movie, index) =>
-                    <div key={index} onClick={event => window.location.replace(`${movie.id}`)}>
-                        <p>{movie.title} ({movie.releaseYear})</p>
+                    <div className="movie-card" key={index} onClick={event => window.location.replace(`${movie.id}`)}>
+                        <div className="movie-titles">{movie.title}</div>
+                        <div className="movie-release-year">{movie.releaseYear}</div>
+                        <div className="movie-genre">{movie.genre !== null ? movie.genre : ''}</div>
                     </div>
                 )}
             </div>

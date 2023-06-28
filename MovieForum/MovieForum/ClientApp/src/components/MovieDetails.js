@@ -58,6 +58,7 @@ export class MovieDetails extends Component {
         let movieTitle = this.state.movieDetails.Title;
         let movieRelease = this.state.movieDetails.ReleaseYear;
         let movieStory = this.state.movieDetails.Story;
+        let movieGenre = this.state.movieDetails.Genre;
 
         const setObjValue = (setObject) => {this.setState(setObject)};
 
@@ -112,6 +113,7 @@ export class MovieDetails extends Component {
                     <div>
                         <p>{movieTitle}</p>
                         <p>{movieRelease}</p>
+                        <p>{movieGenre !== null ? movieGenre : ''}</p>
                         <p>{movieStory}</p>
                         <div className="rate">
                             <input type="radio" id="star5" name="rate" value="5"
@@ -159,7 +161,7 @@ export class MovieDetails extends Component {
                 "ReleaseYear": movieData.releaseYear,
                 "Story": movieData.story,
                 "Ratings": movieData.ratings,
-                "Genre": ""
+                "Genre": movieData.genre
             }
         })
         
