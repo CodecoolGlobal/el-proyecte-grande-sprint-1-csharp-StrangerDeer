@@ -13,7 +13,7 @@ export class MovieDetails extends Component {
             "Ratings": 0
             
         }
-        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false};
+        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, img: null};
     }
     
     updateMovie(id){
@@ -47,6 +47,18 @@ export class MovieDetails extends Component {
         fetch(`https://localhost:7211/movies/${id}`, {
             method: "delete"
         }).then(() => window.location.replace("/"))
+    }
+    
+    saveImage(){
+       
+    }
+    
+    changeImg(file){
+        let reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            this.setState({img: reader.result})
+        }
     }
     renderMovieDetails(movie) {
         const movieId = movie.id;
@@ -88,6 +100,14 @@ export class MovieDetails extends Component {
                         <br/>
                         <input value={movieStory}
                                 onChange={(e) => setInputValue("Story", e.target.value)}/>
+                        <br/>
+                        <p>Upload Image</p>
+                        <form action={"/action_page.php"}>
+                            <img src={this.state.img}/>
+                            <br/>
+                            <input type={"file"} onChange={(e) => this.changeImg(e.target.files[0])}/>
+                            <button onClick={() => this.saveImage()}>Save image</button>
+                        </form>
                         <br/><br/>
                         
                         <button onClick={event => this.toggleEditFields(movieId)}>Save movie informations</button><br/>

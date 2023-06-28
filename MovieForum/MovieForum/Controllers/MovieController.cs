@@ -13,10 +13,12 @@ namespace MovieForum.Controllers;
 public class MovieController : ControllerBase
 {
     private readonly IMovieService _movieService;
+    private readonly IWebHostEnvironment _environment;
 
-    public MovieController(IMovieService movieService)
+    public MovieController(IMovieService movieService, IWebHostEnvironment environment)
     {
         _movieService = movieService;
+        _environment = environment;
     }
 
     [HttpGet]
@@ -59,5 +61,52 @@ public class MovieController : ControllerBase
         var updatedMovie = JsonSerializer.Deserialize<Movie>(body);
         _movieService.UpdateMovie(id, updatedMovie);
         return Ok();
+    }
+
+    [HttpPost("UploadImage")]
+    public async Task<ActionResult> UploadImage()
+    {
+        bool results = false;
+
+        try
+        {
+            var _uploadedFiles = Request.Form.Files;
+            foreach (IFormFile source in _uploadedFiles)
+            {
+                string filename = source.FileName;
+                string filepath = GetFilePath(filename);
+
+                if (!System.IO.Directory.Exists(filepath))
+                {
+                    System.IO.Directory.CreateDirectory(filepath);
+                }
+
+                string imagepath = filepath + "\\image.png";
+
+                if (System.IO.File.Exists(imagepath))
+                {
+                    System.IO.File.Delete(imagepath);
+                }
+
+                using (FileStream stream = System.IO.File.Create(imagepath))
+                {
+                    await source.CopyToAsync(stream);
+                    results = true;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
+        return Ok(results);
+    }
+
+    [NonAction]
+    private string GetFilePath(string productCode)
+    {
+        return this._environment.WebRootPath + "\\Uploads\\Movie\\" + productCode;
     }
 }
