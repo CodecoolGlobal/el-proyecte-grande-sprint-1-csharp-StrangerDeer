@@ -8,7 +8,7 @@ public class Movie
     public Guid Id { get; }
     public string Title { get; set; }
     public int ReleaseYear { get; set; }
-    public string Story { get; }
+    public string Story { get; set; }
     public double Ratings { get; set; }
     
     
