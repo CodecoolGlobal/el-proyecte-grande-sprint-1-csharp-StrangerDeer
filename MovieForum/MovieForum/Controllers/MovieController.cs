@@ -66,7 +66,7 @@ public class MovieController : ControllerBase
     
     [HttpPost("{id}/uploadimage")]
     [RequestFormLimits(ValueLengthLimit = int.MaxValue, MultipartBodyLengthLimit = long.MaxValue)]
-    public async Task<ActionResult> UploadImage()
+    public async Task<ActionResult> UploadImage([FromRoute] string id)
     {
         
         bool results = false;
@@ -77,14 +77,14 @@ public class MovieController : ControllerBase
             foreach (IFormFile source in _uploadedFiles)
             {
                 string filename = source.FileName;
-                string filepath = GetFilePath(filename);
+                string filepath = GetFilePath(id);
 
                 if (!System.IO.Directory.Exists(filepath))
                 {
                     System.IO.Directory.CreateDirectory(filepath);
                 }
 
-                string imagepath = filepath + "\\image.png";
+                string imagepath = filepath + "\\" + filename;
 
                 if (System.IO.File.Exists(imagepath))
                 {
