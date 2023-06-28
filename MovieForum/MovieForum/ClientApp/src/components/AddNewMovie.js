@@ -11,7 +11,8 @@ export class AddNewMovie extends Component {
     super(props);
     const movieObj = {
       "Title": "",
-      "ReleaseYear": this.thisYear
+      "ReleaseYear": this.thisYear,
+      "Story": ""
     }
     this.state = { hasEmptySpace: false, inputs: movieObj };
   }
@@ -45,6 +46,7 @@ export class AddNewMovie extends Component {
     const setInputValue = (key, value) => {setObjValue({inputs: {...this.state.inputs, [key]: value}})}
     let titleInput = this.state.inputs.Title;
     let yearInput = Number(this.state.inputs.ReleaseYear);
+    let storyInput = this.state.inputs.Story;
     
     return (
       <div>
@@ -66,6 +68,13 @@ export class AddNewMovie extends Component {
             onChange={(e) => setInputValue("ReleaseYear", Number(e.target.value))}/>
         {(yearInput > this.maximumYear || 
             yearInput < this.minimumYear) ? <small>Please add correct year</small> : <></>}
+        <br/>
+        <div>Story</div>
+        <input
+          type={"text"}
+          placeholder={"Tell the movie's story."}
+          value={storyInput}
+          onChange={(e) =>setInputValue("Story", e.target.value)}/>
         <br/>
           <button onClick={() => this.clickEvent(titleInput)}>Save</button>
       </div>

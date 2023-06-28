@@ -8,8 +8,10 @@ export class MovieDetails extends Component {
         super(props);
         const movieObj = {
             "Title": "",
-            "Ratings": 0,
-            "ReleaseYear": 0
+            "ReleaseYear": 0,
+            "Story": "",
+            "Ratings": 0
+            
         }
         this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false};
     }
@@ -49,13 +51,9 @@ export class MovieDetails extends Component {
     renderMovieDetails(movie) {
         const movieId = movie.id;
         
-        console.log(`Movie details: 
-        ${this.state.movieDetails.Title}
-        ${this.state.movieDetails.Ratings}
-        ${this.state.movieDetails.ReleaseYear}`)
-        
         let movieTitle = this.state.movieDetails.Title;
         let movieRelease = this.state.movieDetails.ReleaseYear;
+        let movieStory = this.state.movieDetails.Story;
         
         const setObjValue = (setObject) => {this.setState(setObject)};
 
@@ -87,6 +85,9 @@ export class MovieDetails extends Component {
                                 movieRelease < this.minimumYear) 
                                 ? <small>Please enter the correct release year!</small> 
                                 : <></>}
+                        <br/>
+                        <input value={movieStory}
+                                onChange={(e) => setInputValue("Story", e.target.value)}/>
                         <br/><br/>
                         
                         <button onClick={event => this.toggleEditFields(movieId)}>Save movie informations</button><br/>
@@ -94,8 +95,9 @@ export class MovieDetails extends Component {
                     </div>
                     : 
                     <div>
-                        <p>{movie.title}</p>
-                        <p>{movie.releaseYear}</p>
+                        <p>{movieTitle}</p>
+                        <p>{movieRelease}</p>
+                        <p>{movieStory}</p>
                         <div className="rate">
                             <input type="radio" id="star5" name="rate" value="5"
                                    onClick={() => {toggleStars(5)}}/>
@@ -139,8 +141,9 @@ export class MovieDetails extends Component {
         this.setState({
             movieDetails: {
                 "Title": data.title,
-                "Ratings": data.ratings,
-                "ReleaseYear": data.releaseYear
+                "ReleaseYear": data.releaseYear,
+                "Story": data.story,
+                "Ratings": data.ratings
             }
         })
     }

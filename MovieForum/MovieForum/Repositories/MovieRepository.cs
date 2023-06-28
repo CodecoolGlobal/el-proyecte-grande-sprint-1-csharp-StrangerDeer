@@ -15,8 +15,8 @@ public class MovieRepository : IMovieRepository<Movie>
     {
         _movies = new HashSet<Movie>()
         {
-            new Movie("The Godfather", 1972, 3.00),
-            new Movie("The Chainsaw Massacre", 1974, 4.00)
+            new Movie("The Godfather", 1972, "",3.00),
+            new Movie("The Chainsaw Massacre", 1974, "", 4.00)
         };
     }
 
