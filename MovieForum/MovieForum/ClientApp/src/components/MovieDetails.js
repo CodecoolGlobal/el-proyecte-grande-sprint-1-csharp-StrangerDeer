@@ -13,7 +13,7 @@ export class MovieDetails extends Component {
             "Ratings": 0
             
         }
-        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, img: null};
+        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, img: null, file: File};
     }
     
     updateMovie(id){
@@ -49,13 +49,20 @@ export class MovieDetails extends Component {
         }).then(() => window.location.replace("/"))
     }
     
-    saveImage(){
-       
+    async saveImage(id){
+       let formData = new FormData();
+       formData.append("file", this.state.file)
+        
+        const data = await fetch(`https://localhost:7211/movies/${id}/uploadimage`, {
+            method:"post",
+            body: formData
+        })
     }
     
-    changeImg(file){
+    changeImg(uploadedFile){
         let reader = new FileReader();
-        reader.readAsDataURL(file);
+        this.setState({file: uploadedFile})
+        reader.readAsDataURL(uploadedFile);
         reader.onload = () => {
             this.setState({img: reader.result})
         }
@@ -102,11 +109,11 @@ export class MovieDetails extends Component {
                                 onChange={(e) => setInputValue("Story", e.target.value)}/>
                         <br/>
                         <p>Upload Image</p>
-                        <form action={"/action_page.php"}>
+                        <form >
                             <img src={this.state.img}/>
                             <br/>
                             <input type={"file"} onChange={(e) => this.changeImg(e.target.files[0])}/>
-                            <button onClick={() => this.saveImage()}>Save image</button>
+                            <button onClick={() => this.saveImage(movieId)}>Save image</button>
                         </form>
                         <br/><br/>
                         

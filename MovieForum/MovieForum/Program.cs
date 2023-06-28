@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.Features;
 using MovieForum;
 using MovieForum.Repositories;
 using MovieForum.Services;
@@ -9,6 +10,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IMovieRepository<Movie>, MovieRepository>();
 builder.Services.AddTransient<IMovieService, MovieService>();
+builder.Services.Configure<FormOptions>(o => {  
+    o.ValueLengthLimit = int.MaxValue;  
+    o.MultipartBodyLengthLimit = long.MaxValue;  
+    o.MemoryBufferThreshold = int.MaxValue;  
+});  
+
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllHeaders",

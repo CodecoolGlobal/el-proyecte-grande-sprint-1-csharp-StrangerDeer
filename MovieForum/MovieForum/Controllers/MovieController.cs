@@ -63,9 +63,12 @@ public class MovieController : ControllerBase
         return Ok();
     }
 
-    [HttpPost("UploadImage")]
+    
+    [HttpPost("{id}/uploadimage")]
+    [RequestFormLimits(ValueLengthLimit = int.MaxValue, MultipartBodyLengthLimit = long.MaxValue)]
     public async Task<ActionResult> UploadImage()
     {
+        
         bool results = false;
 
         try
@@ -88,11 +91,9 @@ public class MovieController : ControllerBase
                     System.IO.File.Delete(imagepath);
                 }
 
-                using (FileStream stream = System.IO.File.Create(imagepath))
-                {
-                    await source.CopyToAsync(stream);
-                    results = true;
-                }
+                await using FileStream stream = System.IO.File.Create(imagepath);
+                await source.CopyToAsync(stream);
+                results = true;
             }
         }
         catch (Exception e)
