@@ -8,7 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IMovieRepository<Movie>, MovieRepository>();
+builder.Services.AddSingleton<IGenreRepository<Genre>, GenreRepository>();
 builder.Services.AddTransient<IMovieService, MovieService>();
+builder.Services.AddTransient<IGenreService, GenreService>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllHeaders",
