@@ -1,5 +1,4 @@
 ﻿import React, { Component } from 'react';
-
 export class MovieDetails extends Component {
     static displayName = MovieDetails.name;
     minimumYear = 1895;
@@ -15,7 +14,7 @@ export class MovieDetails extends Component {
             "Genre": ""
             
         }
-        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, img: null, file: File};
+        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, img: null, file: File, isRated: false};
     }
     
     updateMovie(id){
@@ -31,6 +30,7 @@ export class MovieDetails extends Component {
             }
         })//.then(e => this.componentDidMount())
     }
+
     
     async toggleEditFields(id) {
         if (this.state.editAllowed === true) {
@@ -41,6 +41,7 @@ export class MovieDetails extends Component {
             this.setState({editAllowed: true})
         }
     }
+    
 
     componentDidMount() {
         const id = window.location.href.split('/')[3]
@@ -82,12 +83,26 @@ export class MovieDetails extends Component {
         let movieGenre = this.state.movieDetails.Genre;
         let movieRatings = this.state.movieDetails.Ratings;
         const setObjValue = (setObject) => {this.setState(setObject)};
+        const starRatings = (starId, starValue) => {
+            return <>
+                <input type="radio" id={starId} name="rate" value={starValue}
+                       checked={movieRatings === starValue}
+                       onClick={e => toggleStars(starValue)}
+                       onChange={e => toggleStars(starValue)}/>
+                <label htmlFor={starId} title="text">{starValue} stars</label>
+            </>
+        }
+        
         const toggleStars = (rateValue) => {
+            console.log("toggle stars")
             setInputValue("Ratings", Number(rateValue))
             return rateValue;
         }
         const rateMovie = (id) => {
             this.updateMovie(id);
+            this.setState({
+                isRated: true
+            })
         }
         
         const setInputValue = (key, value) => {
@@ -138,45 +153,33 @@ export class MovieDetails extends Component {
                         <button onClick={event => this.deleteMovie(movieId)}>Remove movie</button>
                     </div>
                     : 
-                    <div>
-                        <p>{movieTitle}</p>
-                        <p>{movieRelease}</p>
-                        <p>{movieGenre !== null ? movieGenre : ''}</p>
-                        <p>{movieStory}</p>
+                    <div className="movie-info-card">
+                        <p className="movie-info">{movieTitle}</p>
+                        <p className="movie-info">{movieRelease}</p>
+                        <p className="movie-info">{movieGenre !== null ? movieGenre : ''}</p>
+                        <p className="movie-info">{movieStory}</p>
 
-                        <img src={movieImg}/>
+                        <img className="movie-img" src={movieImg}/>
                         
                         <div className="rate"> Your rating of this movie:
                             <br/>
-                            <input type="radio" id="star5" name="rate" value="5"
-                                   checked={movieRatings === 5}
-                                   onClick={e => toggleStars(5)}
-                                   onChange={e => toggleStars(5)}/>
-                            <label htmlFor="star5" title="text">5 stars</label>
-                            <input type="radio" id="star4" name="rate" value="4"
-                                   checked={movieRatings === 4}
-                                   onClick={e => toggleStars(4)}
-                                   onChange={e => toggleStars(4)}/>
-                            <label htmlFor="star4" title="text">4 stars</label>
-                            <input type="radio" id="star3" name="rate" value="3"
-                                   checked={movieRatings === 3}
-                                   onClick={e => toggleStars(3)}
-                                   onChange={e => toggleStars(3)}/>
-                            <label htmlFor="star3" title="text">3 stars</label>
-                            <input type="radio" id="star2" name="rate" value="2"
-                                   checked={movieRatings === 2}
-                                   onClick={e => toggleStars(2)}
-                                   onChange={e => toggleStars(2)}/>
-                            <label htmlFor="star2" title="text">2 stars</label>
-                            <input type="radio" id="star1" name="rate" value="1"
-                                   checked={movieRatings === 1}
-                                   onClick={e => toggleStars(1)}
-                                   onChange={e => toggleStars(1)}/>
-                            <label htmlFor="star1" title="text">1 star</label>
+                            {starRatings("star10", 10)}
+                            {starRatings("star9", 9)}
+                            {starRatings("star8", 8)}
+                            {starRatings("star7", 7)}
+                            {starRatings("star6", 6)}
+                            {starRatings("star5", 5)}
+                            {starRatings("star4", 4)}
+                            {starRatings("star3", 3)}
+                            {starRatings("star2", 2)}
+                            {starRatings("star1", 1)}
                         </div>
                         <br/><br/><br/>
-                        <button onClick={event => this.toggleEditFields()}>Edit movie informations</button>
                         <button onClick={event => rateMovie(movieId)}>Rate movie</button><br/>
+                        {this.state.isRated ? <p>Thank you for rating!</p> : <></>}
+                        <br/><br/>
+                        <button onClick={event => this.toggleEditFields()}>Edit movie informations</button>
+                        
                     </div>}
             </div>
         );
