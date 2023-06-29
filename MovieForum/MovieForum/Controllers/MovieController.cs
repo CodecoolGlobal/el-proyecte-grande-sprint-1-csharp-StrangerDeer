@@ -19,6 +19,8 @@ public class MovieController : ControllerBase
     {
         _movieService = movieService;
         _environment = environment;
+        
+
     }
 
     [HttpGet]
@@ -44,6 +46,8 @@ public class MovieController : ControllerBase
         {
             return NotFound();
         }
+
+        movieWithId.MovieImage = GetImagesByMovie(id);
 
         return Ok(movieWithId);
     }
@@ -76,15 +80,15 @@ public class MovieController : ControllerBase
             var _uploadedFiles = Request.Form.Files;
             foreach (IFormFile source in _uploadedFiles)
             {
-                string filename = source.FileName;
+                string imgName = source.FileName;
                 string filepath = GetFilePath(id);
 
-                if (!System.IO.Directory.Exists(filepath))
+                if (!Directory.Exists(filepath))
                 {
-                    System.IO.Directory.CreateDirectory(filepath);
+                    Directory.CreateDirectory(filepath);
                 }
 
-                string imagepath = filepath + "\\" + filename;
+                string imagepath = filepath + "\\" + imgName;
 
                 if (System.IO.File.Exists(imagepath))
                 {
@@ -108,6 +112,29 @@ public class MovieController : ControllerBase
     [NonAction]
     private string GetFilePath(string productCode)
     {
-        return this._environment.WebRootPath + "\\Uploads\\Movie\\" + productCode;
+        return _environment.WebRootPath + "\\Uploads\\Movie\\" + productCode;
+    }
+
+    [NonAction]
+    private string GetImagesByMovie(string movieId)
+    {
+        string imageUrl = string.Empty;
+        string host = "https://localhost:7211/";
+        string filePath = GetFilePath(movieId);
+        string movieImgName = "";
+       
+
+
+        if(Directory.Exists(filePath))
+        {
+            movieImgName = Path.GetFileName(Directory.GetFiles(filePath)[0]);
+            imageUrl = host + "/Uploads/Movie/" + movieId + "/" + movieImgName;
+        }
+        else
+        {
+            imageUrl = host + "Uploads/common/noImage.png";
+        }
+        
+        return imageUrl;
     }
 }

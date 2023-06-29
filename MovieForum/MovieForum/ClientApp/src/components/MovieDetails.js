@@ -10,7 +10,8 @@ export class MovieDetails extends Component {
             "Title": "",
             "ReleaseYear": 0,
             "Story": "",
-            "Ratings": 0
+            "Ratings": 0,
+            "MovieImg": ""
             
         }
         this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, img: null, file: File};
@@ -73,6 +74,9 @@ export class MovieDetails extends Component {
         let movieTitle = this.state.movieDetails.Title;
         let movieRelease = this.state.movieDetails.ReleaseYear;
         let movieStory = this.state.movieDetails.Story;
+        let movieImg = this.state.movieDetails.MovieImg;
+        
+        console.log(this.state.movieDetails);
         
         const setObjValue = (setObject) => {this.setState(setObject)};
 
@@ -124,6 +128,7 @@ export class MovieDetails extends Component {
                     <div>
                         <p>{movieTitle}</p>
                         <p>{movieRelease}</p>
+                        <img src={movieImg}/>
                         <p>{movieStory}</p>
                         <div className="rate">
                             <input type="radio" id="star5" name="rate" value="5"
@@ -164,13 +169,15 @@ export class MovieDetails extends Component {
     async populateMovieData(id) {
         const response = await fetch(`https://localhost:7211/movies/${id}`);
         const data = await response.json();
+        console.log(data);
         this.setState({movie: data, loading: false})
         this.setState({
             movieDetails: {
                 "Title": data.title,
                 "ReleaseYear": data.releaseYear,
                 "Story": data.story,
-                "Ratings": data.ratings
+                "Ratings": data.ratings,
+                "MovieImg": data.movieImage
             }
         })
     }

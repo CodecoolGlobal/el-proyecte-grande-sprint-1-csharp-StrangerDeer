@@ -10,6 +10,7 @@ public class Movie
     public int ReleaseYear { get; set; }
     public string Story { get; set; }
     public double Ratings { get; set; }
+    public string MovieImage { get; set; }
     
     
 
@@ -20,5 +21,6 @@ public class Movie
         ReleaseYear = releaseYear;
         Story = story;
         Ratings = ratings;
+        MovieImage = null;
     }
 }
