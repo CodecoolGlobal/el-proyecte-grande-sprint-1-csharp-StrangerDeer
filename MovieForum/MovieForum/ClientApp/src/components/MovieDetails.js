@@ -96,11 +96,11 @@ export class MovieDetails extends Component {
                                 ? <small>Please enter the correct release year!</small> 
                                 : <></>}
                         <br/>
-                        <input value={movieStory}
+                        <input placeholder={"Please enter the correct story of the movie!"} 
+                            value={movieStory}
                                 onChange={(e) => setInputValue("Story", e.target.value)}/>
-                        <div>Please choose the correct genres for this movie!</div>
                         <br/>
-                        
+                        <div>Please choose the correct genre for this movie!</div>
                         <select onChange={(event) => setInputValue("Genre", event.target.value)}>
                             <option disabled selected hidden>Select a genre</option>
                         {genres.map((genre, index) => 

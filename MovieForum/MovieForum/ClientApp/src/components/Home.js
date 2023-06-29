@@ -15,7 +15,7 @@ export class Home extends Component {
         return (
             <div className="movies-display">
                 {movies.map((movie, index) =>
-                    <Tilt className="tilting-movie-card" options={{
+                    <Tilt key={index} className="tilting-movie-card" options={{
                         perspective: 50,
                         scale: 2,
                         max: 400,
@@ -25,7 +25,7 @@ export class Home extends Component {
                         easing:"cubic-bezier(.03,.98,.52.99)"}}
                     data-tilt-glare={true}
                     >
-                        <div className="movie-card" key={index} onClick={event => window.location.replace(`${movie.id}`)}>
+                        <div className="movie-card" onClick={event => window.location.replace(`${movie.id}`)}>
                             <div className="movie-titles">{movie.title}</div>
                             <div className="movie-release-year">{movie.releaseYear}</div>
                             <div className="movie-genre">{movie.genre !== null ? movie.genre : ''}</div>

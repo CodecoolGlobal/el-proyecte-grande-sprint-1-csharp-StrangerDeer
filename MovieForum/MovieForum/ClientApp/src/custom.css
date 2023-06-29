@@ -2,19 +2,54 @@
 a {
   color: #0366d6;
 }
-body, .header {
+body, header {
   color: white;
   background: rgb(49,54,58);
+}
+
+.movie-forum-button {
+  background-color: transparent;
+}
+
+header {
+  background: linear-gradient(45deg, #1C0B19, #2F353E, #548687);
 }
 
 .navbar-brand {
   color: white;
-  background: rgb(49,54,58);
+}
+
+.navbar-brand:focus {
+  color: white;
+}
+
+.navbar-brand:hover {
+  color: #FFFFAA;
+}
+
+.navbar-toggler {
+  color: white !important;
 }
 
 .text-dark {
   color: white !important;
-  background: rgb(49,54,58);
+  background: linear-gradient(45deg, #1C0B19, #2F353E, #548687);
+  border-radius: 20%;
+  gap: 10px;
+
+}
+.text-dark:hover {
+  color:#FFFFAA !important;
+  background: linear-gradient(45deg, #1C0B19, #2F353E);
+}
+
+.nav-link:hover {
+  color:#FFFFAA !important;
+  background: linear-gradient(45deg, #1C0B19, #2F353E);
+}
+
+.text-dark:active {
+  color:white;
 }
 
 body, html {
