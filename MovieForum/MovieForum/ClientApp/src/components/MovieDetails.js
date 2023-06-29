@@ -83,18 +83,21 @@ export class MovieDetails extends Component {
         let movieGenre = this.state.movieDetails.Genre;
         let movieRatings = this.state.movieDetails.Ratings;
         const setObjValue = (setObject) => {this.setState(setObject)};
-        const starRatings = (starId, starValue) => {
-            return <>
-                <input type="radio" id={starId} name="rate" value={starValue}
-                       checked={movieRatings === starValue}
-                       onClick={e => toggleStars(starValue)}
-                       onChange={e => toggleStars(starValue)}/>
-                <label htmlFor={starId} title="text">{starValue} stars</label>
-            </>
+        const starRatings = (numberOfElement) => {
+            let elements = [];
+            
+            for(let i = 0; i < numberOfElement; i++){
+                let starId = `star${i}`
+                elements.push(<><input type="radio" id={starId} name="rate" value={i}
+                                     checked={movieRatings === i}
+                                     onClick={e => toggleStars(i)}
+                                     onChange={e => toggleStars(i)}/>
+                <label htmlFor={starId} title="text">{i} stars</label></>)
+            }
+            return elements;
         }
         
         const toggleStars = (rateValue) => {
-            console.log("toggle stars")
             setInputValue("Ratings", Number(rateValue))
             return rateValue;
         }
@@ -163,16 +166,7 @@ export class MovieDetails extends Component {
                         
                         <div className="rate"> Your rating of this movie:
                             <br/>
-                            {starRatings("star10", 10)}
-                            {starRatings("star9", 9)}
-                            {starRatings("star8", 8)}
-                            {starRatings("star7", 7)}
-                            {starRatings("star6", 6)}
-                            {starRatings("star5", 5)}
-                            {starRatings("star4", 4)}
-                            {starRatings("star3", 3)}
-                            {starRatings("star2", 2)}
-                            {starRatings("star1", 1)}
+                            {starRatings(10).map(element => (element))}
                         </div>
                         <br/><br/><br/>
                         <button onClick={event => rateMovie(movieId)}>Rate movie</button><br/>
