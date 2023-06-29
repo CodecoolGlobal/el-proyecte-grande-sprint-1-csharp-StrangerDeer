@@ -25,9 +25,17 @@ public class MovieController : ControllerBase
 
     [HttpGet]
     public IActionResult GetAllMovies()
-        => new JsonResult(
-            _movieService.GetMovies());
-    
+    {
+        HashSet<Movie> movies = _movieService.GetMovies();
+
+        foreach (Movie movie in movies)
+        {
+            movie.MovieImage = GetImagesByMovie(movie.Id.ToString());
+        }
+
+        return Ok(movies);
+    }
+
     [Route("/add-new-movie")]
     [HttpPost]
     public IActionResult AddNewMovie([FromBody] JsonElement body)

@@ -81,12 +81,7 @@ export class MovieDetails extends Component {
         let movieImg = this.state.movieDetails.MovieImg;
         let movieGenre = this.state.movieDetails.Genre;
         let movieRatings = this.state.movieDetails.Ratings;
-
-        
-        console.log(movieRatings);
-
         const setObjValue = (setObject) => {this.setState(setObject)};
-
         const toggleStars = (rateValue) => {
             setInputValue("Ratings", Number(rateValue))
             return rateValue;

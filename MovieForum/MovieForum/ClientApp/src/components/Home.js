@@ -11,10 +11,12 @@ export class Home extends Component {
     }
 
     static renderMovieCards(movies) {
+        console.log(movies[0])
         return (
             <div className="movies-display">
                 {movies.map((movie, index) =>
                     <div className="movie-card" key={index} onClick={event => window.location.replace(`${movie.id}`)}>
+                        <img src={movie.movieImage}/>
                         <div className="movie-titles">{movie.title}</div>
                         <div className="movie-release-year">{movie.releaseYear}</div>
                         <div className="movie-genre">{movie.genre !== null ? movie.genre : ''}</div>
