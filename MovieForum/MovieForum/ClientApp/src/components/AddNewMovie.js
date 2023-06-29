@@ -17,8 +17,13 @@ export class AddNewMovie extends Component {
     this.state = { hasEmptySpace: false, inputs: movieObj };
   }
   
-  clickEvent(){
-    const movieObject = this.state.inputs;
+  async clickEvent(){
+    
+    if(!this.state.inputs.Story.trim().length){
+     await this.setState({inputs: {...this.state.inputs, "Story": "This movie doesn't have story"}});
+    }
+
+    let movieObject = this.state.inputs;
     
     if(!movieObject.Title.trim().length || 
         Number(movieObject.ReleaseYear) > this.maximumYear ||
