@@ -156,6 +156,8 @@ code {
 
 .movie-info {
   font-size: 20px;
+  max-width: 50%;
+  word-break: break-word;
 }
 
 .movie-img, #uploaded-image {
@@ -164,6 +166,7 @@ code {
   top: 15%;
   left: 50%;
   max-width: 35%;
+  max-height: 80%;
 }
 
 button {
