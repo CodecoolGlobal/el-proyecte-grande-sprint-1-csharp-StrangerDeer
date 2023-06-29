@@ -75,7 +75,7 @@ export class AddNewMovie extends Component {
             yearInput < this.minimumYear) ? <small>Please add correct year</small> : <></>}
         <br/>
         <div>Story</div>
-        <input
+        <textarea
           type={"text"}
           placeholder={"Tell the movie's story."}
           value={storyInput}

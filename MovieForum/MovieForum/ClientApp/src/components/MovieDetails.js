@@ -128,7 +128,7 @@ export class MovieDetails extends Component {
                                 ? <small>Please enter the correct release year!</small> 
                                 : <></>}
                         <br/>
-                        <input placeholder={"Please enter the correct story of the movie!"} 
+                        <textarea placeholder={"Please enter the correct story of the movie!"} 
                             value={movieStory}
                                 onChange={(e) => setInputValue("Story", e.target.value)}/>
                         <br/>
@@ -142,9 +142,9 @@ export class MovieDetails extends Component {
                         <br/>
                         <p>Upload Image</p>
                         <form >
-                            <img src={this.state.img}/>
+                            <img id="uploaded-image" src={this.state.img}/>
                             <br/>
-                            <input type={"file"} onChange={(e) => this.changeImg(e.target.files[0])}/>
+                            <input id="upload-movie" type={"file"} onChange={(e) => this.changeImg(e.target.files[0])}/>
                             <button onClick={() => this.saveImage(movieId)}>Save image</button>
                         </form>
                         <br/><br/>
