@@ -131,3 +131,29 @@ code {
   max-width: 100%;
   word-break: break-word;
 }
+
+.movie-images {
+  max-width: 50%;
+}
+
+.movie-info-card {
+  top: 20%;
+  left: 15%;
+  position: absolute;
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  font-family: Georgia;
+}
+
+.movie-info {
+  font-size: 20px;
+}
+
+.movie-img {
+  display: block;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  max-width: 35%;
+}
