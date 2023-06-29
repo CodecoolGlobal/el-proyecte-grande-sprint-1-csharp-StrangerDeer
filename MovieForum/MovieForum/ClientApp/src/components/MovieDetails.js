@@ -120,7 +120,8 @@ export class MovieDetails extends Component {
                         <p>{movieGenre !== null ? movieGenre : ''}</p>
                         <p>{movieStory}</p>
                         
-                        <div className="rate">
+                        <div className="rate"> Your rating of this movie:
+                            <br/>
                             <input type="radio" id="star5" name="rate" value="5"
                                    checked={movieRatings === 5}
                                    onClick={e => toggleStars(5)}
@@ -147,7 +148,7 @@ export class MovieDetails extends Component {
                                    onChange={e => toggleStars(1)}/>
                             <label htmlFor="star1" title="text">1 star</label>
                         </div>
-                        <br/><br/>
+                        <br/><br/><br/>
                         <button onClick={event => this.toggleEditFields()}>Edit movie informations</button>
                         <button onClick={event => rateMovie(movieId)}>Rate movie</button><br/>
                     </div>}
