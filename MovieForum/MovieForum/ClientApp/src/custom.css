@@ -161,7 +161,7 @@ code {
 .movie-img, #uploaded-image {
   display: block;
   position: fixed;
-  top: 10%;
+  top: 15%;
   left: 50%;
   max-width: 35%;
 }
