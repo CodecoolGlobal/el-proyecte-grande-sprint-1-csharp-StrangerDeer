@@ -11,10 +11,11 @@ export class MovieDetails extends Component {
             "ReleaseYear": 0,
             "Story": "",
             "Ratings": 0,
+            "MovieImg": "",
             "Genre": ""
             
         }
-        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, genres: []};
+        this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, img: null, file: File};
     }
     
     updateMovie(id){
@@ -51,6 +52,25 @@ export class MovieDetails extends Component {
             method: "delete"
         }).then(() => window.location.replace("/"))
     }
+    
+    async saveImage(id){
+       let formData = new FormData();
+       formData.append("file", this.state.file)
+        
+        const data = await fetch(`https://localhost:7211/movies/${id}/uploadimage`, {
+            method:"post",
+            body: formData
+        })
+    }
+    
+    changeImg(uploadedFile){
+        let reader = new FileReader();
+        this.setState({file: uploadedFile})
+        reader.readAsDataURL(uploadedFile);
+        reader.onload = () => {
+            this.setState({img: reader.result})
+        }
+    }
     renderMovieDetails(movie) {
         
         const movieId = movie.id;
@@ -58,8 +78,10 @@ export class MovieDetails extends Component {
         let movieTitle = this.state.movieDetails.Title;
         let movieRelease = this.state.movieDetails.ReleaseYear;
         let movieStory = this.state.movieDetails.Story;
+        let movieImg = this.state.movieDetails.MovieImg;
         let movieGenre = this.state.movieDetails.Genre;
         let movieRatings = this.state.movieDetails.Ratings;
+
         
         console.log(movieRatings);
 
@@ -107,7 +129,14 @@ export class MovieDetails extends Component {
                             <option key={index} value={genre.name}>{genre.name}</option>
                         )}
                         </select>
-                        
+                        <br/>
+                        <p>Upload Image</p>
+                        <form >
+                            <img src={this.state.img}/>
+                            <br/>
+                            <input type={"file"} onChange={(e) => this.changeImg(e.target.files[0])}/>
+                            <button onClick={() => this.saveImage(movieId)}>Save image</button>
+                        </form>
                         <br/><br/>
                         
                         <button onClick={event => this.toggleEditFields(movieId)}>Save movie informations</button><br/>
@@ -119,6 +148,8 @@ export class MovieDetails extends Component {
                         <p>{movieRelease}</p>
                         <p>{movieGenre !== null ? movieGenre : ''}</p>
                         <p>{movieStory}</p>
+
+                        <img src={movieImg}/>
                         
                         <div className="rate"> Your rating of this movie:
                             <br/>
@@ -177,7 +208,8 @@ export class MovieDetails extends Component {
                 "ReleaseYear": movieData.releaseYear,
                 "Story": movieData.story,
                 "Ratings": movieData.ratings,
-                "Genre": movieData.genre
+                "Genre": movieData.genre,
+                "MovieImg": movieData.movieImage
             }
         })
         
