@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IMovieRepository<Movie>, MovieRepository>();
+builder.Services.AddSingleton<IGenreRepository<Genre>, GenreRepository>();
 builder.Services.AddTransient<IMovieService, MovieService>();
 builder.Services.Configure<FormOptions>(o => {  
     o.ValueLengthLimit = int.MaxValue;  
@@ -16,6 +17,7 @@ builder.Services.Configure<FormOptions>(o => {
     o.MemoryBufferThreshold = int.MaxValue;  
 });  
 
+builder.Services.AddTransient<IGenreService, GenreService>();
 
 builder.Services.AddCors(options =>
 {

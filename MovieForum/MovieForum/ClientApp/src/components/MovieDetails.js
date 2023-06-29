@@ -11,13 +11,15 @@ export class MovieDetails extends Component {
             "ReleaseYear": 0,
             "Story": "",
             "Ratings": 0,
-            "MovieImg": ""
+            "MovieImg": "",
+            "Genre": ""
             
         }
         this.state = {movie: [], loading: true, editAllowed: false, movieDetails: movieObj, hasEmptySpace: false, img: null, file: File};
     }
     
     updateMovie(id){
+        console.log("put:")
         console.log(this.state.movieDetails)
         fetch(`https://localhost:7211/movies/${id}`, {
             method: "put",
@@ -27,13 +29,14 @@ export class MovieDetails extends Component {
                 "Access-Control-Allow-Origin" : "*",
                 "Access-Control-Allow-Credentials" : true
             }
-        }).then(e => this.componentDidMount())
+        })//.then(e => this.componentDidMount())
     }
     
-    toggleEditFields(id) {
+    async toggleEditFields(id) {
         if (this.state.editAllowed === true) {
-            this.setState({editAllowed: false})
-            this.updateMovie(id);
+            await this.setState({editAllowed: false})
+            await console.log(this.state.movieDetails)
+            await this.updateMovie(id);
         } else if (this.state.editAllowed !== true) {
             this.setState({editAllowed: true})
         }
@@ -69,23 +72,29 @@ export class MovieDetails extends Component {
         }
     }
     renderMovieDetails(movie) {
-        const movieId = movie.id;
         
+        const movieId = movie.id;
+        let genres = this.state.genres;
         let movieTitle = this.state.movieDetails.Title;
         let movieRelease = this.state.movieDetails.ReleaseYear;
         let movieStory = this.state.movieDetails.Story;
         let movieImg = this.state.movieDetails.MovieImg;
+        let movieGenre = this.state.movieDetails.Genre;
+        let movieRatings = this.state.movieDetails.Ratings;
+
         
-        console.log(this.state.movieDetails);
-        
+        console.log(movieRatings);
+
         const setObjValue = (setObject) => {this.setState(setObject)};
 
         const toggleStars = (rateValue) => {
             setInputValue("Ratings", Number(rateValue))
+            return rateValue;
         }
         const rateMovie = (id) => {
             this.updateMovie(id);
         }
+        
         const setInputValue = (key, value) => {
             setObjValue({movieDetails: {...this.state.movieDetails, [key]: value}})}
         
@@ -112,6 +121,16 @@ export class MovieDetails extends Component {
                         <input value={movieStory}
                                 onChange={(e) => setInputValue("Story", e.target.value)}/>
                         <br/>
+                       <div>Please choose the correct genres for this movie!</div>
+                        <br/>
+                        
+                        <select onChange={(event) => setInputValue("Genre", event.target.value)}>
+                            <option disabled selected hidden>Select a genre</option>
+                        {genres.map((genre, index) => 
+                            <option key={index} value={genre.name}>{genre.name}</option>
+                        )}
+                        </select>
+                        <br/>
                         <p>Upload Image</p>
                         <form >
                             <img src={this.state.img}/>
@@ -128,23 +147,36 @@ export class MovieDetails extends Component {
                     <div>
                         <p>{movieTitle}</p>
                         <p>{movieRelease}</p>
-                        <img src={movieImg}/>
+                        <p>{movieGenre !== null ? movieGenre : ''}</p>
                         <p>{movieStory}</p>
+
+                        <img src={movieImg}/>
+                        
                         <div className="rate">
                             <input type="radio" id="star5" name="rate" value="5"
-                                   onClick={() => {toggleStars(5)}}/>
+                                   checked={movieRatings === 5}
+                                   onClick={e => toggleStars(5)}
+                                   onChange={e => toggleStars(5)}/>
                             <label htmlFor="star5" title="text">5 stars</label>
                             <input type="radio" id="star4" name="rate" value="4"
-                                   onClick={e => toggleStars(4)}/>
+                                   checked={movieRatings === 4}
+                                   onClick={e => toggleStars(4)}
+                                   onChange={e => toggleStars(4)}/>
                             <label htmlFor="star4" title="text">4 stars</label>
                             <input type="radio" id="star3" name="rate" value="3"
-                                   onClick={e => toggleStars(3)}/>
+                                   checked={movieRatings === 3}
+                                   onClick={e => toggleStars(3)}
+                                   onChange={e => toggleStars(3)}/>
                             <label htmlFor="star3" title="text">3 stars</label>
                             <input type="radio" id="star2" name="rate" value="2"
-                                   onClick={e => toggleStars(2)}/>
+                                   checked={movieRatings === 2}
+                                   onClick={e => toggleStars(2)}
+                                   onChange={e => toggleStars(2)}/>
                             <label htmlFor="star2" title="text">2 stars</label>
                             <input type="radio" id="star1" name="rate" value="1"
-                                   onClick={e => toggleStars(1)}/>
+                                   checked={movieRatings === 1}
+                                   onClick={e => toggleStars(1)}
+                                   onChange={e => toggleStars(1)}/>
                             <label htmlFor="star1" title="text">1 star</label>
                         </div>
                         <br/><br/>
@@ -167,18 +199,22 @@ export class MovieDetails extends Component {
     }
 
     async populateMovieData(id) {
-        const response = await fetch(`https://localhost:7211/movies/${id}`);
-        const data = await response.json();
-        console.log(data);
+        const movieResponse = await fetch(`https://localhost:7211/movies/${id}`);
+        const movieData = await movieResponse.json();
         this.setState({movie: data, loading: false})
         this.setState({
             movieDetails: {
-                "Title": data.title,
-                "ReleaseYear": data.releaseYear,
-                "Story": data.story,
-                "Ratings": data.ratings,
-                "MovieImg": data.movieImage
+                "Title": movieData.title,
+                "ReleaseYear": movieData.releaseYear,
+                "Story": movieData.story,
+                "Ratings": movieData.ratings,
+                "Genre": movieData.genre,
+                "MovieImg": movieData.movieImage
             }
         })
+        
+        const genreResponse = await fetch(`https://localhost:7211/api/genres`);
+        const genreData = await genreResponse.json();
+        this.setState({genres: genreData});
     }
 }
