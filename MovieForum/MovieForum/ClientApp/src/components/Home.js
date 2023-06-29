@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Tilt from 'react-vanilla-tilt';
 
 export class Home extends Component {
   static displayName = Home.name;
@@ -11,16 +12,27 @@ export class Home extends Component {
     }
 
     static renderMovieCards(movies) {
-        console.log(movies[0])
         return (
             <div className="movies-display">
                 {movies.map((movie, index) =>
-                    <div className="movie-card" key={index} onClick={event => window.location.replace(`${movie.id}`)}>
-                        <img src={movie.movieImage}/>
-                        <div className="movie-titles">{movie.title}</div>
-                        <div className="movie-release-year">{movie.releaseYear}</div>
-                        <div className="movie-genre">{movie.genre !== null ? movie.genre : ''}</div>
-                    </div>
+                    <Tilt key={index} className="tilting-movie-card" options={{
+                        perspective: 50,
+                        scale: 2,
+                        max: 400,
+                        speed: 10,
+                        glare: true,
+                        "max-glare": 1,
+                        easing:"cubic-bezier(.03,.98,.52.99)"}}
+                    data-tilt-glare={true}
+                    >
+                        <div className="movie-card" key={index} onClick={event => window.location.replace(`${movie.id}`)}>
+                            <img className="movie-images" src={movie.movieImage}/>
+                            <div className="movie-titles">{movie.title}</div>
+                            <div className="movie-release-year">{movie.releaseYear}</div>
+                            <div className="movie-genre">{movie.genre !== null ? movie.genre : ''}</div>
+                        </div>
+                    </Tilt>
+                    
                 )}
             </div>
         );

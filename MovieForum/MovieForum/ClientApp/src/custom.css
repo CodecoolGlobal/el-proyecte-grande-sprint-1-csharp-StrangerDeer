@@ -2,6 +2,59 @@
 a {
   color: #0366d6;
 }
+body, header {
+  color: white;
+  background: #29252F;
+}
+
+.movie-forum-button {
+  background-color: transparent;
+}
+
+header {
+  background: linear-gradient(45deg, #1C0B19, #2F353E, #548687);
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.navbar-brand:focus {
+  color: white;
+}
+
+.navbar-brand:hover {
+  color: #FFFFAA;
+}
+
+.navbar-toggler {
+  color: white !important;
+}
+
+.text-dark {
+  color: white !important;
+  background: linear-gradient(45deg, #1C0B19, #2F353E, #548687);
+  border-radius: 20%;
+  gap: 10px;
+
+}
+.text-dark:hover {
+  color:#FFFFAA !important;
+  background: linear-gradient(45deg, #1C0B19, #2F353E);
+}
+
+.nav-link:hover {
+  color:#FFFFAA !important;
+  background: linear-gradient(45deg, #1C0B19, #2F353E);
+}
+
+.text-dark:active {
+  color:white;
+}
+
+body, html {
+  height: 100%;
+}
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -51,4 +104,56 @@ code {
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
   color: #c59b08;
+}
+
+.movies-display {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  margin-left: 30px;
+  margin-right: 30px
+}
+
+.tilting-movie-card {
+  background-color: rgb(46,87,83) !important;
+  color: white !important;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+}
+
+.movie-card {
+  text-align: center;
+  transform: translateZ(100px);
+}
+
+.movie-titles {
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.movie-images {
+  max-width: 50%;
+}
+
+.movie-info-card {
+  top: 20%;
+  left: 15%;
+  position: absolute;
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  font-family: Georgia;
+}
+
+.movie-info {
+  font-size: 20px;
+}
+
+.movie-img {
+  display: block;
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  max-width: 35%;
 }
