@@ -157,3 +157,10 @@ code {
   left: 50%;
   max-width: 35%;
 }
+
+button {
+  background: linear-gradient(45deg, #1C0B19, #2F353E, #548687);
+  color: white;
+  border-radius: 10%;
+  font-size: 18px;
+}
