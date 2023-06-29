@@ -23,7 +23,7 @@ export class AddNewMovie extends Component {
      await this.setState({inputs: {...this.state.inputs, "Story": "This movie doesn't have story"}});
     }
 
-    let movieObject = this.state.inputs;
+    const movieObject = this.state.inputs;
     
     if(!movieObject.Title.trim().length || 
         Number(movieObject.ReleaseYear) > this.maximumYear ||
