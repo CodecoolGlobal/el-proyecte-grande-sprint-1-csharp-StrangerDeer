@@ -201,7 +201,7 @@ export class MovieDetails extends Component {
     async populateMovieData(id) {
         const movieResponse = await fetch(`https://localhost:7211/movies/${id}`);
         const movieData = await movieResponse.json();
-        this.setState({movie: data, loading: false})
+        this.setState({movie: movieData, loading: false})
         this.setState({
             movieDetails: {
                 "Title": movieData.title,
