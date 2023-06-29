@@ -4,7 +4,7 @@ a {
 }
 body, header {
   color: white;
-  background: rgb(49,54,58);
+  background: #29252F;
 }
 
 .movie-forum-button {
@@ -125,4 +125,9 @@ code {
 .movie-card {
   text-align: center;
   transform: translateZ(100px);
+}
+
+.movie-titles {
+  max-width: 100%;
+  word-break: break-word;
 }
