@@ -2,9 +2,9 @@
 a {
   color: #0366d6;
 }
-body, header {
+body {
   color: white;
-  background: #29252F;
+  background: linear-gradient(360deg, #4F2E3C, #192944) !important;
 }
 
 .movie-forum-button {
@@ -12,40 +12,46 @@ body, header {
 }
 
 header {
-  background: linear-gradient(45deg, #1C0B19, #2F353E, #548687);
+  font-family: Georgia;
+  font-size: 20px;
+  background: #EE7C39;
+  font-weight: bolder;
 }
 
 .navbar-brand {
-  color: white;
+  color: black;
 }
 
 .navbar-brand:focus {
-  color: white;
+  color: black;
 }
 
 .navbar-brand:hover {
-  color: #FFFFAA;
+  color: black;
 }
 
 .navbar-toggler {
-  color: white !important;
+  color: black !important;
 }
 
 .text-dark {
-  color: white !important;
-  background: linear-gradient(45deg, #1C0B19, #2F353E, #548687);
-  border-radius: 20%;
-  gap: 10px;
-
+  font-family: Georgia;
+  color: black !important;
+  border-radius: 50px;
+  border-style: dashed;
+  border-color: #EEAB42;
+  font-weight: bolder;
 }
+
 .text-dark:hover {
   color:#FFFFAA !important;
-  background: linear-gradient(45deg, #1C0B19, #2F353E);
+  background: linear-gradient(45deg, #E33C23, #EE7C39);
 }
 
 .nav-link:hover {
   color:#FFFFAA !important;
-  background: linear-gradient(45deg, #1C0B19, #2F353E);
+  background: linear-gradient(45deg, #E33C23, #EE7C39);
+  transition: 0.3s;
 }
 
 .text-dark:active {
@@ -116,8 +122,9 @@ code {
 }
 
 .tilting-movie-card {
-  background-color: rgb(46,87,83) !important;
-  color: white !important;
+  background: linear-gradient(180deg, #E33C23, #192944) !important;
+  color: #F8EECF !important;
+  font-family: Georgia;
   transform-style: preserve-3d;
   transform: perspective(1000px);
 }
@@ -139,6 +146,7 @@ code {
 .movie-info-card {
   top: 20%;
   left: 15%;
+  color: #F8EECF;
   position: absolute;
   margin: auto;
   width: 70%;
@@ -150,10 +158,47 @@ code {
   font-size: 20px;
 }
 
-.movie-img {
+.movie-img, #uploaded-image {
   display: block;
   position: fixed;
   top: 10%;
   left: 50%;
   max-width: 35%;
+}
+
+button {
+  background: linear-gradient(45deg, #E33C23, #EE7C39, #EEAB42);
+  color: black;
+  font-family: Georgia;
+  font-weight: bolder;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+input, select, textarea {
+  background: linear-gradient(180deg, #EEAB42, #E9CC6D);
+  color: black;
+  font-family: Georgia;
+  font-size: 18px;
+  width: 30%;
+  word-break: break-word;
+  height: 50px;
+}
+
+option {
+  color: black;
+  font-size: 18px;
+}
+
+form {
+  width: 50%;
+}
+
+#upload-movie {
+  height: 10%;
+  width: 50%;
+}
+
+textarea {
+  height: 100px;
 }
