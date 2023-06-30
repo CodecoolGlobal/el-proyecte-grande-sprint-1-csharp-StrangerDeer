@@ -15,8 +15,11 @@ public class MovieRepository : IMovieRepository<Movie>
     {
         _movies = new HashSet<Movie>()
         {
-            new Movie("The Godfather", 1972, "",3.00),
-            new Movie("The Chainsaw Massacre", 1974, "", 4.00)
+            new Movie("The Silence of the Lambs", 1991, "",10.00),
+            new Movie("The Chainsaw Massacre", 1974, "", 4.00),
+            new Movie("The Life of Brian", 1979, "", 6.00),
+            new Movie("Doctor Strangelove - or How I Learned to Stop Worrying and Love the Bomb", 1964, "", 7.00),
+            new Movie("South park - Bigger, Longer and Uncut", 2000, "", 8.00)
         };
     }
 

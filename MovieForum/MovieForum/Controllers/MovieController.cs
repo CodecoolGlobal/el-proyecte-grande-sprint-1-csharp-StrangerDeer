@@ -30,7 +30,7 @@ public class MovieController : ControllerBase
 
         foreach (Movie movie in movies)
         {
-            movie.MovieImage = GetImagesByMovie(movie.Id.ToString());
+            movie.MovieImage = GetImagesByMovie(movie.Title);
         }
 
         return Ok(movies);
@@ -49,13 +49,13 @@ public class MovieController : ControllerBase
     [HttpGet("{id}")]
     public IActionResult GetMovieById([FromRoute] string id)
     {
-        var movieWithId = _movieService.GetMovieById(id);
+        var movieWithId =_movieService.GetMovieById(id);
         if (movieWithId == null)
         {
             return NotFound();
         }
 
-        movieWithId.MovieImage = GetImagesByMovie(id);
+        movieWithId.MovieImage = GetImagesByMovie(_movieService.GetMovieById(id).Title);
 
         return Ok(movieWithId);
     }
@@ -89,7 +89,7 @@ public class MovieController : ControllerBase
             foreach (IFormFile source in _uploadedFiles)
             {
                 string imgName = source.FileName;
-                string filepath = GetFilePath(id);
+                string filepath = GetFilePath(_movieService.GetMovieById(id).Title);
 
                 if (!Directory.Exists(filepath))
                 {

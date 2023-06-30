@@ -25,10 +25,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\Uploads\Movie\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\Screenshot_10.png\image.png" />
     </ItemGroup>
 
