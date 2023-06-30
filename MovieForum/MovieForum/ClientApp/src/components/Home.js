@@ -52,7 +52,7 @@ export class Home extends Component {
   }
 
     async populateMovieData() {
-        const response = await fetch('https://localhost:7211/movies');
+        const response = await fetch('/movies');
         const data = await response.json();
         this.setState({ movies: data, loading: false });
     }

@@ -20,7 +20,7 @@ export class MovieDetails extends Component {
     updateMovie(id){
         console.log("put:")
         console.log(this.state.movieDetails)
-        fetch(`https://localhost:7211/movies/${id}`, {
+        fetch(`/movies/${id}`, {
             method: "put",
             body: JSON.stringify(this.state.movieDetails),
             headers: {
@@ -49,7 +49,7 @@ export class MovieDetails extends Component {
     }
     
     deleteMovie(id) {
-        fetch(`https://localhost:7211/movies/${id}`, {
+        fetch(`/movies/${id}`, {
             method: "delete"
         }).then(() => window.location.replace("/"))
     }
@@ -58,7 +58,7 @@ export class MovieDetails extends Component {
        let formData = new FormData();
        formData.append("file", this.state.file)
         
-        const data = await fetch(`https://localhost:7211/movies/${id}/uploadimage`, {
+        const data = await fetch(`/movies/${id}/uploadimage`, {
             method:"post",
             body: formData
         })
@@ -191,7 +191,7 @@ export class MovieDetails extends Component {
     }
 
     async populateMovieData(id) {
-        const movieResponse = await fetch(`https://localhost:7211/movies/${id}`);
+        const movieResponse = await fetch(`/movies/${id}`);
         const movieData = await movieResponse.json();
         this.setState({movie: movieData, loading: false})
         this.setState({
@@ -205,7 +205,7 @@ export class MovieDetails extends Component {
             }
         })
         
-        const genreResponse = await fetch(`https://localhost:7211/api/genres`);
+        const genreResponse = await fetch(`/api/genres`);
         const genreData = await genreResponse.json();
         this.setState({genres: genreData});
     }
