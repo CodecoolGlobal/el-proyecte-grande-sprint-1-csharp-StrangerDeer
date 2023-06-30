@@ -36,7 +36,7 @@ export class AddNewMovie extends Component {
   }
   
   saveMovie(){
-    fetch('https://localhost:7211/add-new-movie', {
+    fetch('/add-new-movie', {
       method: "post",
       body: JSON.stringify(this.state.inputs),
       headers: {

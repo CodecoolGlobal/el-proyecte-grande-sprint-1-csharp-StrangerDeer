@@ -120,14 +120,13 @@ public class MovieController : ControllerBase
     [NonAction]
     private string GetFilePath(string productCode)
     {
-        return _environment.WebRootPath + "\\Uploads\\Movie\\" + productCode;
+        return @"/Uploads/Movie/" + productCode;
     }
 
     [NonAction]
     private string GetImagesByMovie(string movieId)
     {
         string imageUrl = string.Empty;
-        string host = "https://localhost:7211/";
         string filePath = GetFilePath(movieId);
         string movieImgName = "";
        
@@ -136,11 +135,11 @@ public class MovieController : ControllerBase
         if(Directory.Exists(filePath))
         {
             movieImgName = Path.GetFileName(Directory.GetFiles(filePath)[0]);
-            imageUrl = host + "/Uploads/Movie/" + movieId + "/" + movieImgName;
+            imageUrl = "/Uploads/Movie/" + movieId + "/" + movieImgName;
         }
         else
         {
-            imageUrl = host + "Uploads/common/noImage.png";
+            imageUrl = "Uploads/common/noImage.png";
         }
         
         return imageUrl;
