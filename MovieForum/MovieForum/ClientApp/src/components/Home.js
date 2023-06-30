@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Tilt from 'react-vanilla-tilt';
+import {Link} from 'react-router-dom'
 
 export class Home extends Component {
   static displayName = Home.name;
@@ -15,6 +16,7 @@ export class Home extends Component {
         return (
             <div className="movies-display">
                 {movies.map((movie, index) =>
+                <Link to={`/${movie.id}`}>
                     <Tilt key={index} className="tilting-movie-card" options={{
                         perspective: 50,
                         scale: 2,
@@ -25,14 +27,14 @@ export class Home extends Component {
                         easing:"cubic-bezier(.03,.98,.52.99)"}}
                     data-tilt-glare={true}
                     >
-                        <div className="movie-card" key={index} onClick={event => window.location.replace(`${movie.id}`)}>
+                        <div className="movie-card" key={index}>
                             <img className="movie-images" src={movie.movieImage}/>
                             <div className="movie-titles">{movie.title}</div>
                             <div className="movie-release-year">{movie.releaseYear}</div>
                             <div className="movie-genre">{movie.genre !== null ? movie.genre : ''}</div>
                         </div>
                     </Tilt>
-                    
+                </Link>
                 )}
             </div>
         );
