@@ -4,16 +4,11 @@ namespace MovieForum.Repositories;
 
 public class MovieRepository : IMovieRepository<Movie>
 {
-    private HashSet<Movie> _movies;
+    private HashSet<Movie> _movies = SeedMovies();
 
-    public MovieRepository()
+    private static HashSet<Movie> SeedMovies()
     {
-        SeedMovies();
-    }
-
-    private void SeedMovies()
-    {
-        _movies = new HashSet<Movie>()
+        return new HashSet<Movie>()
         {
             new Movie("The Godfather", 1972, "",3.00),
             new Movie("The Chainsaw Massacre", 1974, "", 4.00)
@@ -30,11 +25,9 @@ public class MovieRepository : IMovieRepository<Movie>
         _movies.Add(movie);
     }
 
-    public Movie GetMovieById(string id)
+    public Movie? GetMovieById(string id)
     {
-        var movieWithId = _movies.FirstOrDefault(movie => movie.Id.Equals(Guid.Parse(id)));
-        if (movieWithId == null) return null;
-        return movieWithId;
+        return _movies.FirstOrDefault(movie => movie.Id.Equals(Guid.Parse(id)));
     }
 
     public void DeleteMovieById(string id)
