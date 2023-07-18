@@ -19,7 +19,6 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
     const saveImage = () => {
         let formData = new FormData();
         formData.append("file", file);
-        console.log(id)
         fetch(`/movies/${id}/uploadimage`, {
             method: "post",
             body: formData,

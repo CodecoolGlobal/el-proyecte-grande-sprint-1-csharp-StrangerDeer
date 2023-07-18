@@ -52,7 +52,6 @@ const MovieDetails = () => {
         return elements;
     }
     const toggleStars = (rateValue) => {
-        console.log(rateValue)
         setInputValue("Ratings", Number(rateValue))
         return rateValue;
     }
