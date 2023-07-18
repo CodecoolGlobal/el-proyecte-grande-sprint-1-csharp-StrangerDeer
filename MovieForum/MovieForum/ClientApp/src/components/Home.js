@@ -19,8 +19,8 @@ const Home = () => {
     return (
         <div className="movies-display">
             {movies.map((movie, index) => 
-                    <Link to={`/${movie.id}`}>
-                    <Tilt key={index} className="tilting-movie-card" options={{
+                    <Link key={movie.id} to={`/${movie.id}`}>
+                    <Tilt key={movie.id} className="tilting-movie-card" options={{
                         perspective: 50,
                         scale: 2,
                         max: 400,

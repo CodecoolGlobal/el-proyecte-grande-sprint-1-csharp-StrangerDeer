@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
+import React from 'react';
 import {Link, Outlet} from 'react-router-dom';
 import './NavMenu.css';
 
 const NavMenu = () => {
     return (
-      <header>
-        <Navbar className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3" container light>
-          <Link className="movie-forum-button" to="/">MovieForum</Link>
-            <ul className="navbar-nav flex-grow">
-              <NavItem>
-                <Link className="text-dark" to="/add-new-movie">Add Movie</Link>
-              </NavItem>
-            </ul>
-        </Navbar>
-        <Outlet />
-      </header>
+        <div>
+            <header>
+                <nav>
+                    <ul className="navbar-nav flex-grow">
+                        <li>
+                            <Link className="movie-forum-button" to="/">MovieForum</Link>
+                        </li>
+                        <li>
+                            <Link className="text-dark" to="/add-new-movie">Add Movie</Link>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <Outlet />
+        </div>
     );
 }
 
