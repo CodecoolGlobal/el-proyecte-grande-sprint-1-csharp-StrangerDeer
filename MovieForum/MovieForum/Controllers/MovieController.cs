@@ -94,7 +94,6 @@ public class MovieController : ControllerBase
                 
                 if (!Directory.Exists(filepath))
                 {
-                    Console.WriteLine(filepath);
                     Directory.CreateDirectory(filepath);
                 }
 

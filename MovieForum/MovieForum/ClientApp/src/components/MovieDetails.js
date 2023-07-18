@@ -40,17 +40,19 @@ const MovieDetails = () => {
     const starRatings = (numberOfElement) => {
         let elements = [];
             
-        for(let i = 0; i < numberOfElement; i++){
+        for(let i = numberOfElement; i > 0; i--){
             let starId = `star${i}`
             elements.push(<React.Fragment key={starId}><input key={starId} type="radio" name="rate" value={i}
-                                   checked={movieRatings === i}
-                                   onClick={e => toggleStars(i)}
-                                   onChange={e => toggleStars(i)}/>
-                <label htmlFor={starId} title="text">{i} stars</label></React.Fragment>)
+                                   checked={movieRatings === i} onChange={() => {toggleStars(i)}}
+                                   />
+                <label htmlFor={starId} title="text" 
+                       onClick={() => {toggleStars(i)}}
+                       onChange={() => {toggleStars(i)}}>{i} stars</label></React.Fragment>)
         }
         return elements;
     }
     const toggleStars = (rateValue) => {
+        console.log(rateValue)
         setInputValue("Ratings", Number(rateValue))
         return rateValue;
     }
