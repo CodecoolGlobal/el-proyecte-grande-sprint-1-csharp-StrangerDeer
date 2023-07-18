@@ -89,10 +89,10 @@ const MovieDetails = () => {
         
     return (
         <div>
-            {editAllowed ? <EditMovieDetails id={id}
-                                             movieDetails={movieDetails} 
+            {editAllowed ? <EditMovieDetails movieDetails={movieDetails} 
                                              setMovieDetails={setMovieDetails} 
-                                             updateMovie={updateMovie}/>
+                                             updateMovie={updateMovie}
+                                            navigate={navigate}/>
                     : 
                     <div className="movie-info-card">
                         <p className="movie-info">{movieTitle}</p>

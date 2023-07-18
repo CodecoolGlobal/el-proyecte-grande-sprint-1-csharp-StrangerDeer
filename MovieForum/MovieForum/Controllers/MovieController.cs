@@ -82,17 +82,19 @@ public class MovieController : ControllerBase
     {
         
         bool results = false;
-
+        
         try
         {
-            var _uploadedFiles = Request.Form.Files;
-            foreach (IFormFile source in _uploadedFiles)
+            var uploadedFiles = Request.Form.Files;
+            foreach (IFormFile source in uploadedFiles)
             {
                 string imgName = source.FileName;
+                
                 string filepath = GetFilePath(id);
-
+                
                 if (!Directory.Exists(filepath))
                 {
+                    Console.WriteLine(filepath);
                     Directory.CreateDirectory(filepath);
                 }
 
@@ -120,7 +122,7 @@ public class MovieController : ControllerBase
     [NonAction]
     private string GetFilePath(string productCode)
     {
-        return @"/Uploads/Movie/" + productCode;
+        return @"wwwroot/Uploads/Movie/" + productCode;
     }
 
     [NonAction]

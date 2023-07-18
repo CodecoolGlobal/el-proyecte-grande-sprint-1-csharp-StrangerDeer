@@ -1,25 +1,29 @@
 ﻿import React, {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 
-const EditMovieDetails = ({ id, movieDetails, setMovieDetails, updateMovie}) => {
+const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate}) => {
+    const {id} = useParams();
     let minimumYear = 1895;
     let maximumYear = new Date().getFullYear();
 
     const [hasEmptySpace, setHasEmptySpace] = useState(false);
     const [genres, setGenres] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [img, setImg] = useState(null);
-    const [file, setFile] = useState(null);
+    const [movieImg, setImg] = useState(null);
+    const [file, setFile] = useState();
 
     let movieTitle = movieDetails.Title;
     let movieRelease = movieDetails.ReleaseYear;
     let movieStory = movieDetails.Story;
-    const saveImage = (id) => {
+    
+    const saveImage = () => {
         let formData = new FormData();
         formData.append("file", file);
-
+        console.log(id)
         fetch(`/movies/${id}/uploadimage`, {
             method: "post",
-            body: formData
+            body: formData,
+            
         })
             .then();
     }
@@ -44,7 +48,7 @@ const EditMovieDetails = ({ id, movieDetails, setMovieDetails, updateMovie}) => 
         fetch(`/api/genres`)
             .then(res => res.json())
             .then(data => {setGenres(data); setLoading(false)})
-    })
+    }, [])
     
     if(loading)
         return <div>Loading...</div>
@@ -80,11 +84,11 @@ const EditMovieDetails = ({ id, movieDetails, setMovieDetails, updateMovie}) => 
         </select>
         <br/>
         <p>Upload Image</p>
-        <form >
-            <img alt={id} id="uploaded-image" src={img}/>
+        <form>
+            <img alt={id} id="uploaded-image" src={movieImg}/>
             <br/>
             <input id="upload-movie" type={"file"} onChange={(e) => changeImg(e.target.files[0])}/>
-            <button onClick={() => saveImage(id)}>Save image</button>
+            <button onClick={() => saveImage()}>Save image</button>
         </form>
         <br/><br/>
 
