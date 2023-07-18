@@ -1,22 +1,25 @@
-import React, { Component } from 'react';
+import React, {useEffect, useState} from 'react';
 import Tilt from 'react-vanilla-tilt';
 import {Link} from 'react-router-dom'
 
-export class Home extends Component {
-  static displayName = Home.name;
-    constructor(props) {
-        super(props);
-        this.state = { movies: [], loading: true };
-    }
-    componentDidMount() {
-        this.populateMovieData();
-    }
-
-    static renderMovieCards(movies) {
-        return (
-            <div className="movies-display">
-                {movies.map((movie, index) =>
-                <Link to={`/${movie.id}`}>
+const Home = () => {
+    
+    const [movies, setMovies] = useState([]);
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() =>{
+        fetch('/movies')
+            .then(req => req.json())
+            .then(data => {setMovies(data); setLoading(false)})
+    }, [])
+    
+    if(loading)
+        return <p><em>Loading...</em></p>;
+    
+    return (
+        <div className="movies-display">
+            {movies.map((movie, index) => 
+                    <Link to={`/${movie.id}`}>
                     <Tilt key={index} className="tilting-movie-card" options={{
                         perspective: 50,
                         scale: 2,
@@ -28,7 +31,7 @@ export class Home extends Component {
                     data-tilt-glare={true}
                     >
                         <div className="movie-card" key={index}>
-                            <img className="movie-images" src={movie.movieImage}/>
+                            <img alt={movie.id} className="movie-images" src={movie.movieImage}/>
                             <div className="movie-titles">{movie.title}</div>
                             <div className="movie-release-year">{movie.releaseYear}</div>
                             <div className="movie-genre">{movie.genre !== null ? movie.genre : ''}</div>
@@ -38,22 +41,5 @@ export class Home extends Component {
                 )}
             </div>
         );
-    }
-    render = () => {
-      let contents = this.state.loading
-          ? <p><em>Loading...</em></p>
-          : Home.renderMovieCards(this.state.movies);
-        
-    return (
-      <div>
-          {contents}
-      </div>
-    );
-  }
-
-    async populateMovieData() {
-        const response = await fetch('/movies');
-        const data = await response.json();
-        this.setState({ movies: data, loading: false });
-    }
 }
+export default Home;
