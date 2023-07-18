@@ -71,9 +71,9 @@ const EditMovieDetails = ({ id, movieDetails, setMovieDetails, updateMovie}) => 
                   onChange={(e) => setInputValue("Story", e.target.value)}/>
         <br/>
         <div>Please choose the correct genre for this movie!</div>
-        <select value={movieDetails.Genre}
+        <select value={movieDetails.Genre !== null ? movieDetails.Genre : ""}
             onChange={(event) => setInputValue("Genre", event.target.value)}>
-            <option disabled selected hidden>Select a genre</option>
+            <option>Select a genre</option>
             {genres.map((genre, index) =>
                 <option key={index} value={genre.name}>{genre.name}</option>
             )}
