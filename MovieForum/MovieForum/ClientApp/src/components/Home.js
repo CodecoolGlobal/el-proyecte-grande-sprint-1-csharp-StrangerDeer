@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Tilt from 'react-vanilla-tilt';
 import {Link} from 'react-router-dom'
-
 const Home = () => {
     
     const [movies, setMovies] = useState([]);
@@ -19,7 +18,7 @@ const Home = () => {
     return (
         <div className="movies-display">
             {movies.map((movie, index) => 
-                    <Link key={movie.id} to={`/${movie.id}`}>
+                    <Link key={movie.id} to={`/movie/${movie.id}`}>
                     <Tilt key={movie.id} className="tilting-movie-card" options={{
                         perspective: 50,
                         scale: 2,

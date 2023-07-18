@@ -7,8 +7,11 @@ import reportWebVitals from './reportWebVitals';
 import NavMenu from "./components/NavMenu";
 import Home from "./components/Home";
 import AddNewMovie from "./components/AddNewMovie";
+import MovieDetails from "./components/MovieDetails";
 
 import './custom.css'
+import EditMovieDetails from "./components/EditMovieDetails";
+
 
 
 
@@ -26,6 +29,10 @@ const router = createBrowserRouter([{
         {
             path:"/add-new-movie",
             element: <AddNewMovie />
+        },
+        {
+            path:"/movie/:id",
+            element: <MovieDetails/>
         }
     ],
 }
