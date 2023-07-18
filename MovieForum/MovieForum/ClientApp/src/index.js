@@ -6,7 +6,10 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 import NavMenu from "./components/NavMenu";
 import Home from "./components/Home";
+import AddNewMovie from "./components/AddNewMovie";
+
 import './custom.css'
+
 
 
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
@@ -20,6 +23,10 @@ const router = createBrowserRouter([{
             path:"/",
             element: <Home />
         },
+        {
+            path:"/add-new-movie",
+            element: <AddNewMovie />
+        }
     ],
 }
 ]);
