@@ -2,7 +2,7 @@
 
 public class GenreRepository : IGenreRepository<Genre>
 {
-    private HashSet<Genre> _genres;
+    private HashSet<Genre> _genres = new();
 
     public GenreRepository()
     {

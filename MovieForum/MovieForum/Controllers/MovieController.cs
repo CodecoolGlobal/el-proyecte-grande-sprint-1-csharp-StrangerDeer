@@ -26,11 +26,11 @@ public class MovieController : ControllerBase
     [HttpGet]
     public IActionResult GetAllMovies()
     {
-        HashSet<Movie> movies = _movieService.GetMovies();
+        HashSet<Movie?> movies = _movieService.GetMovies();
 
-        foreach (Movie movie in movies)
+        foreach (Movie? movie in movies)
         {
-            movie.MovieImage = GetImagesByMovie(movie.Id.ToString());
+            movie!.MovieImage = GetImagesByMovie(movie.Id.ToString());
         }
 
         return Ok(movies);
