@@ -1,7 +1,11 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.CompilerServices;
 
 namespace MovieForum;
+
+[PrimaryKey(nameof(Id))]
 
 public class Movie
 {
