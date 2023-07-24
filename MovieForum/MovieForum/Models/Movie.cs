@@ -10,8 +10,8 @@ public class Movie
     public int ReleaseYear { get; set; }
     public string Story { get; set; }
     public double Ratings { get; set; }
-    public string MovieImage { get; set; }
-    public string Genre { get; set; }
+    public string? MovieImage { get; set; }
+    public string? Genre { get; set; }
     public Movie(string title, int releaseYear, string story, double ratings)
     {
         Id = Guid.NewGuid();

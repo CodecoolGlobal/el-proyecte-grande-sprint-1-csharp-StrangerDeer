@@ -26,11 +26,11 @@ public class MovieController : ControllerBase
     [HttpGet]
     public IActionResult GetAllMovies()
     {
-        HashSet<Movie> movies = _movieService.GetMovies();
+        HashSet<Movie?> movies = _movieService.GetMovies();
 
-        foreach (Movie movie in movies)
+        foreach (Movie? movie in movies)
         {
-            movie.MovieImage = GetImagesByMovie(movie.Id.ToString());
+            movie!.MovieImage = GetImagesByMovie(movie.Id.ToString());
         }
 
         return Ok(movies);
@@ -82,15 +82,16 @@ public class MovieController : ControllerBase
     {
         
         bool results = false;
-
+        
         try
         {
-            var _uploadedFiles = Request.Form.Files;
-            foreach (IFormFile source in _uploadedFiles)
+            var uploadedFiles = Request.Form.Files;
+            foreach (IFormFile source in uploadedFiles)
             {
                 string imgName = source.FileName;
+                
                 string filepath = GetFilePath(id);
-
+                
                 if (!Directory.Exists(filepath))
                 {
                     Directory.CreateDirectory(filepath);
@@ -120,14 +121,13 @@ public class MovieController : ControllerBase
     [NonAction]
     private string GetFilePath(string productCode)
     {
-        return _environment.WebRootPath + "\\Uploads\\Movie\\" + productCode;
+        return @"wwwroot/Uploads/Movie/" + productCode;
     }
 
     [NonAction]
     private string GetImagesByMovie(string movieId)
     {
         string imageUrl = string.Empty;
-        string host = "https://localhost:7211/";
         string filePath = GetFilePath(movieId);
         string movieImgName = "";
        
@@ -136,11 +136,11 @@ public class MovieController : ControllerBase
         if(Directory.Exists(filePath))
         {
             movieImgName = Path.GetFileName(Directory.GetFiles(filePath)[0]);
-            imageUrl = host + "/Uploads/Movie/" + movieId + "/" + movieImgName;
+            imageUrl = "/Uploads/Movie/" + movieId + "/" + movieImgName;
         }
         else
         {
-            imageUrl = host + "Uploads/common/noImage.png";
+            imageUrl = "Uploads/common/noImage.png";
         }
         
         return imageUrl;

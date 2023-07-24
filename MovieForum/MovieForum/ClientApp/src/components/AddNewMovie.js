@@ -1,59 +1,53 @@
-import React, { Component } from 'react';
-import {isVisible} from "bootstrap/js/src/util";
+import React, {useState} from 'react';
+import {useNavigate} from "react-router-dom";
 
-export class AddNewMovie extends Component {
-  static displayName = AddNewMovie.name;
-  thisYear = new Date().getFullYear();
-  minimumYear = 1895;
-  maximumYear = new Date().getFullYear();
-
-  constructor(props) {
-    super(props);
-    const movieObj = {
-      "Title": "",
-      "ReleaseYear": this.thisYear,
-      "Story": ""
-    }
-    this.state = { hasEmptySpace: false, inputs: movieObj };
-  }
+const AddNewMovie = () =>{
+  const navigate = useNavigate();
   
-  async clickEvent(){
+  let thisYear = new Date().getFullYear();
+  let minimumYear = 1895;
+  let maximumYear = new Date().getFullYear();
+  const movieObj = {
+    "Title": "",
+    "ReleaseYear": thisYear,
+    "Story": ""
+    };
     
-    if(!this.state.inputs.Story.trim().length){
-     await this.setState({inputs: {...this.state.inputs, "Story": "This movie doesn't have story"}});
+  const [hasEmptySpace, setHasEmptySpace] = useState(false);
+  const [inputs, setInputs] = useState(movieObj);
+  
+  const clickEvent = () => {
+    
+    if(!inputs.Story.trim().length){
+     setInputs({...inputs, "Story": "This movie doesn't have story"});
     }
-
-    const movieObject = this.state.inputs;
     
-    if(!movieObject.Title.trim().length || 
-        Number(movieObject.ReleaseYear) > this.maximumYear ||
-        Number(movieObject.ReleaseYear) < this.minimumYear){
-      this.setState({hasEmptySpace: true})
+    if(!inputs.Title.trim().length || 
+        Number(inputs.ReleaseYear) > maximumYear ||
+        Number(inputs.ReleaseYear) < minimumYear){
+      setHasEmptySpace(true);
     } else{
-      this.saveMovie()
+      saveMovie()
     }
     
   }
   
-  saveMovie(){
-    fetch('https://localhost:7211/add-new-movie', {
+  const saveMovie = () => {
+    fetch('/add-new-movie', {
       method: "post",
-      body: JSON.stringify(this.state.inputs),
+      body: JSON.stringify(inputs),
       headers: {
         "Content-type": "application/json",
-        "Access-Control-Allow-Origin" : "*",
-        "Access-Control-Allow-Credentials" : true
       }
-    }).then(() => window.location.replace("/"))
+    }).then(() => navigate("/"))
   }
-  render() {
-    const setObjValue = (setObject) => {this.setState(setObject)};
-    const setInputValue = (key, value) => {setObjValue({inputs: {...this.state.inputs, [key]: value}})}
-    let titleInput = this.state.inputs.Title;
-    let yearInput = Number(this.state.inputs.ReleaseYear);
-    let storyInput = this.state.inputs.Story;
+  const setInputValue = (key, value) => {setInputs({...inputs, [key]: value})};
+  
+  let titleInput = inputs.Title;
+  let yearInput = Number(inputs.ReleaseYear);
+  let storyInput = inputs.Story;
     
-    return (
+  return (
       <div>
         <div>Movie Title</div>
           <input key={"title"} 
@@ -61,18 +55,18 @@ export class AddNewMovie extends Component {
                  placeholder={"Title"}
                  value={titleInput} 
                  onChange={(e) => setInputValue("Title", e.target.value)}/>
-        {!titleInput.trim().length && this.state.hasEmptySpace ? <small>Please fill this field</small> : <></>} 
+        {!titleInput.trim().length && hasEmptySpace ? <small>Please fill this field</small> : <></>} 
         <br/>
         <div>Year</div>
         <input key={"year"}
             type={"number"} 
-            min={this.minimumYear} 
-            max={this.maximumYear} 
+            min={minimumYear} 
+            max={maximumYear} 
             step={1}
             value={yearInput} 
             onChange={(e) => setInputValue("ReleaseYear", Number(e.target.value))}/>
-        {(yearInput > this.maximumYear || 
-            yearInput < this.minimumYear) ? <small>Please add correct year</small> : <></>}
+        {(yearInput > maximumYear || 
+            yearInput < minimumYear) ? <small>Please add correct year</small> : <></>}
         <br/>
         <div>Story</div>
         <textarea
@@ -81,8 +75,9 @@ export class AddNewMovie extends Component {
           value={storyInput}
           onChange={(e) =>setInputValue("Story", e.target.value)}/>
         <br/>
-          <button onClick={() => this.clickEvent(titleInput)}>Save</button>
+          <button onClick={() => clickEvent(titleInput)}>Save</button>
       </div>
     );
-  }
 }
+
+export default AddNewMovie;
