@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.EntityFrameworkCore;
 using MovieForum;
+using MovieForum.Models;
 using MovieForum.Repositories;
 using MovieForum.Services;
 
@@ -18,6 +20,11 @@ builder.Services.Configure<FormOptions>(o => {
 });  
 
 builder.Services.AddTransient<IGenreService, GenreService>();
+
+//Connect db
+builder.Services.AddDbContext<MovieContext>(options => 
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+    );
 
 var app = builder.Build();
 
