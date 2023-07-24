@@ -8,14 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Models/MovieContext.cs" afterDir="false" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="connect database">
+      <change afterPath="$PROJECT_DIR$/Services/MovieDbService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Genre.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Entities/Genre.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Movie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Entities/Movie.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieForum.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MovieForum.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/IMovieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IMovieService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/MovieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/MovieService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +104,7 @@
       <workItem from="1690184187946" duration="24000" />
       <workItem from="1690184232172" duration="131000" />
       <workItem from="1690184383470" duration="156000" />
-      <workItem from="1690184561337" duration="1916000" />
+      <workItem from="1690184561337" duration="12152000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -122,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690184424599</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="connect database">
+      <option name="closed" value="true" />
+      <created>1690186625259</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1690186625259</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +141,7 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="merge current version" />
     <MESSAGE value="merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge" />
+    <MESSAGE value="connect database" />
+    <option name="LAST_COMMIT_MESSAGE" value="connect database" />
   </component>
 </project>
