@@ -203,6 +203,11 @@ button {
   font-size: 18px;
 }
 
+button:hover {
+  background: linear-gradient(45deg, #623038, #D33A25, #E33C23);
+  color: antiquewhite;
+}
+
 input, select, textarea {
   background: linear-gradient(180deg, #EEAB42, #E9CC6D);
   color: black;
@@ -233,4 +238,11 @@ textarea {
 
 input[type=file]::file-selector-button {
   background: #E01A76;
+}
+
+.top-page {
+  max-width: 12%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
 }
