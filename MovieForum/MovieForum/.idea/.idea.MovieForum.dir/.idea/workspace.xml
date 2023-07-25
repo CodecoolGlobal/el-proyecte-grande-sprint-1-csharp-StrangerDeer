@@ -8,7 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="add button for choosing a random movie" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="change button hover colors" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -143,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690280142252</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="change button hover colors">
+      <created>1690283195449</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1690283195449</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +176,7 @@
     <MESSAGE value="fix navbar layout" />
     <MESSAGE value="fix Home and AddNewMovie layout" />
     <MESSAGE value="add button for choosing a random movie" />
-    <option name="LAST_COMMIT_MESSAGE" value="add button for choosing a random movie" />
+    <MESSAGE value="change button hover colors" />
+    <option name="LAST_COMMIT_MESSAGE" value="change button hover colors" />
   </component>
 </project>
