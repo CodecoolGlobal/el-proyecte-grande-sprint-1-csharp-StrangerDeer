@@ -25,7 +25,7 @@ const Home = () => {
                         max: 400,
                         speed: 10,
                         glare: true,
-                        "max-glare": 1,
+                        'max-glare': 10,
                         easing:"cubic-bezier(.03,.98,.52.99)"}}
                     data-tilt-glare={true}
                     >
