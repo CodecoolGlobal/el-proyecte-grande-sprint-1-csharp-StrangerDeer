@@ -47,19 +47,12 @@ public class MovieDbService : IMovieService
 
     public async Task UpdateMovie(string id, Movie? updatedMovie)
     {
-        var movieToUpdate = await _context.movies.AsNoTracking()
-            .Where(movie => movie != null && movie.Id.Equals(Guid.Parse(id)))
-            .FirstOrDefaultAsync()
-            .ConfigureAwait(true);
-
-        if (movieToUpdate == null) return;
-
-        var oldProperties = _context.Entry(movieToUpdate).CurrentValues;
-        UpdateMovieProperties(movieToUpdate, updatedMovie);
-        
-        oldProperties.SetValues(movieToUpdate);
-        
-        await _context.SaveChangesAsync();
+        var movieToUpdate = await _context.movies.FirstOrDefaultAsync(movie => movie.Id.Equals(Guid.Parse(id)));
+        if (movieToUpdate != null)
+        {
+            UpdateMovieProperties(movieToUpdate, updatedMovie);
+        }
+        await _context.SaveChangesAsync().ConfigureAwait(true);
     }
 
     private void UpdateMovieProperties(Movie movieToUpdate, Movie? updatedMovie)
