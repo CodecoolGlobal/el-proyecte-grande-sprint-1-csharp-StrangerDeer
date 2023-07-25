@@ -4,8 +4,10 @@ import {Link, useNavigate} from 'react-router-dom'
 const Home = () => {
     
     const navigate = useNavigate();
+
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchMovie, setSearchMovie] = useState("");
     
     useEffect(() =>{
         fetch('/movies')
@@ -22,12 +24,17 @@ const Home = () => {
     if(loading)
         return <p><em>Loading...</em></p>;
     
-    return (<>
-            <div className="top-page">
-                <button onClick={event => chooseRandomMovie()}>Random Movie</button>
-            </div>
+    let filteredList = movies.filter(movie => movie.title.toLowerCase().includes(searchMovie.toLowerCase()))
+        
+    return (
+        <>
+            <input placeholder={"search movie"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
         <div className="movies-display">
-            {movies.map((movie, index) =>
+            {movies.length === 0 ? <div>We don't have movie :(</div> :
+                filteredList.length === 0 ? <div>No movie :( </div> : 
+                    filteredList
+                .map((movie, index) => 
+
                     <Link key={movie.id} to={`/movie/${movie.id}`}>
                     <Tilt key={movie.id} className="tilting-movie-card" options={{
                         perspective: 50,
