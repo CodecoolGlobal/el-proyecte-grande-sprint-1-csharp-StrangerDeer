@@ -16,15 +16,18 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
     let movieRelease = movieDetails.ReleaseYear;
     let movieStory = movieDetails.Story;
     
-    const saveImage = () => {
+    const saveImage = (event) => {
+        event.preventDefault();
+        
         let formData = new FormData();
         formData.append("file", file);
+        
         fetch(`/movies/${id}/uploadimage`, {
             method: "post",
             body: formData,
             
         })
-            .then();
+            .then(() => {window.location.reload()});
     }
     const changeImg = (uploadedFile) => {
         let reader = new FileReader();
@@ -87,7 +90,7 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
             <img alt={id} id="uploaded-image" src={movieImg}/>
             <br/>
             <input id="upload-movie" type={"file"} onChange={(e) => changeImg(e.target.files[0])}/>
-            <button onClick={() => saveImage()}>Save image</button>
+            <button onClick={(e) => saveImage(e)}>Save image</button>
         </form>
         <br/><br/>
 
