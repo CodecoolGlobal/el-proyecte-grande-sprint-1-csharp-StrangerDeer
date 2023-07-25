@@ -5,6 +5,7 @@ const Home = () => {
     
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchMovie, setSearchMovie] = useState("");
     
     useEffect(() =>{
         fetch('/movies')
@@ -15,9 +16,16 @@ const Home = () => {
     if(loading)
         return <p><em>Loading...</em></p>;
     
+    console.log()
+    
     return (
+        <>
+            <input placeholder={"search movie"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
         <div className="movies-display">
-            {movies.map((movie, index) => 
+            {movies.length === 0 ?  <div>We don't have movie :(</div> :
+                movies
+                .filter(movie => movie.title.includes(searchMovie))
+                .map((movie, index) => 
                     <Link key={movie.id} to={`/movie/${movie.id}`}>
                     <Tilt key={movie.id} className="tilting-movie-card" options={{
                         perspective: 50,
@@ -39,6 +47,7 @@ const Home = () => {
                 </Link>
                 )}
             </div>
+        </>
         );
 }
 export default Home;
