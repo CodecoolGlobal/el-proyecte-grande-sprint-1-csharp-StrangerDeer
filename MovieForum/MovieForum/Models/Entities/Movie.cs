@@ -17,14 +17,14 @@ public class Movie
     public DateTime DateOfCreation { get; set; }
     public string? MovieImage { get; set; }
     public string? Genre { get; set; }
-    public Movie(string title, int releaseYear, string story, double ratings, DateTime dateOfCreation)
+    public Movie(string title, int releaseYear, string story, double ratings)
     {
         Id = Guid.NewGuid();
         Title = title;
         ReleaseYear = releaseYear;
         Story = story;
         Ratings = ratings;
-        DateOfCreation = dateOfCreation;
+        DateOfCreation = DateTime.Now;
         Genre = null;
         MovieImage = null;
     }
