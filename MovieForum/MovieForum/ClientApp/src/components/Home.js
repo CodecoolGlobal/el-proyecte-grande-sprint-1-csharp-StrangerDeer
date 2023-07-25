@@ -22,15 +22,16 @@ const Home = () => {
     }
     
     if(loading)
-        return <p><em>Loading...</em></p>;
+        return <p className="loading"><em>Loading...</em></p>;
     
     let filteredList = movies.filter(movie => movie.title.toLowerCase().includes(searchMovie.toLowerCase())).sort((a, b) => (a.dateOfCreation > b.dateOfCreation) ? 1 : -1)
         
     return (
         <>
             <div className="top-page">
-                <input placeholder={"search movie"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
-                <button onClick={event => chooseRandomMovie()}>Random Movie</button>
+                <input className="searchbox" placeholder={"search movie"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
+                <br/>
+                <button className="random-movie" onClick={event => chooseRandomMovie()}>Random Movie</button>
             </div>
         <div className="movies-display">
             {movies.length === 0 ? <div>We don't have movie :(</div> :

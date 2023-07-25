@@ -95,7 +95,7 @@ const MovieDetails = () => {
     }, [])
     
     if(loading)
-        return <p><em>Loading...</em></p>;
+        return <p className="loading"><em>Loading...</em></p>;
         
     return (
         <div>
