@@ -6,11 +6,9 @@ const NavMenu = () => {
     return (
         <div>
             <header>
-                <nav>
+                <nav className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3">
+                    <Link className="movie-forum-button" to="/">IMDb</Link>
                     <ul className="navbar-nav flex-grow">
-                        <li>
-                            <Link className="movie-forum-button" to="/">MovieForum</Link>
-                        </li>
                         <li>
                             <Link className="text-dark" to="/add-new-movie">Add Movie</Link>
                         </li>

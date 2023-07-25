@@ -56,8 +56,17 @@ const MovieDetails = () => {
         return rateValue;
     }
     const rateMovie = (id) => {
-        updateMovie(id);
+        updateMovieRatings(id);
         setIsRated(true);
+    }
+    const updateMovieRatings = (id) => {
+        fetch(`/movies/${id}`, {
+            method: "put",
+            body: JSON.stringify(movieDetails),
+            headers: {
+                "Content-type": "application/json",
+            }
+        });
     }
     const updateMovie = (id) => {
         fetch(`/movies/${id}`, {

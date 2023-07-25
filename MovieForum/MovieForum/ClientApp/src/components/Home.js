@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import Tilt from 'react-vanilla-tilt';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 const Home = () => {
     
-    let content;
-    
+    const navigate = useNavigate();
+
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchMovie, setSearchMovie] = useState("");
@@ -14,6 +14,12 @@ const Home = () => {
             .then(req => req.json())
             .then(data => {setMovies(data); setLoading(false)})
     }, [])
+    
+    function chooseRandomMovie() {
+        const randomMovieIndex = Math.floor(Math.random() * (movies.length));
+        const movieId = movies[randomMovieIndex].id;
+        navigate(`/movie/${movieId}`);
+    }
     
     if(loading)
         return <p><em>Loading...</em></p>;
@@ -28,6 +34,7 @@ const Home = () => {
                 filteredList.length === 0 ? <div>No movie :( </div> : 
                     filteredList
                 .map((movie, index) => 
+
                     <Link key={movie.id} to={`/movie/${movie.id}`}>
                     <Tilt key={movie.id} className="tilting-movie-card" options={{
                         perspective: 50,
@@ -35,7 +42,7 @@ const Home = () => {
                         max: 400,
                         speed: 10,
                         glare: true,
-                        "max-glare": 1,
+                        'max-glare': 10,
                         easing:"cubic-bezier(.03,.98,.52.99)"}}
                     data-tilt-glare={true}
                     >
