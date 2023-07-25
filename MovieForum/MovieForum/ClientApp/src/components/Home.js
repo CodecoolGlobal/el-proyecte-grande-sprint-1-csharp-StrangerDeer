@@ -3,6 +3,8 @@ import Tilt from 'react-vanilla-tilt';
 import {Link} from 'react-router-dom'
 const Home = () => {
     
+    let content;
+    
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchMovie, setSearchMovie] = useState("");
@@ -16,15 +18,15 @@ const Home = () => {
     if(loading)
         return <p><em>Loading...</em></p>;
     
-    console.log()
-    
+    let filteredList = movies.filter(movie => movie.title.toLowerCase().includes(searchMovie.toLowerCase()))
+        
     return (
         <>
             <input placeholder={"search movie"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
         <div className="movies-display">
-            {movies.length === 0 ?  <div>We don't have movie :(</div> :
-                movies
-                .filter(movie => movie.title.includes(searchMovie))
+            {movies.length === 0 ? <div>We don't have movie :(</div> :
+                filteredList.length === 0 ? <div>No movie :( </div> : 
+                    filteredList
                 .map((movie, index) => 
                     <Link key={movie.id} to={`/movie/${movie.id}`}>
                     <Tilt key={movie.id} className="tilting-movie-card" options={{
