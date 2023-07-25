@@ -8,10 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="fix date of creation">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="fix problems with date of creation">
       <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Entities/Movie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Entities/Movie.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +24,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/Entities/Movie.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/Entities/Movie.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/Entities/Movie.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -165,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690284961564</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix problems with date of creation">
+      <created>1690285699096</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1690285699096</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +199,7 @@
     <MESSAGE value="add button for choosing a random movie" />
     <MESSAGE value="add date property to movie" />
     <MESSAGE value="fix date of creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix date of creation" />
+    <MESSAGE value="fix problems with date of creation" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix problems with date of creation" />
   </component>
 </project>

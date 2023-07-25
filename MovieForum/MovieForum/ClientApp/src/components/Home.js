@@ -24,7 +24,7 @@ const Home = () => {
     if(loading)
         return <p><em>Loading...</em></p>;
     
-    let filteredList = movies.filter(movie => movie.title.toLowerCase().includes(searchMovie.toLowerCase()))
+    let filteredList = movies.filter(movie => movie.title.toLowerCase().includes(searchMovie.toLowerCase())).sort((a, b) => (a.dateOfCreation > b.dateOfCreation) ? 1 : -1)
         
     return (
         <>
