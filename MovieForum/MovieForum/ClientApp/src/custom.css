@@ -234,3 +234,10 @@ textarea {
 input[type=file]::file-selector-button {
   background: #E01A76;
 }
+
+.top-page {
+  max-width: 12%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
