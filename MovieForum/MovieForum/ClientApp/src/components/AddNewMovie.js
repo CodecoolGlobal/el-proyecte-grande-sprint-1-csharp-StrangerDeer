@@ -48,7 +48,7 @@ const AddNewMovie = () =>{
   let storyInput = inputs.Story;
     
   return (
-      <div>
+      <div className="add-new-movie">
         <div>Movie Title</div>
           <input key={"title"} 
                  type={"text"} 

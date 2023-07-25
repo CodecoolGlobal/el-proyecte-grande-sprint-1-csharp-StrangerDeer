@@ -137,8 +137,7 @@ code {
   gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
-  margin-left: 30px;
-  margin-right: 30px
+  margin-left: 7.5%;
 }
 
 .tilting-movie-card {
@@ -147,6 +146,12 @@ code {
   font-family: Georgia;
   transform-style: preserve-3d;
   transform: perspective(1000px);
+}
+
+.add-new-movie {
+  font-family: Georgia;
+  margin-left: 7.5%;
+  margin-top: 2%;
 }
 
 .movie-card {
