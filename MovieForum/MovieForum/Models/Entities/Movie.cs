@@ -14,7 +14,7 @@ public class Movie
     public int ReleaseYear { get; set; }
     public string Story { get; set; }
     public double Ratings { get; set; }
-    public DateTime DateOfCreation { get; set; }
+    public DateTime DateOfCreation { get; set; } = DateTime.UtcNow;
     public string? MovieImage { get; set; }
     public string? Genre { get; set; }
     public Movie(string title, int releaseYear, string story, double ratings)
@@ -24,7 +24,6 @@ public class Movie
         ReleaseYear = releaseYear;
         Story = story;
         Ratings = ratings;
-        DateOfCreation = DateTime.Now;
         Genre = null;
         MovieImage = null;
     }
