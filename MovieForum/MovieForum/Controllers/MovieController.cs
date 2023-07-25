@@ -24,9 +24,9 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAllMovies()
+    public async Task<IActionResult> GetAllMovies()
     {
-        HashSet<Movie?> movies = _movieService.GetMovies();
+        List<Movie> movies = await _movieService.GetMovies();
 
         foreach (Movie? movie in movies)
         {
@@ -38,18 +38,18 @@ public class MovieController : ControllerBase
 
     [Route("/add-new-movie")]
     [HttpPost]
-    public IActionResult AddNewMovie([FromBody] JsonElement body)
+    public async Task<IActionResult> AddNewMovie([FromBody] JsonElement body)
     {
         var jsonObject = JsonSerializer.Deserialize<Movie>(body);
-        _movieService.AddNewMovie(jsonObject);
-        return Ok();
+        string title = await _movieService.AddNewMovie(jsonObject);
+        return StatusCode(StatusCodes.Status200OK, $"{title} added");
 
     }
 
     [HttpGet("{id}")]
-    public IActionResult GetMovieById([FromRoute] string id)
+    public async Task<IActionResult> GetMovieById([FromRoute] string id)
     {
-        var movieWithId = _movieService.GetMovieById(id);
+        var movieWithId = await _movieService.GetMovieById(id);
         if (movieWithId == null)
         {
             return NotFound();
@@ -68,10 +68,10 @@ public class MovieController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public IActionResult UpdateMovie([FromRoute] string id, [FromBody] JsonElement body)
+    public async Task<IActionResult> UpdateMovie([FromRoute] string id, [FromBody] JsonElement body)
     {
         var updatedMovie = JsonSerializer.Deserialize<Movie>(body);
-        _movieService.UpdateMovie(id, updatedMovie);
+        await _movieService.UpdateMovie(id, updatedMovie);
         return Ok();
     }
 
@@ -82,7 +82,7 @@ public class MovieController : ControllerBase
     {
         
         bool results = false;
-        
+
         try
         {
             var uploadedFiles = Request.Form.Files;

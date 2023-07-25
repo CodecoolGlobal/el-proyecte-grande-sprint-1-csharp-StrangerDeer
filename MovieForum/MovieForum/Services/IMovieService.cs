@@ -2,9 +2,9 @@
 
 public interface IMovieService
 {
-    HashSet<Movie?> GetMovies();
-    void AddNewMovie(Movie? movie);
-    Movie? GetMovieById(string id);
-    void DeleteMovieById(string id);
-    void UpdateMovie(string id, Movie? updatedMovie);
+    Task<List<Movie?>> GetMovies();
+    Task<string> AddNewMovie(Movie? movie);
+    Task<Movie?> GetMovieById(string id);
+    Task DeleteMovieById(string id);
+    Task UpdateMovie(string id, Movie? updatedMovie);
 }

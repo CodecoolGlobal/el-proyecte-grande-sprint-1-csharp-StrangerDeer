@@ -34,11 +34,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\Uploads\Movie\" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\Screenshot_10.png\image.png" />
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\Screenshot_10.png\image.png" />
+      <Folder Include="wwwroot\Uploads\Movie\" />
     </ItemGroup>
 
     <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

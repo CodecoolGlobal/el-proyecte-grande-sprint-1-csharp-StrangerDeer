@@ -2,7 +2,7 @@
 
 namespace MovieForum.Services;
 
-public class MovieService : IMovieService
+public class MovieService 
 {
     
     private readonly IMovieRepository<Movie> _movieRepository;
