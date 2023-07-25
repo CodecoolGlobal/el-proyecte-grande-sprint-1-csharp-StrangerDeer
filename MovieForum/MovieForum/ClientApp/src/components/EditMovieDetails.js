@@ -53,9 +53,9 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
     }, [])
     
     if(loading)
-        return <div>Loading...</div>
+        return <div className="loading">Loading...</div>
     
-    return (<div>
+    return (<div className="edit-form">
         <input placeholder={"Please enter the correct title!"}
                type={"text"}
                value={movieTitle}

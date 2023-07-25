@@ -8,8 +8,9 @@ body {
 }
 
 .movie-forum-button {
-  padding: 20px;
+  padding: 10px;
   margin: auto;
+  font-size: 30px;
   margin-left: 50px;
   float: left;
   background-color: transparent;
@@ -80,6 +81,7 @@ li {
 
 body, html {
   height: 100%;
+  background-attachment: fixed !important;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -241,8 +243,25 @@ input[type=file]::file-selector-button {
 }
 
 .top-page {
-  max-width: 12%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 10px;
+  display:inline-block;
+  width:50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  justify-content: center;
+}
+
+.searchbox {
+  width: 100%;
+  margin: auto;
+}
+
+.random-movie {
+  width: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
+.edit-form, .loading {
+  font-family: Georgia;
+  margin-left: 7.5%;
 }
