@@ -28,7 +28,10 @@ const Home = () => {
         
     return (
         <>
-            <input placeholder={"search movie"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
+            <div className="top-page">
+                <input placeholder={"search movie"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
+                <button onClick={event => chooseRandomMovie()}>Random Movie</button>
+            </div>
         <div className="movies-display">
             {movies.length === 0 ? <div>We don't have movie :(</div> :
                 filteredList.length === 0 ? <div>No movie :( </div> : 
