@@ -39,7 +39,7 @@ const Home = () => {
                     filteredList
                 .map((movie, index) => 
 
-                    <Link key={movie.id} to={`/movie/${movie.id}`}>
+                    <Link key={movie.id} to={`/movie/${movie.id}`} style={{ textDecoration: 'none' }}>
                     <Tilt key={movie.id} className="tilting-movie-card" options={{
                         perspective: 50,
                         scale: 2,
