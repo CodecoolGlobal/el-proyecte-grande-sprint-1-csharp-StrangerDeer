@@ -164,8 +164,8 @@ code {
 }
 
 .movie-info-card {
-  top: 20%;
-  left: 15%;
+  top: 15%;
+  left: 12.5%;
   color: #F8EECF;
   position: absolute;
   margin: auto;
@@ -182,7 +182,7 @@ code {
 .movie-img, #uploaded-image {
   display: block;
   position: absolute;
-  top: 0%;
+  top: 15%;
   left: 60%;
   max-width: 50%;
   max-height: 80%;
