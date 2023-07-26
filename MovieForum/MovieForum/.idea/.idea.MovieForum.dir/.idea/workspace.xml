@@ -8,9 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="make it possible to upload youtube links for the trailers">
       <change beforePath="$PROJECT_DIR$/ClientApp/src/components/AddNewMovie.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/AddNewMovie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,13 +21,11 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="empty_search_bar_on_refresh" />
+        <entry key="$PROJECT_DIR$/../.." value="development" />
       </map>
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/Entities/Movie.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/Entities/Movie.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/Entities/Movie.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -105,7 +104,7 @@
       <workItem from="1690184232172" duration="131000" />
       <workItem from="1690184383470" duration="156000" />
       <workItem from="1690184561337" duration="12152000" />
-      <workItem from="1690356558440" duration="691000" />
+      <workItem from="1690356558440" duration="4654000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -173,7 +172,35 @@
       <option name="project" value="LOCAL" />
       <updated>1690285699096</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add genre selection to AddNewMovie page">
+      <created>1690363283104</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1690363283104</updated>
+    </task>
+    <task id="LOCAL-00011" summary="adjust messages; clean up css">
+      <created>1690363538090</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1690363538090</updated>
+    </task>
+    <task id="LOCAL-00012" summary="adjust layout">
+      <created>1690370505530</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690370505530</updated>
+    </task>
+    <task id="LOCAL-00013" summary="make it possible to upload youtube links for the trailers">
+      <created>1690372081779</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1690372081779</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -202,6 +229,10 @@
     <MESSAGE value="add date property to movie" />
     <MESSAGE value="fix date of creation" />
     <MESSAGE value="fix problems with date of creation" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix problems with date of creation" />
+    <MESSAGE value="add genre selection to AddNewMovie page" />
+    <MESSAGE value="adjust messages; clean up css" />
+    <MESSAGE value="adjust layout" />
+    <MESSAGE value="make it possible to upload youtube links for the trailers" />
+    <option name="LAST_COMMIT_MESSAGE" value="make it possible to upload youtube links for the trailers" />
   </component>
 </project>

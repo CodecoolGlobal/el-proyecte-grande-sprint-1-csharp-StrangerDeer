@@ -15,6 +15,7 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
     let movieTitle = movieDetails.Title;
     let movieRelease = movieDetails.ReleaseYear;
     let movieStory = movieDetails.Story;
+    let movieTrailerUrl = movieDetails.TrailerUrl;
     
     const saveImage = (event) => {
         event.preventDefault();
@@ -44,6 +45,12 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
     }
     const setInputValue = (key, value) => {
         setMovieDetails({...movieDetails, [key]: value})
+    }
+
+    const convertYouTubeUrl = (value) => {
+        const videoSource = value.replace(/(?:^https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, "//www.youtube.com/embed/$1");
+        console.log(videoSource);
+        setInputValue("TrailerUrl", videoSource)
     }
     
     useEffect(() => {
@@ -84,6 +91,13 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
                 <option key={index} value={genre.name}>{genre.name}</option>
             )}
         </select>
+        <br/>
+        <div>Movie Trailer</div>
+        <input key={"trailer"}
+               type={"text"}
+               placeholder={"Trailer"}
+               value={movieTrailerUrl}
+               onChange={(e) => convertYouTubeUrl(e.target.value)}/>
         <br/>
         <p>Upload Image</p>
         <form>

@@ -10,7 +10,8 @@ const MovieDetails = () => {
             "Story": "",
             "Ratings": 0,
             "MovieImg": "",
-            "Genre": ""
+            "Genre": "",
+            "TrailerUrl": ""
         };
     
     const [movie, setMovie] = useState([]);
@@ -25,6 +26,7 @@ const MovieDetails = () => {
     let movieImg = movieDetails.MovieImg;
     let movieGenre = movieDetails.Genre;
     let movieRatings = movieDetails.Ratings;
+    let movieTrailer = movieDetails.TrailerUrl;
 
     const setInputValue = (key, value) => {
         setMovieDetails({...movieDetails, [key]: value})
@@ -89,9 +91,11 @@ const MovieDetails = () => {
                     "Story": data.story,
                     "Ratings": data.ratings,
                     "Genre": data.genre,
-                    "MovieImg": data.movieImage
+                    "MovieImg": data.movieImage,
+                    "TrailerUrl": data.trailerUrl
                 });
-                setLoading(false)})
+                setLoading(false);
+            console.log(data)})
     }, [])
     
     if(loading)
@@ -119,6 +123,9 @@ const MovieDetails = () => {
                         <br/><br/><br/>
                         <button onClick={event => rateMovie(id)}>Rate movie</button><br/>
                         {isRated ? <p>Thank you for rating!</p> : <></>}
+                        <br/>
+                        <iframe width="550" height="410" src={movieTrailer}>
+                        </iframe>
                         <br/><br/>
                         <button onClick={event => toggleEditFields()}>Edit movie informations</button>
                         
