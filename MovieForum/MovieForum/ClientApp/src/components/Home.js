@@ -29,13 +29,13 @@ const Home = () => {
     return (
         <>
             <div className="top-page">
-                <input className="searchbox" placeholder={"search movie"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
+                <input className="searchbox" placeholder={"Search for movie title"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
                 <br/>
                 <button className="random-movie" onClick={event => chooseRandomMovie()}>Random Movie</button>
             </div>
         <div className="movies-display">
-            {movies.length === 0 ? <div>We don't have movie :(</div> :
-                filteredList.length === 0 ? <div>No movie :( </div> : 
+            {movies.length === 0 ? <div>We don't have any movies :(</div> :
+                filteredList.length === 0 ? <div>We couldn't find what you are looking for</div> : 
                     filteredList
                 .map((movie, index) => 
 

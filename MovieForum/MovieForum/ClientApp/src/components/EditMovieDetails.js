@@ -94,8 +94,10 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
         </form>
         <br/><br/>
 
-        <button onClick={event => updateMovie(id)}>Save movie informations</button><br/>
-        <button onClick={event => deleteMovie(id)}>Remove movie</button>
+        <div className="save-or-remove">
+        <button className="grid-item" onClick={event => deleteMovie(id)}>Remove movie</button>
+        <button className="grid-item" onClick={event => updateMovie(id)}>Save movie informations</button><br/>
+        </div>
     </div>)
 }
 

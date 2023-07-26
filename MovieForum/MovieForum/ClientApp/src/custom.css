@@ -5,6 +5,7 @@ a {
 body {
   color: white;
   background: linear-gradient(360deg, #4F2E3C, #192944) !important;
+  font-family: Georgia !important;
 }
 
 .movie-forum-button {
@@ -22,7 +23,7 @@ nav {
 }
 
 header {
-  font-family: Georgia;
+  font-family: Georgia !important;
   font-size: 20px;
   background: #EE7C39;
   font-weight: bolder;
@@ -46,7 +47,6 @@ header {
 
 .text-dark {
   padding: 10px;
-  font-family: Georgia;
   color: black !important;
   border-radius: 50px;
   border-style: dashed;
@@ -145,15 +145,8 @@ code {
 .tilting-movie-card {
   background: linear-gradient(180deg, #E33C23, #192944) !important;
   color: #F8EECF !important;
-  font-family: Georgia;
   transform-style: preserve-3d;
   transform: perspective(1000px);
-}
-
-.add-new-movie {
-  font-family: Georgia;
-  margin-left: 7.5%;
-  margin-top: 2%;
 }
 
 .movie-card {
@@ -178,7 +171,6 @@ code {
   margin: auto;
   width: 70%;
   padding: 10px;
-  font-family: Georgia;
 }
 
 .movie-info {
@@ -199,7 +191,6 @@ code {
 button {
   background: linear-gradient(45deg, #E33C23, #EE7C39, #EEAB42);
   color: black;
-  font-family: Georgia;
   font-weight: bolder;
   border-radius: 5px;
   font-size: 18px;
@@ -213,7 +204,6 @@ button:hover {
 input, select, textarea {
   background: linear-gradient(180deg, #EEAB42, #E9CC6D);
   color: black;
-  font-family: Georgia;
   font-size: 18px;
   width: 30%;
   word-break: break-word;
@@ -261,7 +251,19 @@ input[type=file]::file-selector-button {
   margin-right: 35%;
 }
 
-.edit-form, .loading {
-  font-family: Georgia;
-  margin-left: 7.5%;
+.edit-form, .loading, .add-new-movie {
+  margin-left: 10%;
+  margin-top: 4%;
+}
+
+.save-or-remove {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  padding: 5px;
+  max-width: 90%;
+  gap: 30px;
+}
+
+.grid-item {
+  max-width: 100%;
 }
