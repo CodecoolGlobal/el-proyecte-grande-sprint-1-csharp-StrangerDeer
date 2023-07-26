@@ -122,8 +122,7 @@ const MovieDetails = () => {
                         </div>
                         <br/><br/><br/>
                         <button onClick={event => rateMovie(id)}>Rate movie</button><br/>
-                        {isRated ? <p>Thank you for rating!</p> : <></>}
-                        <br/>
+                        {isRated ? <p style={{ visibility: 'visible' }}>Thank you for rating!</p> : <p style={{ visibility: 'hidden' }}>Thank you for rating!</p>}
                         <iframe width="550" height="410" src={movieTrailer}>
                         </iframe>
                         <br/><br/>

@@ -8,11 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="make it possible to upload youtube links for the trailers">
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/AddNewMovie.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/AddNewMovie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
-    </list>
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="remove underline from movie cards on home page" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/../.." value="development" />
+        <entry key="$PROJECT_DIR$/../.." value="movie_trailers" />
       </map>
     </option>
   </component>
@@ -104,7 +100,7 @@
       <workItem from="1690184232172" duration="131000" />
       <workItem from="1690184383470" duration="156000" />
       <workItem from="1690184561337" duration="12152000" />
-      <workItem from="1690356558440" duration="4654000" />
+      <workItem from="1690356558440" duration="5742000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -200,7 +196,28 @@
       <option name="project" value="LOCAL" />
       <updated>1690372081779</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="show uploaded trailer on the MovieDetails page">
+      <created>1690372907980</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1690372907980</updated>
+    </task>
+    <task id="LOCAL-00015" summary="add trailer url to EditMovieDetails page">
+      <created>1690373129730</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1690373129730</updated>
+    </task>
+    <task id="LOCAL-00016" summary="remove underline from movie cards on home page">
+      <created>1690373420737</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1690373420737</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -233,6 +250,9 @@
     <MESSAGE value="adjust messages; clean up css" />
     <MESSAGE value="adjust layout" />
     <MESSAGE value="make it possible to upload youtube links for the trailers" />
-    <option name="LAST_COMMIT_MESSAGE" value="make it possible to upload youtube links for the trailers" />
+    <MESSAGE value="show uploaded trailer on the MovieDetails page" />
+    <MESSAGE value="add trailer url to EditMovieDetails page" />
+    <MESSAGE value="remove underline from movie cards on home page" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove underline from movie cards on home page" />
   </component>
 </project>
