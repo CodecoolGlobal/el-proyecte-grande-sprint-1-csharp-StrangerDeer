@@ -12,17 +12,17 @@ namespace MovieForum.Controllers;
 
 public class GenreController : ControllerBase
 {
-    private readonly IGenreService _genreService;
+    private readonly IMovieService _movieService;
 
-    public GenreController(IGenreService genreService)
+    public GenreController(IMovieService movieService)
     {
-        _genreService = genreService;
+        _movieService = movieService;
     }
 
     [HttpGet]
     public async Task<IActionResult> GetAllMovies()
     {
-        List<Genre> genres = await _genreService.GetGenres();
+        List<Genre> genres = await _movieService.GetGenres();
         return Ok(genres);
     }
 }

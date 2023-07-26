@@ -7,4 +7,5 @@ public interface IMovieService
     Task<Movie?> GetMovieById(string id);
     Task DeleteMovieById(string id);
     Task UpdateMovie(string id, Movie? updatedMovie);
+    public Task<List<Genre>> GetGenres();
 }

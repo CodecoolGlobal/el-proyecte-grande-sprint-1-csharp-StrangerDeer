@@ -7,10 +7,35 @@ namespace MovieForum.Services;
 public class MovieDbService : IMovieService
 {
     private readonly MovieContext _context;
+    private readonly HashSet<Genre> _movieGenres;
 
     public MovieDbService(MovieContext context)
     {
         _context = context;
+        _movieGenres = new HashSet<Genre>()
+        {
+            new("Horror"),
+            new("Gangster"),
+            new("Comedy"),
+            new("Drama"),
+            new("Romantic"),
+            new("Thriller"),
+            new("Crime"),
+            new("Fantasy"),
+            new("Sci-Fi"),
+            new("Biography"),
+            new("Action"),
+            new("Documentary"),
+            new("Short"),
+            new("Adventure"),
+            new("Animation"),
+            new("Musical"),
+            new("Family"),
+            new("Sport"),
+            new("Mystery"),
+            new("War"),
+            new("Western"),
+        };
     }
     
     public async Task<List<Movie?>> GetMovies()
@@ -68,6 +93,24 @@ public class MovieDbService : IMovieService
                     .SetValue(movieToUpdate,
                         newPropertyValue,
                         null);
+            }
+        }
+    }
+    
+    public async Task<List<Genre>> GetGenres()
+    {
+        fillGenresDb();
+        return await _context.genres.ToListAsync().ConfigureAwait(true);
+    }
+    
+    private async void fillGenresDb()
+    {
+        foreach (Genre genre in _movieGenres)
+        {
+            if (!_context.genres.Contains(genre))
+            {
+                _context.genres.Add(genre);
+                await _context.SaveChangesAsync();
             }
         }
     }
