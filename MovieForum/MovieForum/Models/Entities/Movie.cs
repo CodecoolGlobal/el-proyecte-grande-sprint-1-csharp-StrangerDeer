@@ -16,7 +16,7 @@ public class Movie
     public double Ratings { get; set; }
     public DateTime DateOfCreation { get; set; } = DateTime.UtcNow;
     public string? MovieImage { get; set; }
-    public string? Genre { get; set; }
+    public HashSet<Genre> Genres { get; set; } = new();
     public Movie(string title, int releaseYear, string story, double ratings)
     {
         Id = Guid.NewGuid();
@@ -24,7 +24,6 @@ public class Movie
         ReleaseYear = releaseYear;
         Story = story;
         Ratings = ratings;
-        Genre = null;
         MovieImage = null;
     }
 }

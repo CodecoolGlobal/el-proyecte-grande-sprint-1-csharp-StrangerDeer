@@ -2,10 +2,11 @@
 
 namespace MovieForum;
 
-[Keyless]
+[PrimaryKey(nameof(Name))]
 public class Genre
 {
     public string Name { get; set; }
+    public HashSet<Movie> Movies { get; set; } = new();
 
     public Genre(string name)
     {
