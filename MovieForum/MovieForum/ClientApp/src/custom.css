@@ -149,11 +149,6 @@ code {
   transform: perspective(1000px);
 }
 
-.add-new-movie {
-  margin-left: 7.5%;
-  margin-top: 2%;
-}
-
 .movie-card {
   text-align: center;
   transform: translateZ(100px);
@@ -256,6 +251,19 @@ input[type=file]::file-selector-button {
   margin-right: 35%;
 }
 
-.edit-form, .loading {
-  margin-left: 7.5%;
+.edit-form, .loading, .add-new-movie {
+  margin-left: 10%;
+  margin-top: 4%;
+}
+
+.save-or-remove {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  padding: 5px;
+  max-width: 90%;
+  gap: 30px;
+}
+
+.grid-item {
+  max-width: 100%;
 }
