@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
 
 const AddNewMovie = () =>{
@@ -10,11 +10,14 @@ const AddNewMovie = () =>{
   const movieObj = {
     "Title": "",
     "ReleaseYear": thisYear,
-    "Story": ""
+    "Story": "", 
+      "Genre": ""
     };
     
   const [hasEmptySpace, setHasEmptySpace] = useState(false);
+  const [genres, setGenres] = useState(null);
   const [inputs, setInputs] = useState(movieObj);
+  const [loading, setLoading] = useState(true);
   
   const clickEvent = () => {
     
@@ -29,9 +32,13 @@ const AddNewMovie = () =>{
     } else{
       saveMovie()
     }
-    
   }
   
+    useEffect(() => {
+        fetch(`/api/genres`)
+            .then(res => res.json())
+            .then(data => {setGenres(data); setLoading(false)})
+    }, [])
   const saveMovie = () => {
     fetch('/add-new-movie', {
       method: "post",
@@ -46,7 +53,11 @@ const AddNewMovie = () =>{
   let titleInput = inputs.Title;
   let yearInput = Number(inputs.ReleaseYear);
   let storyInput = inputs.Story;
+  let genreInput = inputs.Genre;
     
+  if (loading) {
+      return <div className="loading">Loading...</div>
+  }
   return (
       <div className="add-new-movie">
         <div>Movie Title</div>
@@ -75,6 +86,15 @@ const AddNewMovie = () =>{
           value={storyInput}
           onChange={(e) =>setInputValue("Story", e.target.value)}/>
         <br/>
+          <div>Please choose the correct genre for this movie!</div>
+          <select value={inputs.Genre !== null ? inputs.Genre : ""}
+                  onChange={(event) => setInputValue("Genre", event.target.value)}>
+              <option>Select a genre</option>
+              {genres.map((genre, index) =>
+                  <option key={index} value={genre.name}>{genre.name}</option>
+              )}
+          </select>
+          <br/><br/>
           <button onClick={() => clickEvent(titleInput)}>Save</button>
       </div>
     );
