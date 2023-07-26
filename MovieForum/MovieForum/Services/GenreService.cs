@@ -2,7 +2,7 @@
 
 namespace MovieForum.Services;
 
-public class GenreService : IGenreService
+public class GenreService 
 {
     private readonly IGenreRepository<Genre> _genreRepository;
 

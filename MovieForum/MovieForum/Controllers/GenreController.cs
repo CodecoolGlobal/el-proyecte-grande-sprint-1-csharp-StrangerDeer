@@ -20,7 +20,9 @@ public class GenreController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetAllMovies()
-        => new JsonResult(
-            _genreService.GetGenres());
+    public async Task<IActionResult> GetAllMovies()
+    {
+        List<Genre> genres = await _genreService.GetGenres();
+        return Ok(genres);
+    }
 }

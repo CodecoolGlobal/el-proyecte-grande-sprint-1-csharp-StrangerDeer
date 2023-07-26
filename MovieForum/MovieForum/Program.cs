@@ -19,13 +19,15 @@ builder.Services.AddSingleton<IMovieRepository<Movie>, MovieRepository>();
 builder.Services.AddSingleton<IGenreRepository<Genre>, GenreRepository>();
 /*builder.Services.AddTransient<IMovieService, MovieService>();*/
 builder.Services.AddTransient<IMovieService, MovieDbService>();
+builder.Services.AddTransient<IGenreService, GenreDbService>();
 builder.Services.Configure<FormOptions>(o => {  
     o.ValueLengthLimit = int.MaxValue;  
     o.MultipartBodyLengthLimit = long.MaxValue;  
     o.MemoryBufferThreshold = int.MaxValue;  
 });  
 
-builder.Services.AddTransient<IGenreService, GenreService>();
+/*
+builder.Services.AddTransient<IGenreService, GenreService>();*/
 
 
 

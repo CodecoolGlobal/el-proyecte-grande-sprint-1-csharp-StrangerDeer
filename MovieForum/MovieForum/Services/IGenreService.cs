@@ -2,5 +2,5 @@
 
 public interface IGenreService
 {
-    HashSet<Genre> GetGenres();
+    Task<List<Genre>> GetGenres();
 }
