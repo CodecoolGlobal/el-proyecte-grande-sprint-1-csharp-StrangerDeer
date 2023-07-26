@@ -17,6 +17,7 @@ public class Movie
     public DateTime DateOfCreation { get; set; } = DateTime.UtcNow;
     public string? MovieImage { get; set; }
     public string? Genre { get; set; }
+    public string? TrailerUrl { get; set; }
     public Movie(string title, int releaseYear, string story, double ratings)
     {
         Id = Guid.NewGuid();
@@ -26,5 +27,6 @@ public class Movie
         Ratings = ratings;
         Genre = null;
         MovieImage = null;
+        TrailerUrl = null;
     }
 }

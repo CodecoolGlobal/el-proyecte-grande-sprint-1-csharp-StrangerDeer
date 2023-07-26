@@ -11,7 +11,8 @@ const AddNewMovie = () =>{
     "Title": "",
     "ReleaseYear": thisYear,
     "Story": "", 
-      "Genre": ""
+      "Genre": "",
+      "TrailerUrl": ""
     };
     
   const [hasEmptySpace, setHasEmptySpace] = useState(false);
@@ -49,11 +50,17 @@ const AddNewMovie = () =>{
     }).then(() => navigate("/"))
   }
   const setInputValue = (key, value) => {setInputs({...inputs, [key]: value})};
+  const convertYouTubeUrl = (value) => {
+      const videoSource = value.replace(/(?:^https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, "http://www.youtube.com/embed/$1");
+      console.log(videoSource);
+      setInputValue("TrailerUrl", videoSource)
+  }
   
   let titleInput = inputs.Title;
   let yearInput = Number(inputs.ReleaseYear);
   let storyInput = inputs.Story;
   let genreInput = inputs.Genre;
+  let trailerUrlInput = inputs.TrailerUrl;
     
   if (loading) {
       return <div className="loading">Loading...</div>
@@ -94,8 +101,15 @@ const AddNewMovie = () =>{
                   <option key={index} value={genre.name}>{genre.name}</option>
               )}
           </select>
+          <br/>
+          <div>Movie Trailer</div>
+          <input key={"trailer"}
+                 type={"text"}
+                 placeholder={"Trailer"}
+                 value={trailerUrlInput}
+                 onChange={(e) => convertYouTubeUrl(e.target.value)}/>
           <br/><br/>
-          <button onClick={() => clickEvent(titleInput)}>Save</button>
+          <button onClick={() => clickEvent(trailerUrlInput)}>Save</button>
       </div>
     );
 }
