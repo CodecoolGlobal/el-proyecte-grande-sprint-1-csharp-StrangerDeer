@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import Tilt from 'react-vanilla-tilt';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 const Home = () => {
     
+    const navigate = useNavigate();
+
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchMovie, setSearchMovie] = useState("");
     
     useEffect(() =>{
         fetch('/movies')
@@ -12,12 +15,30 @@ const Home = () => {
             .then(data => {setMovies(data); setLoading(false)})
     }, [])
     
-    if(loading)
-        return <p><em>Loading...</em></p>;
+    function chooseRandomMovie() {
+        const randomMovieIndex = Math.floor(Math.random() * (movies.length));
+        const movieId = movies[randomMovieIndex].id;
+        navigate(`/movie/${movieId}`);
+    }
     
+    if(loading)
+        return <p className="loading"><em>Loading...</em></p>;
+    
+    let filteredList = movies.filter(movie => movie.title.toLowerCase().includes(searchMovie.toLowerCase())).sort((a, b) => (a.dateOfCreation < b.dateOfCreation) ? 1 : -1)
+        
     return (
+        <>
+            <div className="top-page">
+                <input className="searchbox" placeholder={"search movie"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
+                <br/>
+                <button className="random-movie" onClick={event => chooseRandomMovie()}>Random Movie</button>
+            </div>
         <div className="movies-display">
-            {movies.map((movie, index) => 
+            {movies.length === 0 ? <div>We don't have movie :(</div> :
+                filteredList.length === 0 ? <div>No movie :( </div> : 
+                    filteredList
+                .map((movie, index) => 
+
                     <Link key={movie.id} to={`/movie/${movie.id}`}>
                     <Tilt key={movie.id} className="tilting-movie-card" options={{
                         perspective: 50,
@@ -25,7 +46,7 @@ const Home = () => {
                         max: 400,
                         speed: 10,
                         glare: true,
-                        "max-glare": 1,
+                        'max-glare': 10,
                         easing:"cubic-bezier(.03,.98,.52.99)"}}
                     data-tilt-glare={true}
                     >
@@ -39,6 +60,7 @@ const Home = () => {
                 </Link>
                 )}
             </div>
+        </>
         );
 }
 export default Home;

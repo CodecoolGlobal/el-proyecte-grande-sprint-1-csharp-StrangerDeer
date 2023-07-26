@@ -8,7 +8,17 @@ body {
 }
 
 .movie-forum-button {
+  padding: 10px;
+  margin: auto;
+  font-size: 30px;
+  margin-left: 50px;
+  float: left;
   background-color: transparent;
+  color: black !important;
+}
+
+nav {
+  height: 70px;
 }
 
 header {
@@ -35,12 +45,23 @@ header {
 }
 
 .text-dark {
+  padding: 10px;
   font-family: Georgia;
   color: black !important;
   border-radius: 50px;
   border-style: dashed;
   border-color: #EEAB42;
   font-weight: bolder;
+}
+
+ul {
+  height: 100%;
+  float: right;
+  margin-right: 50px;
+}
+
+li {
+  margin: auto;
 }
 
 .text-dark:hover {
@@ -60,6 +81,7 @@ header {
 
 body, html {
   height: 100%;
+  background-attachment: fixed !important;
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
@@ -117,8 +139,7 @@ code {
   gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
-  margin-left: 30px;
-  margin-right: 30px
+  margin-left: 7.5%;
 }
 
 .tilting-movie-card {
@@ -127,6 +148,12 @@ code {
   font-family: Georgia;
   transform-style: preserve-3d;
   transform: perspective(1000px);
+}
+
+.add-new-movie {
+  font-family: Georgia;
+  margin-left: 7.5%;
+  margin-top: 2%;
 }
 
 .movie-card {
@@ -178,6 +205,11 @@ button {
   font-size: 18px;
 }
 
+button:hover {
+  background: linear-gradient(45deg, #623038, #D33A25, #E33C23);
+  color: antiquewhite;
+}
+
 input, select, textarea {
   background: linear-gradient(180deg, #EEAB42, #E9CC6D);
   color: black;
@@ -208,4 +240,28 @@ textarea {
 
 input[type=file]::file-selector-button {
   background: #E01A76;
+}
+
+.top-page {
+  display:inline-block;
+  width:50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  justify-content: center;
+}
+
+.searchbox {
+  width: 100%;
+  margin: auto;
+}
+
+.random-movie {
+  width: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+}
+
+.edit-form, .loading {
+  font-family: Georgia;
+  margin-left: 7.5%;
 }
