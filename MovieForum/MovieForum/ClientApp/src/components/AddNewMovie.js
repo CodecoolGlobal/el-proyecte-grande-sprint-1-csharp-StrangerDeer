@@ -22,7 +22,7 @@ const AddNewMovie = () =>{
   const clickEvent = () => {
     
     if(!inputs.Story.trim().length){
-     setInputs({...inputs, "Story": "This movie doesn't have story"});
+     setInputs({...inputs, "Story": "No story specified"});
     }
     
     if(!inputs.Title.trim().length || 
