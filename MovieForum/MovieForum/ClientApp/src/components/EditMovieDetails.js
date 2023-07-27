@@ -49,7 +49,6 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
 
     const convertYouTubeUrl = (value) => {
         const videoSource = value.replace(/(?:^https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, "//www.youtube.com/embed/$1");
-        console.log(videoSource);
         setInputValue("TrailerUrl", videoSource)
     }
     

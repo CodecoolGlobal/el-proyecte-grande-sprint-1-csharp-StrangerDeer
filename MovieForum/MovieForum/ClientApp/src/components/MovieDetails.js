@@ -95,14 +95,11 @@ const MovieDetails = () => {
                     "TrailerUrl": data.trailerUrl
                 });
                 setLoading(false);
-            console.log(data)})
     }, [])
     
     if(loading)
         return <p className="loading"><em>Loading...</em></p>;
         
-    console.log(movieTrailer);
-    
     return (
         <div>
             {editAllowed ? <EditMovieDetails movieDetails={movieDetails} 
