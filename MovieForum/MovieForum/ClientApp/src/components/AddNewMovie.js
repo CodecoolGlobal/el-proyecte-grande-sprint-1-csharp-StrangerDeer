@@ -52,7 +52,6 @@ const AddNewMovie = () =>{
   const setInputValue = (key, value) => {setInputs({...inputs, [key]: value})};
   const convertYouTubeUrl = (value) => {
       const videoSource = value.replace(/(?:^https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, "//www.youtube.com/embed/$1");
-      console.log(videoSource);
       setInputValue("TrailerUrl", videoSource)
   }
   
