@@ -240,9 +240,12 @@ input[type=file]::file-selector-button {
   justify-content: center;
 }
 
-.searchbox {
+.search-container {
   width: 100%;
-  margin: auto;
+}
+
+.searchbox {
+  width: 70%;
 }
 
 .random-movie {

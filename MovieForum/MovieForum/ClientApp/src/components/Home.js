@@ -48,9 +48,9 @@ const Home = () => {
                         <option key={index} value={genre.name}>{genre.name}</option>
                     )}
                 </select>
-                </div>
-                <br/>
+                </div><br/>
                 <button className="random-movie" onClick={event => chooseRandomMovie()}>Random Movie</button>
+                <br/><br/>
             </div>
         <div className="movies-display">
             {movies.length === 0 ? <div>We don't have any movies :(</div> :
