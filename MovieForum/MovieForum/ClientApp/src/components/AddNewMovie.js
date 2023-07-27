@@ -96,7 +96,7 @@ const AddNewMovie = () =>{
           <div>Please choose the correct genre for this movie!</div>
           <select value={inputs.Genre !== null ? inputs.Genre : ""}
                   onChange={(event) => setInputValue("Genre", event.target.value)}>
-              <option>Select a genre</option>
+              <option hidden={true}>Select a genre</option>
               {genres.map((genre, index) =>
                   <option key={index} value={genre.name}>{genre.name}</option>
               )}

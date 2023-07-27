@@ -111,10 +111,10 @@ const MovieDetails = () => {
                                             navigate={navigate}/>
                     : 
                     <div className="movie-info-card">
-                        <p className="movie-info">{movieTitle}</p>
-                        <p className="movie-info">{movieRelease}</p>
-                        <p className="movie-info">{movieGenre !== null ? movieGenre : ''}</p>
-                        <p className="movie-info">{movieStory}</p>
+                        <p className="movie-info" id="movie-title">{movieTitle}</p>
+                        <p className="movie-info" id="movie-release">{movieRelease}</p>
+                        <p className="movie-info" id="movie-genre">{movieGenre !== null ? movieGenre : ''}</p>
+                        <p className="movie-info" id="movie-story">{movieStory}</p>
 
                         <img alt={id} className="movie-img" src={movieImg}/>
                         

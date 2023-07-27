@@ -8,9 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="adjust layout when no trailer is present">
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="change search box and genre dropdown menu layout">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/AddNewMovie.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/AddNewMovie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/EditMovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/EditMovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +107,7 @@
       <workItem from="1690184383470" duration="156000" />
       <workItem from="1690184561337" duration="12152000" />
       <workItem from="1690356558440" duration="6500000" />
-      <workItem from="1690443864404" duration="2688000" />
+      <workItem from="1690443864404" duration="4344000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -235,7 +238,21 @@
       <option name="project" value="LOCAL" />
       <updated>1690444366972</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="enable filtering movies by genres">
+      <created>1690446738371</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1690446738371</updated>
+    </task>
+    <task id="LOCAL-00020" summary="change search box and genre dropdown menu layout">
+      <created>1690447318379</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1690447318379</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +290,8 @@
     <MESSAGE value="remove underline from movie cards on home page" />
     <MESSAGE value="make slight changes to the layout and css" />
     <MESSAGE value="adjust layout when no trailer is present" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjust layout when no trailer is present" />
+    <MESSAGE value="enable filtering movies by genres" />
+    <MESSAGE value="change search box and genre dropdown menu layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="change search box and genre dropdown menu layout" />
   </component>
 </project>

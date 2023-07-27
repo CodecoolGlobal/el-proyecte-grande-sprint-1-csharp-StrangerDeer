@@ -156,6 +156,7 @@ code {
 
 .movie-titles {
   max-width: 100%;
+  font-size: 20px;
   word-break: break-word;
 }
 
@@ -171,6 +172,7 @@ code {
   margin: auto;
   width: 70%;
   padding: 10px;
+  word-break: break-word;
 }
 
 .movie-info {
@@ -179,13 +181,30 @@ code {
   word-break: break-word;
 }
 
+#movie-title {
+  font-size: 30px;
+  margin: auto 0px 2.5px;
+}
+
+#movie-genre {
+  font-size: 20px;
+}
+
+#movie-story {
+  font-size: 20px;
+}
+
+#movie-release {
+  font-size: 17px;
+  margin: auto 0px 0px;
+}
+
 .movie-img, #uploaded-image {
   display: block;
   position: absolute;
   top: 15%;
   left: 60%;
-  max-width: 50%;
-  max-height: 80%;
+  max-width: 500px;
 }
 
 button {
