@@ -15,7 +15,13 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
     let movieTitle = movieDetails.Title;
     let movieRelease = movieDetails.ReleaseYear;
     let movieStory = movieDetails.Story;
+    const movieGenres = movieDetails.Genres;
     
+    const handleGenres = (genre) => {
+        const newGenres = [...movieGenres, genre];
+        setInputValue("Genres", newGenres);
+        
+    }
     const saveImage = (event) => {
         event.preventDefault();
         
@@ -78,7 +84,7 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
         <br/>
         <div>Please choose the correct genre for this movie!</div>
         <select value={movieDetails.Genre !== null ? movieDetails.Genre : ""}
-            onChange={(event) => setInputValue("Genre", event.target.value)}>
+            onChange={(event) => handleGenres(event.target.value)}>
             <option>Select a genre</option>
             {genres.map((genre, index) =>
                 <option key={index} value={genre.name}>{genre.name}</option>

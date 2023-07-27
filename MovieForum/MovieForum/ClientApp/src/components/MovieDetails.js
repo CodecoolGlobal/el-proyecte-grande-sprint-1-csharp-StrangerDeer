@@ -75,7 +75,7 @@ const MovieDetails = () => {
             headers: {
                 "Content-type": "application/json",
             }
-        }).then(() => {window.location.reload()})
+        }).then(/*() => {window.location.reload()}*/)
     }
     
     useEffect(() => {
@@ -88,7 +88,7 @@ const MovieDetails = () => {
                     "ReleaseYear": data.releaseYear,
                     "Story": data.story,
                     "Ratings": data.ratings,
-                    "Genre": data.genre,
+                    "Genres": data.genres,
                     "MovieImg": data.movieImage
                 });
                 setLoading(false)})
@@ -96,6 +96,8 @@ const MovieDetails = () => {
     
     if(loading)
         return <p className="loading"><em>Loading...</em></p>;
+    
+    console.log(movie)
         
     return (
         <div>

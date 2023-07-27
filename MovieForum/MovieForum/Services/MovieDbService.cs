@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.Collections;
+using System.Reflection;
+using System.Text.Json;
 using Microsoft.EntityFrameworkCore;
 using MovieForum.Models;
 
@@ -70,22 +72,57 @@ public class MovieDbService : IMovieService
         
     }
 
-    public async Task UpdateMovie(string id, Movie? updatedMovie)
+    public async Task UpdateMovie(string id, UpdatingMovie updatedMovieObj)
     {
         var movieToUpdate = await _context.movies.FirstOrDefaultAsync(movie => movie.Id.Equals(Guid.Parse(id)));
+        Movie convertedMovie = await movieObjToMovieType(updatedMovieObj);
+        
         if (movieToUpdate != null)
         {
-            UpdateMovieProperties(movieToUpdate, updatedMovie);
+            UpdateMovieProperties(movieToUpdate, convertedMovie);
         }
         await _context.SaveChangesAsync().ConfigureAwait(true);
     }
 
-    private void UpdateMovieProperties(Movie movieToUpdate, Movie? updatedMovie)
+    private async Task<Movie> movieObjToMovieType(UpdatingMovie movieObj)
     {
+        Movie newMovie = new(
+            movieObj.Title,
+            movieObj.ReleaseYear,
+            movieObj.Story,
+            movieObj.Ratings
+            );
+        newMovie.MovieImage = movieObj.MovieImage;
+        newMovie.Genres = await convertMovieObjGenre(movieObj.Genres);
+
+        return newMovie;
+    }
+
+    private async Task<HashSet<Genre>> convertMovieObjGenre(HashSet<string> movieObjGenres)
+    {
+        HashSet<Genre> movieGenres = new();
+        foreach (var updatingGenre in movieObjGenres)
+        {
+            var foundGenre = await _context.genres.FirstOrDefaultAsync(genre => genre.Name.Equals(updatingGenre));
+            movieGenres.Add(foundGenre);
+        }
+
+        return movieGenres;
+    }
+
+    private void UpdateMovieProperties(Movie movieToUpdate, Movie updatedMovie)
+    {
+        var targetType = updatedMovie.GetType();
+        var sharedProperties = movieToUpdate.GetType().GetProperties()
+            .Where(p => p.DeclaringType.IsAssignableFrom(targetType));
+
+        
+        
         PropertyInfo[] movieProperties = movieToUpdate.GetType().GetProperties();
 
         foreach (PropertyInfo movieProperty in movieProperties)
         {
+            Console.WriteLine(movieProperty);
             if (movieProperty.CanWrite)
             {
                 var newPropertyValue = movieProperty.GetValue(updatedMovie);

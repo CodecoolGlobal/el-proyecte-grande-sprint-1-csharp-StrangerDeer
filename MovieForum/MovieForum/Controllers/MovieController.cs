@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Cors;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using MovieForum.Services;
 
@@ -70,7 +71,7 @@ public class MovieController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateMovie([FromRoute] string id, [FromBody] JsonElement body)
     {
-        var updatedMovie = JsonSerializer.Deserialize<Movie>(body);
+        var updatedMovie = body.Deserialize<UpdatingMovie>();
         await _movieService.UpdateMovie(id, updatedMovie);
         return Ok();
     }

@@ -8,11 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="change GenreService.cs to GenreDbService.cs">
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/GenreController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/GenreController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/MovieContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MovieContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/GenreDbService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/GenreDbService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/EditMovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/EditMovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/IMovieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IMovieService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/MovieDbService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/MovieDbService.cs" afterDir="false" />
     </list>
@@ -109,6 +110,7 @@
       <workItem from="1690184232172" duration="131000" />
       <workItem from="1690184383470" duration="156000" />
       <workItem from="1690184561337" duration="12152000" />
+      <workItem from="1690442264067" duration="3272000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -192,7 +194,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690363801160</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fill genre db">
+      <option name="closed" value="true" />
+      <created>1690370028251</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1690370028252</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +233,7 @@
     <MESSAGE value="fix problems with date of creation" />
     <MESSAGE value="connect movie table to genre table" />
     <MESSAGE value="change GenreService.cs to GenreDbService.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="change GenreService.cs to GenreDbService.cs" />
+    <MESSAGE value="fill genre db" />
+    <option name="LAST_COMMIT_MESSAGE" value="fill genre db" />
   </component>
 </project>
