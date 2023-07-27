@@ -8,7 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="edit details layout; hide default dropdown options" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="remove console logs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,6 +23,9 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/Entities/Movie.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectId" id="2T0ZOoYn3mloBXba4khK52Cl2N9" />
@@ -101,7 +104,7 @@
       <workItem from="1690184383470" duration="156000" />
       <workItem from="1690184561337" duration="12152000" />
       <workItem from="1690356558440" duration="6500000" />
-      <workItem from="1690443864404" duration="4595000" />
+      <workItem from="1690443864404" duration="5300000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -253,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1690448287201</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="remove console logs">
+      <created>1690457612734</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1690457612734</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,6 +304,7 @@
     <MESSAGE value="enable filtering movies by genres" />
     <MESSAGE value="change search box and genre dropdown menu layout" />
     <MESSAGE value="edit details layout; hide default dropdown options" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit details layout; hide default dropdown options" />
+    <MESSAGE value="remove console logs" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove console logs" />
   </component>
 </project>
