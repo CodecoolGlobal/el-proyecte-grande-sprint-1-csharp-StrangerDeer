@@ -8,11 +8,17 @@ const Home = () => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchMovie, setSearchMovie] = useState("");
+    const [genres, setGenres] = useState(null);
+    const [selectedGenre, setSelectedGenre] = useState("");
     
     useEffect(() =>{
         fetch('/movies')
             .then(req => req.json())
-            .then(data => {setMovies(data); setLoading(false)})
+            .then(data => {setMovies(data)})
+
+        fetch(`/api/genres`)
+            .then(res => res.json())
+            .then(data => {setGenres(data); setLoading(false)})
     }, [])
     
     function chooseRandomMovie() {
@@ -24,19 +30,32 @@ const Home = () => {
     if(loading)
         return <p className="loading"><em>Loading...</em></p>;
     
-    let filteredList = movies.filter(movie => movie.title.toLowerCase().includes(searchMovie.toLowerCase())).sort((a, b) => (a.dateOfCreation < b.dateOfCreation) ? 1 : -1)
-        
+    let searchList = movies.filter(movie => movie.title.toLowerCase().includes(searchMovie.toLowerCase())).sort((a, b) => (a.dateOfCreation < b.dateOfCreation) ? 1 : -1)
+    if (selectedGenre !== "") {
+        let filteredList = movies.filter(movie => movie.genre === selectedGenre);
+        searchList = filteredList.filter(movie => movie.title.toLowerCase().includes(searchMovie.toLowerCase())).sort((a, b) => (a.dateOfCreation < b.dateOfCreation) ? 1 : -1)
+    }
+    
     return (
         <>
             <div className="top-page">
+                <div className="search-container">
                 <input className="searchbox" placeholder={"Search for movie title"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
-                <br/>
+                <select onChange={(event) => setSelectedGenre(event.target.value)}>
+                    <option selected={true} disabled={true} hidden={true}>Filter by genres</option>
+                    <option value={""}>Not specified</option>
+                    {genres.map((genre, index) =>
+                        <option key={index} value={genre.name}>{genre.name}</option>
+                    )}
+                </select>
+                </div><br/>
                 <button className="random-movie" onClick={event => chooseRandomMovie()}>Random Movie</button>
+                <br/><br/>
             </div>
         <div className="movies-display">
             {movies.length === 0 ? <div>We don't have any movies :(</div> :
-                filteredList.length === 0 ? <div>We couldn't find what you are looking for</div> : 
-                    filteredList
+                searchList.length === 0 ? <div>We couldn't find what you are looking for</div> : 
+                    searchList
                 .map((movie, index) => 
 
                     <Link key={movie.id} to={`/movie/${movie.id}`} style={{ textDecoration: 'none' }}>

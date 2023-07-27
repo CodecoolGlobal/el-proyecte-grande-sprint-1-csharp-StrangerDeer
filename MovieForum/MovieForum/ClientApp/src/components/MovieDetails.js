@@ -101,6 +101,8 @@ const MovieDetails = () => {
     if(loading)
         return <p className="loading"><em>Loading...</em></p>;
         
+    console.log(movieTrailer);
+    
     return (
         <div>
             {editAllowed ? <EditMovieDetails movieDetails={movieDetails} 
@@ -109,10 +111,10 @@ const MovieDetails = () => {
                                             navigate={navigate}/>
                     : 
                     <div className="movie-info-card">
-                        <p className="movie-info">{movieTitle}</p>
-                        <p className="movie-info">{movieRelease}</p>
-                        <p className="movie-info">{movieGenre !== null ? movieGenre : ''}</p>
-                        <p className="movie-info">{movieStory}</p>
+                        <p className="movie-info" id="movie-title">{movieTitle}</p>
+                        <p className="movie-info" id="movie-release">{movieRelease}</p>
+                        <p className="movie-info" id="movie-genre">{movieGenre !== null ? movieGenre : ''}</p>
+                        <p className="movie-info" id="movie-story">{movieStory}</p>
 
                         <img alt={id} className="movie-img" src={movieImg}/>
                         
@@ -123,9 +125,7 @@ const MovieDetails = () => {
                         <br/><br/><br/>
                         <button onClick={event => rateMovie(id)}>Rate movie</button><br/>
                         {isRated ? <p style={{ visibility: 'visible' }}>Thank you for rating!</p> : <p style={{ visibility: 'hidden' }}>Thank you for rating!</p>}
-                        <iframe width="550" height="410" src={movieTrailer}>
-                        </iframe>
-                        <br/><br/>
+                        {(movieTrailer !== null) ? <div><iframe width="550" height="410" src={movieTrailer}></iframe><br/><br/></div> : <></>}
                         <button onClick={event => toggleEditFields()}>Edit movie informations</button>
                         
                     </div>}
