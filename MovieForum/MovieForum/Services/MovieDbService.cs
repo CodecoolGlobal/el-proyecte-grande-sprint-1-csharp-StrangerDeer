@@ -52,15 +52,17 @@ public class MovieDbService : IMovieService
         return movie.Title;
     }
 
-    public async Task<Movie?> GetMovieById(string id)
+    public async Task<MovieInfo?> GetMovieById(string id)
     {
         Movie? movie = await _context.movies
             .AsNoTracking()
             .Where(movie => movie != null && movie.Id.Equals(Guid.Parse(id)))
-            .FirstOrDefaultAsync()
-            .ConfigureAwait(true);
-        
-        return movie;
+            .Include(movie => movie.Genres)
+            .FirstOrDefaultAsync();
+
+        MovieInfo movieInfo = convertMovieToMovieInfo(movie);
+
+        return movieInfo;
     }
 
     public async Task DeleteMovieById(string id)
@@ -72,28 +74,63 @@ public class MovieDbService : IMovieService
         
     }
 
-    public async Task UpdateMovie(string id, UpdatingMovie updatedMovieObj)
+    public async Task UpdateMovie(string id, MovieInfo updatedMovieInfoObj)
     {
         var movieToUpdate = await _context.movies.FirstOrDefaultAsync(movie => movie.Id.Equals(Guid.Parse(id)));
-        Movie convertedMovie = await movieObjToMovieType(updatedMovieObj);
+        Movie convertedMovie = await movieObjToMovieType(updatedMovieInfoObj);
         
         if (movieToUpdate != null)
         {
             UpdateMovieProperties(movieToUpdate, convertedMovie);
         }
+
+        genreDbMoviesCoulumnUpdate(movieToUpdate);
         await _context.SaveChangesAsync().ConfigureAwait(true);
     }
 
-    private async Task<Movie> movieObjToMovieType(UpdatingMovie movieObj)
+    private MovieInfo convertMovieToMovieInfo(Movie movie)
+    {
+        MovieInfo movieInfo = new(
+            movie.Title,
+            movie.ReleaseYear,
+            movie.Story,
+            movie.Ratings
+        );
+        HashSet<string> movieInfoGenres = new HashSet<string>();
+        foreach (var genre in movie.Genres)
+        {
+            movieInfoGenres.Add(genre.Name);
+        }
+
+        movieInfo.Genres = movieInfoGenres;
+
+        return movieInfo;
+    }
+    private async void genreDbMoviesCoulumnUpdate(Movie movie)
+    {
+        HashSet<Genre> movieToUpdateGenres = movie.Genres;
+        
+        foreach (Genre updateMovieGenre in movieToUpdateGenres)
+        {
+            Genre genre = await _context.genres.FirstOrDefaultAsync(currGenre => currGenre.Name.Equals(updateMovieGenre.Name));
+            if (!genre.Movies.Contains(movie))
+            {
+                genre.Movies.Add(movie);
+                movie.Genres.Add(genre);
+            }
+        }
+    }
+
+    private async Task<Movie> movieObjToMovieType(MovieInfo movieInfoObj)
     {
         Movie newMovie = new(
-            movieObj.Title,
-            movieObj.ReleaseYear,
-            movieObj.Story,
-            movieObj.Ratings
+            movieInfoObj.Title,
+            movieInfoObj.ReleaseYear,
+            movieInfoObj.Story,
+            movieInfoObj.Ratings
             );
-        newMovie.MovieImage = movieObj.MovieImage;
-        newMovie.Genres = await convertMovieObjGenre(movieObj.Genres);
+        newMovie.MovieImage = movieInfoObj.MovieImage;
+        newMovie.Genres = await convertMovieObjGenre(movieInfoObj.Genres);
 
         return newMovie;
     }
@@ -112,17 +149,10 @@ public class MovieDbService : IMovieService
 
     private void UpdateMovieProperties(Movie movieToUpdate, Movie updatedMovie)
     {
-        var targetType = updatedMovie.GetType();
-        var sharedProperties = movieToUpdate.GetType().GetProperties()
-            .Where(p => p.DeclaringType.IsAssignableFrom(targetType));
-
-        
-        
         PropertyInfo[] movieProperties = movieToUpdate.GetType().GetProperties();
 
         foreach (PropertyInfo movieProperty in movieProperties)
         {
-            Console.WriteLine(movieProperty);
             if (movieProperty.CanWrite)
             {
                 var newPropertyValue = movieProperty.GetValue(updatedMovie);

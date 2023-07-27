@@ -8,12 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="">
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="compere two movie in MovieDbService.cs">
+      <change afterPath="$PROJECT_DIR$/Models/Entities/GenreMovie.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/EditMovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/EditMovieDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Entities/Genre.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Entities/Genre.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Entities/Movie.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Entities/Movie.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/MovieContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MovieContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/IMovieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IMovieService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/MovieDbService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/MovieDbService.cs" afterDir="false" />
     </list>
@@ -110,7 +112,8 @@
       <workItem from="1690184232172" duration="131000" />
       <workItem from="1690184383470" duration="156000" />
       <workItem from="1690184561337" duration="12152000" />
-      <workItem from="1690442264067" duration="3272000" />
+      <workItem from="1690442264067" duration="10043000" />
+      <workItem from="1690457572897" duration="5217000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -202,7 +205,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690370028252</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="compere two movie in MovieDbService.cs">
+      <option name="closed" value="true" />
+      <created>1690445934469</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1690445934469</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +245,7 @@
     <MESSAGE value="connect movie table to genre table" />
     <MESSAGE value="change GenreService.cs to GenreDbService.cs" />
     <MESSAGE value="fill genre db" />
-    <option name="LAST_COMMIT_MESSAGE" value="fill genre db" />
+    <MESSAGE value="compere two movie in MovieDbService.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="compere two movie in MovieDbService.cs" />
   </component>
 </project>

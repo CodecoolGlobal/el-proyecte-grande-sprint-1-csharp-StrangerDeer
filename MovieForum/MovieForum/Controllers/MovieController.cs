@@ -71,7 +71,7 @@ public class MovieController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateMovie([FromRoute] string id, [FromBody] JsonElement body)
     {
-        var updatedMovie = body.Deserialize<UpdatingMovie>();
+        var updatedMovie = body.Deserialize<MovieInfo>();
         await _movieService.UpdateMovie(id, updatedMovie);
         return Ok();
     }

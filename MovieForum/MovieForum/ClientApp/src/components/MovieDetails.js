@@ -75,7 +75,7 @@ const MovieDetails = () => {
             headers: {
                 "Content-type": "application/json",
             }
-        }).then(/*() => {window.location.reload()}*/)
+        }).then(() => {window.location.reload()})
     }
     
     useEffect(() => {
