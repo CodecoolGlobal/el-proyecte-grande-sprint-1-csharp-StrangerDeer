@@ -8,7 +8,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="remove console logs" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="add authentication configuration to startup">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/MovieContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MovieContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieForum.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MovieForum.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +109,9 @@
       <workItem from="1690184383470" duration="156000" />
       <workItem from="1690184561337" duration="12152000" />
       <workItem from="1690356558440" duration="6500000" />
-      <workItem from="1690443864404" duration="5300000" />
+      <workItem from="1690443864404" duration="5875000" />
+      <workItem from="1690979565522" duration="1216000" />
+      <workItem from="1692008942153" duration="3810000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -263,7 +270,21 @@
       <option name="project" value="LOCAL" />
       <updated>1690457612734</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="bugfix">
+      <created>1690457949806</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1690457949806</updated>
+    </task>
+    <task id="LOCAL-00024" summary="add authentication configuration to startup">
+      <created>1692011349209</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1692011349209</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -305,6 +326,8 @@
     <MESSAGE value="change search box and genre dropdown menu layout" />
     <MESSAGE value="edit details layout; hide default dropdown options" />
     <MESSAGE value="remove console logs" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove console logs" />
+    <MESSAGE value="bugfix" />
+    <MESSAGE value="add authentication configuration to startup" />
+    <option name="LAST_COMMIT_MESSAGE" value="add authentication configuration to startup" />
   </component>
 </project>

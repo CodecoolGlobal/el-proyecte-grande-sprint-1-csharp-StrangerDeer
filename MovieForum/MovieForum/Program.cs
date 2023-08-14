@@ -1,5 +1,9 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MovieForum;
 using MovieForum.Models;
 using MovieForum.Repositories;
@@ -19,11 +23,31 @@ builder.Services.AddSingleton<IMovieRepository<Movie>, MovieRepository>();
 builder.Services.AddSingleton<IGenreRepository<Genre>, GenreRepository>();
 /*builder.Services.AddTransient<IMovieService, MovieService>();*/
 builder.Services.AddTransient<IMovieService, MovieDbService>();
+
 builder.Services.Configure<FormOptions>(o => {  
     o.ValueLengthLimit = int.MaxValue;  
     o.MultipartBodyLengthLimit = long.MaxValue;  
     o.MemoryBufferThreshold = int.MaxValue;  
-});  
+});
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    });
+
+builder.Services.AddMvc();
+builder.Services.AddControllers();
 
 builder.Services.AddTransient<IGenreService, GenreService>();
 
@@ -39,10 +63,10 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseAuthentication();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseCors("AllowAllHeaders");
-
 
 app.MapControllerRoute(
     name: "default",
