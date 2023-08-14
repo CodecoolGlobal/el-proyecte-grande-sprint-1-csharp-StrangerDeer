@@ -1,6 +1,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using MovieForum;
@@ -22,6 +23,7 @@ builder.Services.AddSingleton<IMovieRepository<Movie>, MovieRepository>();
 builder.Services.AddSingleton<IGenreRepository<Genre>, GenreRepository>();
 /*builder.Services.AddTransient<IMovieService, MovieService>();*/
 builder.Services.AddTransient<IMovieService, MovieDbService>();
+
 builder.Services.Configure<FormOptions>(o => {  
     o.ValueLengthLimit = int.MaxValue;  
     o.MultipartBodyLengthLimit = long.MaxValue;  
@@ -43,6 +45,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
+
 builder.Services.AddMvc();
 builder.Services.AddControllers();
 
