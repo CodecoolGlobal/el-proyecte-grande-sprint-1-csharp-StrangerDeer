@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using System.Transactions;
 using Microsoft.EntityFrameworkCore;
 using MovieForum.Models;
 
@@ -20,8 +21,10 @@ public class MovieDbService : IMovieService
 
     public async Task<string> AddNewMovie(Movie? movie)
     {
+        var transaction = await _context.Database.BeginTransactionAsync();
         _context.movies.Add(movie);
         await _context.SaveChangesAsync().ConfigureAwait(true);
+        await transaction.CommitAsync();
         return movie.Title;
     }
 
@@ -38,21 +41,25 @@ public class MovieDbService : IMovieService
 
     public async Task DeleteMovieById(string id)
     {
+        var transaction = await _context.Database.BeginTransactionAsync();
         var movieToDelete = _context.movies.FirstOrDefault(movie => movie != null && movie.Id.Equals(Guid.Parse(id)));
         if (movieToDelete == null) return;
         _context.movies.Remove(movieToDelete);
         await _context.SaveChangesAsync().ConfigureAwait(true);
+        await transaction.CommitAsync();
         
     }
 
     public async Task UpdateMovie(string id, Movie? updatedMovie)
     {
+        var transaction = await _context.Database.BeginTransactionAsync();
         var movieToUpdate = await _context.movies.FirstOrDefaultAsync(movie => movie.Id.Equals(Guid.Parse(id)));
         if (movieToUpdate != null)
         {
             UpdateMovieProperties(movieToUpdate, updatedMovie);
         }
         await _context.SaveChangesAsync().ConfigureAwait(true);
+        await transaction.CommitAsync();
     }
 
     private void UpdateMovieProperties(Movie movieToUpdate, Movie? updatedMovie)
