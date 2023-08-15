@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Transactions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using MovieForum.Models;
 
 namespace MovieForum.Services;
@@ -80,7 +81,7 @@ public class MovieDbService : IMovieService
         }
     }
 
-    public async Task<User?> AuthenticateUser(LoginModel loginModel)
+    public async Task<UserModel?> AuthenticateUser(LoginModel loginModel)
     {
         var currentUser = await _context.users.FirstOrDefaultAsync(user =>
             user.UserName == loginModel.Username && user.Password == loginModel.Password);
@@ -90,5 +91,19 @@ public class MovieDbService : IMovieService
         }
 
         return null;
+    }
+
+    public async Task RegisterUser(RegisterModel registerModel)
+    {
+        if (!registerModel.Username.IsNullOrEmpty()
+            && !registerModel.Password.IsNullOrEmpty()
+            && !registerModel.EmailAddress.IsNullOrEmpty())
+        {
+            var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", registerModel.Password);
+            var transaction = await _context.Database.BeginTransactionAsync();
+            _context.users.Add(newUser);
+            await _context.SaveChangesAsync().ConfigureAwait(true);
+            await transaction.CommitAsync();
+        }
     }
 }

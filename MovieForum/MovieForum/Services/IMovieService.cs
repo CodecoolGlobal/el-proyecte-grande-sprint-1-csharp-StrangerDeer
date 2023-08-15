@@ -7,5 +7,6 @@ public interface IMovieService
     Task<Movie?> GetMovieById(string id);
     Task DeleteMovieById(string id);
     Task UpdateMovie(string id, Movie? updatedMovie);
-    Task<User?> AuthenticateUser(LoginModel loginModel);
+    Task<UserModel?> AuthenticateUser(LoginModel loginModel);
+    Task RegisterUser(RegisterModel registerModel);
 }

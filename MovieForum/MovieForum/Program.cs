@@ -62,10 +62,14 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseAuthentication();
+
 app.UseStaticFiles();
 app.UseRouting();
 app.UseCors("AllowAllHeaders");
+
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
