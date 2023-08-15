@@ -310,7 +310,7 @@ input[type=file]::file-selector-button {
 }
 
 .card__name {
-  margin-top: 15px;
+  margin-top: 20px;
   font-size: 1.5em;
 }
 
@@ -320,11 +320,11 @@ input[type=file]::file-selector-button {
   border-radius: 50%;
   border: 5px solid #272133;
   margin-top: 20px;
-  box-shadow: 0 10px 50px rgba(235, 25, 110, 1);
+  box-shadow: 0 10px 50px #FAB136;
 }
 
 .email {
-  margin-top: 5px;
+  margin-top: 2px;
   font-size: 1.25em;
 }
 
@@ -413,7 +413,7 @@ input[type=file]::file-selector-button {
 }
 
 .social-icons i {
-  color: #fff;
+  color: #000;
   position: absolute;
   top: 0.95em;
   left: 0.96em;
@@ -433,7 +433,7 @@ input[type=file]::file-selector-button {
   height: 45px;
   border-radius: 100%;
   display: block;
-  background: linear-gradient(45deg, #ff003c, #c648c8);
+  background: linear-gradient(45deg, #FAE42E, #FAB136);
   transition: all 265ms ease-out;
 }
 
@@ -446,8 +446,8 @@ input[type=file]::file-selector-button {
   transform: scale(2.2);
   -ms-transform: scale(2.2);
   -webkit-transform: scale(2.2);
-  color: #ff003c;
-  background: -webkit-linear-gradient(45deg, #ff003c, #c648c8);
+  color: #8E6D33;
+  background: -webkit-linear-gradient(45deg, #FAB136, #FAE42E);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 265ms ease-in;

@@ -8,11 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="Add unversioned models">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/public/index.html" afterDir="false" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="add user profile on frontend">
       <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -332,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692098968233</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="add user profile on frontend">
+      <created>1692102813004</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1692102813004</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +356,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix Home and AddNewMovie layout" />
     <MESSAGE value="add button for choosing a random movie" />
     <MESSAGE value="add date property to movie" />
     <MESSAGE value="fix date of creation" />
@@ -377,6 +380,7 @@
     <MESSAGE value="add transactions to MovieDbService" />
     <MESSAGE value="Add UserController, generate Jwt Token" />
     <MESSAGE value="Add unversioned models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add unversioned models" />
+    <MESSAGE value="add user profile on frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="add user profile on frontend" />
   </component>
 </project>
