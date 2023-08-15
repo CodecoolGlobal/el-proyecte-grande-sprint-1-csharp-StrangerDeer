@@ -79,4 +79,16 @@ public class MovieDbService : IMovieService
             }
         }
     }
+
+    public async Task<User?> AuthenticateUser(LoginModel loginModel)
+    {
+        var currentUser = await _context.users.FirstOrDefaultAsync(user =>
+            user.UserName == loginModel.Username && user.Password == loginModel.Password);
+        if (currentUser != null)
+        {
+            return currentUser;
+        }
+
+        return null;
+    }
 }

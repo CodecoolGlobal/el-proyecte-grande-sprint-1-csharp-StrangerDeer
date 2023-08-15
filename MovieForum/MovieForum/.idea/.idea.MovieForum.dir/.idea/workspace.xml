@@ -8,8 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="updating movie doesnt update the movie's DateOfCreation">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="add transactions to MovieDbService">
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/IMovieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IMovieService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/MovieDbService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/MovieDbService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +111,7 @@
       <workItem from="1690443864404" duration="5875000" />
       <workItem from="1690979565522" duration="1216000" />
       <workItem from="1692008942153" duration="3946000" />
-      <workItem from="1692083548866" duration="680000" />
+      <workItem from="1692083548866" duration="2082000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -297,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692083694207</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="add transactions to MovieDbService">
+      <created>1692084302041</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1692084302041</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,7 +325,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="merge" />
     <MESSAGE value="connect database" />
     <MESSAGE value="fix navbar layout" />
     <MESSAGE value="fix Home and AddNewMovie layout" />
@@ -342,6 +349,7 @@
     <MESSAGE value="add authentication configuration to startup" />
     <MESSAGE value="add authentication skeleton" />
     <MESSAGE value="updating movie doesnt update the movie's DateOfCreation" />
-    <option name="LAST_COMMIT_MESSAGE" value="updating movie doesnt update the movie's DateOfCreation" />
+    <MESSAGE value="add transactions to MovieDbService" />
+    <option name="LAST_COMMIT_MESSAGE" value="add transactions to MovieDbService" />
   </component>
 </project>

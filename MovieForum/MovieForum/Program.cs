@@ -23,6 +23,7 @@ builder.Services.AddSingleton<IMovieRepository<Movie>, MovieRepository>();
 builder.Services.AddSingleton<IGenreRepository<Genre>, GenreRepository>();
 /*builder.Services.AddTransient<IMovieService, MovieService>();*/
 builder.Services.AddTransient<IMovieService, MovieDbService>();
+builder.Services.AddTransient<IGenreService, GenreService>();
 
 builder.Services.Configure<FormOptions>(o => {  
     o.ValueLengthLimit = int.MaxValue;  
@@ -48,8 +49,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddMvc();
 builder.Services.AddControllers();
-
-builder.Services.AddTransient<IGenreService, GenreService>();
 
 
 
