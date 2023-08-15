@@ -8,6 +8,7 @@ import NavMenu from "./components/NavMenu";
 import Home from "./components/Home";
 import AddNewMovie from "./components/AddNewMovie";
 import MovieDetails from "./components/MovieDetails";
+import UserProfile from "./components/UserProfile";
 
 import './custom.css'
 import EditMovieDetails from "./components/EditMovieDetails";
@@ -18,6 +19,8 @@ import EditMovieDetails from "./components/EditMovieDetails";
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
+
+
 const router = createBrowserRouter([{
     path: "/",
     element: <NavMenu/>,
@@ -33,6 +36,10 @@ const router = createBrowserRouter([{
         {
             path:"/movie/:id",
             element: <MovieDetails/>
+        },
+        {
+            path:"/user/:username",
+            element: <UserProfile/>
         }
     ],
 }
