@@ -61,7 +61,8 @@ public class MovieDbService : IMovieService
 
         foreach (PropertyInfo movieProperty in movieProperties)
         {
-            if (movieProperty.CanWrite)
+            if (movieProperty.CanWrite
+                && movieProperty.Name != "DateOfCreation")
             {
                 var newPropertyValue = movieProperty.GetValue(updatedMovie);
                 movieProperty
