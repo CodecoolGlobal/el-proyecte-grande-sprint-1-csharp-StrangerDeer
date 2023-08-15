@@ -8,11 +8,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="add authentication configuration to startup">
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/MovieContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MovieContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieForum.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/MovieForum.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/IMovieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IMovieService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/MovieDbService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/MovieDbService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +29,7 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/Entities/Movie.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/MovieContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -111,7 +113,8 @@
       <workItem from="1690356558440" duration="6500000" />
       <workItem from="1690443864404" duration="5875000" />
       <workItem from="1690979565522" duration="1216000" />
-      <workItem from="1692008942153" duration="3810000" />
+      <workItem from="1692008942153" duration="3946000" />
+      <workItem from="1692083548866" duration="5409000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -284,7 +287,35 @@
       <option name="project" value="LOCAL" />
       <updated>1692011349209</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="add authentication skeleton">
+      <created>1692016832508</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1692016832508</updated>
+    </task>
+    <task id="LOCAL-00026" summary="updating movie doesnt update the movie's DateOfCreation">
+      <created>1692083694207</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1692083694207</updated>
+    </task>
+    <task id="LOCAL-00027" summary="add transactions to MovieDbService">
+      <created>1692084302041</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1692084302041</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Add UserController, generate Jwt Token">
+      <created>1692085670192</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1692085670192</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,9 +335,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="merge current version" />
-    <MESSAGE value="merge" />
-    <MESSAGE value="connect database" />
     <MESSAGE value="fix navbar layout" />
     <MESSAGE value="fix Home and AddNewMovie layout" />
     <MESSAGE value="add button for choosing a random movie" />
@@ -328,6 +356,10 @@
     <MESSAGE value="remove console logs" />
     <MESSAGE value="bugfix" />
     <MESSAGE value="add authentication configuration to startup" />
-    <option name="LAST_COMMIT_MESSAGE" value="add authentication configuration to startup" />
+    <MESSAGE value="add authentication skeleton" />
+    <MESSAGE value="updating movie doesnt update the movie's DateOfCreation" />
+    <MESSAGE value="add transactions to MovieDbService" />
+    <MESSAGE value="Add UserController, generate Jwt Token" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add UserController, generate Jwt Token" />
   </component>
 </project>

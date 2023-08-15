@@ -13,6 +13,6 @@ public class MovieContext : IdentityDbContext<IdentityUser>
 
     public DbSet<Movie> movies { get; set; }
     public DbSet<Genre> genres { get; set; }
-    public DbSet<User> users { get; set; }
+    public DbSet<UserModel> users { get; set; }
 
 }

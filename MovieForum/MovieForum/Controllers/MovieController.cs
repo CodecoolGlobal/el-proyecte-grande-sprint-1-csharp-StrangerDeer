@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Cors;
 using System.Text.Json;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MovieForum.Services;
 
@@ -38,6 +39,7 @@ public class MovieController : ControllerBase
 
     [Route("/add-new-movie")]
     [HttpPost]
+    [Authorize(Roles = "User")]
     public async Task<IActionResult> AddNewMovie([FromBody] JsonElement body)
     {
         var jsonObject = JsonSerializer.Deserialize<Movie>(body);
@@ -47,6 +49,7 @@ public class MovieController : ControllerBase
     }
 
     [HttpGet("{id}")]
+    [Authorize(Roles = "User")]
     public async Task<IActionResult> GetMovieById([FromRoute] string id)
     {
         var movieWithId = await _movieService.GetMovieById(id);
@@ -61,6 +64,7 @@ public class MovieController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "User")]
     public IActionResult DeleteMovieById([FromRoute] string id)
     {
         _movieService.DeleteMovieById(id);
@@ -68,6 +72,7 @@ public class MovieController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "User")]
     public async Task<IActionResult> UpdateMovie([FromRoute] string id, [FromBody] JsonElement body)
     {
         var updatedMovie = JsonSerializer.Deserialize<Movie>(body);
@@ -77,6 +82,7 @@ public class MovieController : ControllerBase
 
     
     [HttpPost("{id}/uploadimage")]
+    [Authorize(Roles = "User")]
     [RequestFormLimits(ValueLengthLimit = int.MaxValue, MultipartBodyLengthLimit = long.MaxValue)]
     public async Task<ActionResult> UploadImage([FromRoute] string id)
     {
