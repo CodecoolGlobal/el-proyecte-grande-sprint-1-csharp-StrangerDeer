@@ -12,6 +12,9 @@ const NavMenu = () => {
                         <li>
                             <Link className="text-dark" to="/add-new-movie">Add Movie</Link>
                         </li>
+                        <li>
+                            <Link className={"text-dark"} to={"/login"}>Login</Link>
+                        </li>
                     </ul>
                 </nav>
             </header>
