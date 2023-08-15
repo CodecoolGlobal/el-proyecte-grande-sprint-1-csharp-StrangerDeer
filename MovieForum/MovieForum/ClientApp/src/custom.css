@@ -4,7 +4,7 @@ a {
 }
 body {
   color: white;
-  background: linear-gradient(360deg, #4F2E3C, #192944) !important;
+  background: linear-gradient(360deg, #222831, #0F0F0F) !important;
   font-family: Georgia !important;
 }
 
@@ -143,10 +143,11 @@ code {
 }
 
 .tilting-movie-card {
-  background: linear-gradient(180deg, #E33C23, #192944) !important;
-  color: #F8EECF !important;
+  background: linear-gradient(45deg, #FAE42E, #FAB136) !important;
+  color: #0F0F0F !important;
   transform-style: preserve-3d;
   transform: perspective(1000px);
+  width: 50%;
 }
 
 .movie-card {
@@ -299,7 +300,7 @@ input[type=file]::file-selector-button {
 }
 
 .user-card {
-  background-color: #222831;
+  background: linear-gradient(360deg, #222831, #0F0F0F);
   height: 37rem;
   border-radius: 5px;
   display: flex;
