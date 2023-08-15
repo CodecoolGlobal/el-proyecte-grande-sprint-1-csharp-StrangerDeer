@@ -71,20 +71,24 @@ public class UserController : ControllerBase
     }
 
     [HttpGet("/current_user")]
-    public IActionResult GetCurrentUser()
+    public IActionResult UserEndpoint()
+    {
+        var currentUser = GetCurrentUser();
+        return Ok(currentUser);
+    }
+
+    [NonAction]
+    private CurrentUser GetCurrentUser()
     {
         var identity = HttpContext.User.Identity as ClaimsIdentity;
 
         if (identity != null)
         {
             var userClaims = identity.Claims;
-            CurrentUser user = new CurrentUser(
-                userClaims.FirstOrDefault(user => user.Type == ClaimTypes.NameIdentifier)?.Value,
+
+            return new CurrentUser(userClaims.FirstOrDefault(user => user.Type == ClaimTypes.NameIdentifier)?.Value,
                 userClaims.FirstOrDefault(user => user.Type == ClaimTypes.Email)?.Value,
                 userClaims.FirstOrDefault(user => user.Type == ClaimTypes.Role)?.Value);
-            
-
-            return Ok(user);
 
         }
         return null;
