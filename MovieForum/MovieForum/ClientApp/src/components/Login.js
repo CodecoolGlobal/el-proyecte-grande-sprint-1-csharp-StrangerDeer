@@ -17,7 +17,7 @@ const Login = () =>{
         
         }
         
-        fetch("/api/user/registration", {
+        fetch("/registration", {
             method: "post",
             body: JSON.stringify(registerUserModel),
             headers: {
