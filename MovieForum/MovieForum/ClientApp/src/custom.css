@@ -4,7 +4,7 @@ a {
 }
 body {
   color: white;
-  background: linear-gradient(360deg, #222831, #0F0F0F) !important;
+  background: linear-gradient(360deg, #322D31, #322D31) !important;
   font-family: Georgia !important;
 }
 
@@ -15,7 +15,11 @@ body {
   margin-left: 50px;
   float: left;
   background-color: transparent;
-  color: black !important;
+  color: #FDE64B !important;
+}
+
+.movie-forum-button:hover {
+  color: #FDA50F !important;
 }
 
 nav {
@@ -25,7 +29,7 @@ nav {
 header {
   font-family: Georgia !important;
   font-size: 20px;
-  background: #EE7C39;
+  background: linear-gradient(180deg, #7C6E7F, #403F4D, #242424);
   font-weight: bolder;
 }
 
@@ -47,10 +51,10 @@ header {
 
 .text-dark {
   padding: 10px;
-  color: black !important;
+  color: #FDE64B !important;
   border-radius: 50px;
   border-style: dashed;
-  border-color: #EEAB42;
+  border-color: #FDE64B;
   font-weight: bolder;
 }
 
@@ -65,8 +69,9 @@ li {
 }
 
 .text-dark:hover {
-  color:#FFFFAA !important;
-  background: linear-gradient(45deg, #E33C23, #EE7C39);
+  color:#FDEE87 !important;
+  border-color: #FDEE87;
+  background: linear-gradient(#343340, #242424);
 }
 
 .nav-link:hover {
@@ -124,14 +129,14 @@ code {
 }
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
-  color: #deb217;
+  color: #ffdc42;
 }
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
 .rate > input:checked ~ label:hover,
 .rate > input:checked ~ label:hover ~ label,
 .rate > label:hover ~ input:checked ~ label {
-  color: #c59b08;
+  color: #b5830d;
 }
 
 .movies-display {
@@ -143,11 +148,17 @@ code {
 }
 
 .tilting-movie-card {
-  background: linear-gradient(45deg, #FAE42E, #FAB136) !important;
-  color: #0F0F0F !important;
+  background: linear-gradient(45deg, #403F4D, #686880) !important;
+  color: #FEEB75 !important;
   transform-style: preserve-3d;
   transform: perspective(1000px);
   width: 50%;
+}
+
+.tilting-movie-card:hover {
+  background: linear-gradient(45deg, #363542, #616178) !important;
+  color: #FCF4A3 !important;
+  box-shadow: 50px 50px 50px white;
 }
 
 .movie-card {
@@ -209,25 +220,30 @@ code {
 }
 
 button {
-  background: linear-gradient(45deg, #E33C23, #EE7C39, #EEAB42);
-  color: black;
+  background: linear-gradient(45deg, #353535, #403F4D, #6D6F7A);
+  color: #FEEE7C;
   font-weight: bolder;
   border-radius: 5px;
   font-size: 18px;
 }
 
 button:hover {
-  background: linear-gradient(45deg, #623038, #D33A25, #E33C23);
-  color: antiquewhite;
+  background: linear-gradient(45deg, #242424, #343340, #565861);
+  color: #FBF3A2;
 }
 
 input, select, textarea {
-  background: linear-gradient(180deg, #EEAB42, #E9CC6D);
-  color: black;
+  background: linear-gradient(180deg, #403F4D, #6D6F7A);
+  color: #FEEE7C;
   font-size: 18px;
   width: 30%;
   word-break: break-word;
   height: 50px;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #F7F4D1;
+  opacity: 70%;
 }
 
 option {
@@ -249,7 +265,8 @@ textarea {
 }
 
 input[type=file]::file-selector-button {
-  background: #E01A76;
+  background: linear-gradient(#7C6E7F, #616178);
+  color: #FEEE7C;
 }
 
 .top-page {
