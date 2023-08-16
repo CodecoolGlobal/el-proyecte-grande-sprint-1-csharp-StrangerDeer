@@ -79,6 +79,58 @@ const Home = () => {
                 </Link>
                 )}
             </div>
+            <div className="shooting-stars">
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+                <div className="shooting-star"></div>
+            </div>
         </>
         );
 }
