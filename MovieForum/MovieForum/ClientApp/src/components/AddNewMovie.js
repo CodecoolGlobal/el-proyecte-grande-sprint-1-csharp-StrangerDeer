@@ -109,6 +109,59 @@ const AddNewMovie = () =>{
                  onChange={(e) => convertYouTubeUrl(e.target.value)}/>
           <br/><br/>
           <button onClick={() => clickEvent(trailerUrlInput)}>Save</button>
+
+          <div className="shooting-stars">
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+              <div className="shooting-star"></div>
+          </div>
       </div>
     );
 }

@@ -130,6 +130,58 @@ const MovieDetails = () => {
                         <button onClick={event => toggleEditFields()}>Edit movie informations</button>
 
                     </div>}
+                <div className="shooting-stars">
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                    <div className="shooting-star"></div>
+                </div>
             </div>
         );
 }
