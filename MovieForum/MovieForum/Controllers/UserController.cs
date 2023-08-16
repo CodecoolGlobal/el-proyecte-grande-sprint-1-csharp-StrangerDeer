@@ -12,6 +12,7 @@ namespace MovieForum.Controllers;
 
 
 [ApiController]
+[Route("/api/user/")]
 [Produces("application/json")] 
 [EnableCors("AllowAllHeaders")]
 
@@ -30,6 +31,7 @@ public class UserController : ControllerBase
     [HttpPost("/registration")]
     public async Task<IActionResult> Registration([FromBody] RegisterModel registerModel)
     {
+        Console.WriteLine("Hello");
         await _movieService.RegisterUser(registerModel);
         return Ok();
     }
