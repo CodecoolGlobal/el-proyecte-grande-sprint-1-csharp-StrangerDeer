@@ -2,6 +2,7 @@
 using System.Net.Security;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
@@ -55,12 +56,12 @@ public class UserController : ControllerBase
     {
         var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
         var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
+        
         var claims = new[]
         {
             new Claim(ClaimTypes.NameIdentifier, userModel.UserName),
             new Claim(ClaimTypes.Email, userModel.EmailAddress),
-            new Claim(ClaimTypes.Role, userModel.Role)
+            new Claim(ClaimTypes.Role, userModel.Role),
         };
 
         var token = new JwtSecurityToken(_configuration["Jwt:Issuer"],
@@ -72,21 +73,38 @@ public class UserController : ControllerBase
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
+    [HttpPut("/user_ratings/{username}")]
+    public async Task<IActionResult> UpdateRatings([FromRoute] string username)
+    {
+        await _movieService.UpdateUserRatings(username);
+        return Ok();
+    } 
+
     [HttpGet("/current_user")]
-    public IActionResult GetCurrentUser()
+    public IActionResult UserEndpoint()
+    {
+        var currentUser = GetCurrentUser();
+        return Ok(currentUser);
+    }
+
+    [HttpGet("/current_user_data/{username}")]
+    public IActionResult GetUserData([FromRoute] string username)
+    {
+        return Ok(_movieService.GetUserData(username));
+    }
+
+    [NonAction]
+    private CurrentUser GetCurrentUser()
     {
         var identity = HttpContext.User.Identity as ClaimsIdentity;
 
         if (identity != null)
         {
             var userClaims = identity.Claims;
-            CurrentUser user = new CurrentUser(
-                userClaims.FirstOrDefault(user => user.Type == ClaimTypes.NameIdentifier)?.Value,
+
+            return new CurrentUser(userClaims.FirstOrDefault(user => user.Type == ClaimTypes.NameIdentifier)?.Value,
                 userClaims.FirstOrDefault(user => user.Type == ClaimTypes.Email)?.Value,
                 userClaims.FirstOrDefault(user => user.Type == ClaimTypes.Role)?.Value);
-            
-
-            return Ok(user);
 
         }
         return null;
