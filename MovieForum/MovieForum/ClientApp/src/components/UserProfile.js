@@ -5,7 +5,8 @@ const UserProfile = () => {
     const navigate = useNavigate();
     const userObj = {
         "Username": "",
-        "EmailAddress": ""
+        "EmailAddress": "",
+        "Badge": ""
     };
     
     const [loading, setLoading] = useState(false);
@@ -13,9 +14,10 @@ const UserProfile = () => {
     
     let userName = userObj.Username;
     let emailAddress = userObj.EmailAddress;
+    let badge = userObj.Badge;
 
     /*useEffect(() => {
-        fetch(`/current_user`, {
+        fetch(`/current_user_data/${username}`, {
             method: 'get',
                 headers: new Headers({
                 'Authorization': ////TOKEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -24,7 +26,8 @@ const UserProfile = () => {
             .then(data => {
                 setUserDetails({
                     "Username": data.username,
-                    "EmailAddress": data.EmailAddress
+                    "EmailAddress": data.EmailAddress,
+                    "Badge": data.badge
                 });
                 setLoading(false);
             })}, [])*/
@@ -39,6 +42,7 @@ const UserProfile = () => {
                     alt="Person" className="card__image"/>
                     <p className="card__name">User Name</p>
                     <p className="email">Email@Address.com</p>
+                    <p className="user-badge">Badge</p>
                     <ul className="social-icons">
                         <li><a href="/"><i className='fa fa-instagram'></i></a></li>
                         <li><a href="#"><i className='fa fa-twitter'></i></a></li>

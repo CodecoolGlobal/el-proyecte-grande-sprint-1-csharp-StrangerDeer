@@ -324,7 +324,7 @@ input[type=file]::file-selector-button {
   box-shadow: 0 10px 50px #FAB136;
 }
 
-.email {
+.email, .user-badge {
   margin-top: 2px;
   font-size: 1.25em;
 }
@@ -403,7 +403,7 @@ input[type=file]::file-selector-button {
 .social-icons {
   padding: 0;
   list-style: none;
-  margin: 1em;
+  margin: 0.5em;
 }
 
 .social-icons li {

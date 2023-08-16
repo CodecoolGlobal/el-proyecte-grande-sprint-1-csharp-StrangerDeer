@@ -10,6 +10,8 @@ public class UserModel
     public string EmailAddress { get; set; }
     public string Role { get; set; }
     public string Password { get; set; }
+    public int Rates { get; set; }
+    public string Badge { get; set; }
 
     public UserModel(string userName, string emailAddress, string role, string password)
     {
@@ -17,5 +19,7 @@ public class UserModel
         EmailAddress = emailAddress;
         Role = role;
         Password = password;
+        Rates = 0;
+        Badge = "Newbie";
     }
 }
