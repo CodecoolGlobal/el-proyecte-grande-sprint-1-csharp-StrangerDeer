@@ -9,4 +9,6 @@ public interface IMovieService
     Task UpdateMovie(string id, Movie? updatedMovie);
     Task<UserModel?> AuthenticateUser(LoginModel loginModel);
     Task RegisterUser(RegisterModel registerModel);
+    Task UpdateUserRatings(string username);
+    Task<UserModel?> GetUserData(string username);
 }

@@ -10,9 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/MovieContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/MovieContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Entities/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Entities/UserModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/IMovieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IMovieService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/MovieDbService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/MovieDbService.cs" afterDir="false" />
     </list>
@@ -20,6 +21,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -29,7 +37,8 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/MovieContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ClientApp/package-lock.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -115,6 +124,7 @@
       <workItem from="1690979565522" duration="1216000" />
       <workItem from="1692008942153" duration="3946000" />
       <workItem from="1692083548866" duration="5409000" />
+      <workItem from="1692178212049" duration="3732000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -315,7 +325,35 @@
       <option name="project" value="LOCAL" />
       <updated>1692085670192</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Add unversioned models">
+      <created>1692098968233</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1692098968233</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add user profile on frontend">
+      <created>1692102813004</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1692102813004</updated>
+    </task>
+    <task id="LOCAL-00031" summary="change user profile colors and display">
+      <created>1692103168740</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1692103168740</updated>
+    </task>
+    <task id="LOCAL-00032" summary="adjust layout">
+      <created>1692104279636</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1692104279636</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -335,15 +373,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix navbar layout" />
-    <MESSAGE value="fix Home and AddNewMovie layout" />
-    <MESSAGE value="add button for choosing a random movie" />
     <MESSAGE value="add date property to movie" />
     <MESSAGE value="fix date of creation" />
     <MESSAGE value="fix problems with date of creation" />
     <MESSAGE value="add genre selection to AddNewMovie page" />
     <MESSAGE value="adjust messages; clean up css" />
-    <MESSAGE value="adjust layout" />
     <MESSAGE value="make it possible to upload youtube links for the trailers" />
     <MESSAGE value="show uploaded trailer on the MovieDetails page" />
     <MESSAGE value="add trailer url to EditMovieDetails page" />
@@ -360,6 +394,10 @@
     <MESSAGE value="updating movie doesnt update the movie's DateOfCreation" />
     <MESSAGE value="add transactions to MovieDbService" />
     <MESSAGE value="Add UserController, generate Jwt Token" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add UserController, generate Jwt Token" />
+    <MESSAGE value="Add unversioned models" />
+    <MESSAGE value="add user profile on frontend" />
+    <MESSAGE value="change user profile colors and display" />
+    <MESSAGE value="adjust layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjust layout" />
   </component>
 </project>

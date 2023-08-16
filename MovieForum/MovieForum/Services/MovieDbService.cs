@@ -20,6 +20,7 @@ public class MovieDbService : IMovieService
         return await _context.movies.ToListAsync().ConfigureAwait(true);
     }
 
+
     public async Task<string> AddNewMovie(Movie? movie)
     {
         var transaction = await _context.Database.BeginTransactionAsync();
@@ -104,6 +105,57 @@ public class MovieDbService : IMovieService
             _context.users.Add(newUser);
             await _context.SaveChangesAsync().ConfigureAwait(true);
             await transaction.CommitAsync();
+        }
+    }
+
+    public async Task UpdateUserRatings(string username)
+    {
+        var transaction = await _context.Database.BeginTransactionAsync();
+        var userToUpdate = await _context.users.FirstOrDefaultAsync(user => user.UserName == username);
+        if (userToUpdate != null)
+        {
+            userToUpdate.Rates++;
+            UpdateUserBadge(userToUpdate);
+        }
+        await _context.SaveChangesAsync().ConfigureAwait(true);
+        await transaction.CommitAsync();
+    }
+
+    public async Task<UserModel> GetUserData(string username)
+    {
+        UserModel? user = await _context.users
+            .AsNoTracking()
+            .Where(user => user != null && user.UserName == username)
+            .FirstOrDefaultAsync()
+            .ConfigureAwait(true);
+        return user;
+    }
+
+    private void UpdateUserBadge(UserModel user)
+    {
+        int userRatings = user.Rates;
+        switch (userRatings)
+        {
+            case 1:
+                user.Badge = "First Time?";
+                break;
+            case 2:
+                user.Badge = "Casual";
+                break;
+            case 3:
+                user.Badge = "Experimentalist";
+                break;
+            case 4:
+                user.Badge = "Movie Enthusiast";
+                break;
+            case 5:
+                user.Badge = "Binge-Watcher";
+                break;
+        }
+
+        if (userRatings < 5)
+        {
+            user.Badge = "Movie Guru";
         }
     }
 }
