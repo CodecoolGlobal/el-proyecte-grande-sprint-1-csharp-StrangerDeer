@@ -493,7 +493,7 @@ input[type=file]::file-selector-button {
   position: fixed;
   top: 0;
   z-index: -50;
-  left: 0;
+  left: 20%;
   width: 100%;
   height: 120%;
   transform: rotate(360deg);
@@ -503,7 +503,7 @@ input[type=file]::file-selector-button {
   position: fixed;
   top: 0;
   z-index: -50;
-  left: 0;
+  left: -20%;
   width: 100%;
   height: 120%;
   transform: rotate(180deg);
@@ -520,7 +520,7 @@ input[type=file]::file-selector-button {
 
   position: absolute;
   top: var(--top-offset);
-  left: 0;
+  left: 10%;
   width: var(--star-tail-length);
   height: var(--star-tail-height);
   color: #C08432;
@@ -576,7 +576,7 @@ input[type=file]::file-selector-button {
 
   position: absolute;
   top: var(--top-offset);
-  left: 0;
+  left: -10%;
   width: var(--star-tail-length);
   height: var(--star-tail-height);
   color: #C08432;
