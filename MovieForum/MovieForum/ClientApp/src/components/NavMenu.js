@@ -1,10 +1,25 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, Outlet, useNavigate} from 'react-router-dom';
 import './NavMenu.css';
 
+
+const cookieStringToObj = (cookieString) => {
+    let cookieEntries = cookieString.split(';');
+    let result= {};
+    
+    for (const cookieEntry of cookieEntries) {
+        let cookieKeyValuePair = cookieEntry.trim().split("=");
+        
+        result[cookieKeyValuePair[0]] = cookieKeyValuePair[1];
+    }
+    
+    return result;
+}
 const NavMenu = () => {
-    const cookie = document.cookie;
+    
     const navigate = useNavigate();
+    
+    const [userName, setUserName] = useState("");
     const logout = () => {
         fetch("/api/user/logout", {
             method: "post",
@@ -19,6 +34,17 @@ const NavMenu = () => {
                 navigate("/")
             })
     }
+    
+    useEffect(() => {
+
+        const cookie = document.cookie;
+        
+        if(cookie.length !== 0){
+            let cookieObjectum = cookieStringToObj(cookie);
+            cookieObjectum["token"]
+        }
+        
+    }, []);
     
     return (
         <div>
@@ -35,6 +61,9 @@ const NavMenu = () => {
                             <li>
                                 <Link className="text-dark" to="/add-new-movie">Add Movie</Link>
                             </li>
+                                <li>
+                                <Link className={"text-dark"} to={`/user/${userName}`}>Profile</Link>
+                                </li>
                             <li>
                             <Link className={"text-dark"} onClick={() => logout()}>Logout</Link>
                              </li>
