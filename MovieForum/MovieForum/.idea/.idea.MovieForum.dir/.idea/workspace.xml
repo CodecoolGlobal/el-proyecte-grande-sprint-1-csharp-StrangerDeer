@@ -8,9 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="adjust shooting stars">
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="add a fadeout effect to the ratings message">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -369,7 +368,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692260893379</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="add a fadeout effect to the ratings message">
+      <created>1692274313751</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1692274313751</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +395,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix problems with date of creation" />
     <MESSAGE value="add genre selection to AddNewMovie page" />
     <MESSAGE value="adjust messages; clean up css" />
     <MESSAGE value="make it possible to upload youtube links for the trailers" />
@@ -414,7 +419,8 @@
     <MESSAGE value="adjust layout" />
     <MESSAGE value="change color scheme" />
     <MESSAGE value="adjust shooting stars" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjust shooting stars" />
+    <MESSAGE value="add a fadeout effect to the ratings message" />
+    <option name="LAST_COMMIT_MESSAGE" value="add a fadeout effect to the ratings message" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
