@@ -124,7 +124,7 @@ const MovieDetails = () => {
                         <br/>
                         {isRated ? <p style={{visibility: 'visible'}}>Thank you for rating!</p> :
                             <p style={{visibility: 'hidden'}}>Thank you for rating!</p>}
-                        {(movieTrailer !== null) ? <div>
+                        {(movieTrailer !== "") ? <div>
                             <iframe width="550" height="410" src={movieTrailer}></iframe>
                             <br/><br/></div> : <></>}
                         <button onClick={event => toggleEditFields()}>Edit movie informations</button>
