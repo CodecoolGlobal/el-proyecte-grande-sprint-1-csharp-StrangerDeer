@@ -1,6 +1,8 @@
 ﻿import {useState} from "react";
-
+import {useNavigate} from "react-router-dom";
 const Login = () =>{
+    const navigate = useNavigate();
+    
     const [signUpActive, setSignUpActive] = useState(false);
     const [userName, setUserName] = useState("");
     const [userEmail, setUserEmail] = useState("");
@@ -18,8 +20,6 @@ const Login = () =>{
         
         }
         
-        console.log(registerUserModel)
-        
         fetch("/api/user/registrationXX", {
             method: "POST",
             body: JSON.stringify(registerUserModel),
@@ -27,7 +27,7 @@ const Login = () =>{
                 "Content-Type": "application/json"
             }
         })
-            .then()
+            .then(() => navigate("/"))
     }
     
     const loginUser = (e) => {
@@ -45,7 +45,7 @@ const Login = () =>{
                 "Content-Type": "application/json"
             }
         })
-            .then(res => console.log(res))
+            .then(() => navigate("/"))
     }
     
     return <>

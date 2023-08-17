@@ -13,7 +13,7 @@ namespace MovieForum.Controllers;
 
 
 [ApiController]
-[Route("/api/user")]
+[Route("api/user")]
 [Produces("application/json")] 
 [EnableCors("AllowAllHeaders")]
 public class UserController : ControllerBase
@@ -28,7 +28,7 @@ public class UserController : ControllerBase
     }
 
     [AllowAnonymous]
-    [HttpPost("/registrationXX")]
+    [HttpPost("registrationXX")]
     public async Task<IActionResult> Registration([FromBody] RegisterModel registerModel)
     {
         Console.WriteLine("Hello");
@@ -37,7 +37,7 @@ public class UserController : ControllerBase
     }
 
     [AllowAnonymous]
-    [HttpPost("/login")]
+    [HttpPost("login")]
     public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
     {
         var user = await _movieService.AuthenticateUser(loginModel);
@@ -45,10 +45,19 @@ public class UserController : ControllerBase
         if (user != null)
         {
             var token = GenerateToken(user);
-            return Ok(token);
+            HttpContext.Response.Cookies.Append("token", token);
+            return Ok();
         }
 
         return NotFound("User not found");
+    }
+
+    [Authorize(Roles = "User")]
+    [HttpPost("logout")]
+    public async Task<IActionResult> Logout()
+    {
+        HttpContext.Response.Cookies.Delete("token");
+        return Ok();
     }
 
     private string GenerateToken(UserModel userModel)
