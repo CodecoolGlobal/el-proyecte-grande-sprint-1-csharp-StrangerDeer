@@ -8,14 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="">
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="adjust shooting stars">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Models/Entities/UserModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Entities/UserModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/IMovieService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/IMovieService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/MovieDbService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/MovieDbService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +31,15 @@
         <entry key="$PROJECT_DIR$/../.." value="development" />
       </map>
     </option>
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/ClientApp/package-lock.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ClientApp/src/custom.css.map" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Controllers/UserController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/Entities/UserModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Services/IMovieService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Services/MovieDbService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -60,7 +62,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;watcher.settings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -353,7 +355,21 @@
       <option name="project" value="LOCAL" />
       <updated>1692104279636</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="change color scheme">
+      <created>1692189523798</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1692189523798</updated>
+    </task>
+    <task id="LOCAL-00034" summary="adjust shooting stars">
+      <created>1692260893379</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1692260893379</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,8 +389,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="add date property to movie" />
-    <MESSAGE value="fix date of creation" />
     <MESSAGE value="fix problems with date of creation" />
     <MESSAGE value="add genre selection to AddNewMovie page" />
     <MESSAGE value="adjust messages; clean up css" />
@@ -398,6 +412,12 @@
     <MESSAGE value="add user profile on frontend" />
     <MESSAGE value="change user profile colors and display" />
     <MESSAGE value="adjust layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjust layout" />
+    <MESSAGE value="change color scheme" />
+    <MESSAGE value="adjust shooting stars" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjust shooting stars" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
