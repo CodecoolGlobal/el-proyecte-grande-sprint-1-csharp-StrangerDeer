@@ -60,6 +60,10 @@ const MovieDetails = () => {
     const rateMovie = (id) => {
         updateMovieRatings(id);
         setIsRated(true);
+        setTimeout(
+            function() {
+                setIsRated(false);
+            }, 3000);
     }
     const updateMovieRatings = (id) => {
         fetch(`/movies/${id}`, {
@@ -122,9 +126,9 @@ const MovieDetails = () => {
                         <br/><br/><br/>
                         <button onClick={event => rateMovie(id)}>Rate movie</button>
                         <br/>
-                        {isRated ? <p style={{visibility: 'visible'}}>Thank you for rating!</p> :
+                        {isRated ? <p className="ratings-message" style={{visibility: 'visible'}}>Thank you for rating!</p> :
                             <p style={{visibility: 'hidden'}}>Thank you for rating!</p>}
-                        {(movieTrailer !== "") ? <div>
+                        {(movieTrailer !== "" && movieTrailer !== null) ? <div>
                             <iframe width="550" height="410" src={movieTrailer}></iframe>
                             <br/><br/></div> : <></>}
                         <button onClick={event => toggleEditFields()}>Edit movie informations</button>
