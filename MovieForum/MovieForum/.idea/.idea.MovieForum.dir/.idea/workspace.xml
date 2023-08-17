@@ -8,7 +8,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="publishing branch" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="publishing branch">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/NavMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
