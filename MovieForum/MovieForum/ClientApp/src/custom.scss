@@ -438,8 +438,8 @@ input[type=file]::file-selector-button {
 .social-icons i {
   color: #000;
   position: absolute;
-  top: 0.95em;
-  left: 0.96em;
+  top: 2.27em;
+  left: 1.17em;
   transition: all 265ms ease-out;
 }
 
@@ -492,7 +492,7 @@ input[type=file]::file-selector-button {
 .login-h1 {
   font-weight: bold;
   margin: 0;
-  color: red;
+  color: #FEEB75;
 }
 
 h2 {
@@ -512,15 +512,19 @@ span {
 }
 
 a {
-  color: #333;
+  color: #E1C068;
   font-size: 14px;
   text-decoration: none;
   margin: 15px 0;
 }
 
+a:hover {
+  color: #C59B45;
+}
+
 .login-button {
   border-radius: 20px;
-  border: 1px solid #FF4B2B;
+  border: 1px solid #FFC30B;
   background-color: #FF4B2B;
   color: #FFFFFF;
   font-size: 12px;
@@ -541,11 +545,12 @@ button:focus {
 
 .login-button.ghost {
   background-color: transparent;
-  border-color: #FFFFFF;
+  border-color: #B9A7C0;
 }
 
 form.login-form {
-  background-color: #FFFFFF;
+  background: linear-gradient(#5A5E69, #6A697E);
+  text-shadow: 2px 2px 10px #000000;
   display: flex !important;
   width: 100% !important;
   align-items: center !important;
@@ -557,15 +562,19 @@ form.login-form {
 }
 
 .login-input {
-  background-color: #eee;
-  border: none;
+  background: linear-gradient(#403F4D, #564E59);
+  color: #FEEE7C;
+  box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.5);
+  font-size: 18px;
+  word-break: break-word;
+  height: 50px;
   padding: 12px 15px;
   margin: 8px 0;
   width: 100% !important;
 }
 
 .container {
-  background-color: #fff;
+  background: linear-gradient(#2F2F2F, #524D5B, #584E58);
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25),
   0 10px 10px rgba(0,0,0,0.22);
@@ -621,6 +630,7 @@ form.login-form {
 
 .overlay-container {
   position: absolute;
+  background: #484850;
   top: 0;
   left: 50%;
   width: 50%;
@@ -635,13 +645,13 @@ form.login-form {
 }
 
 .overlay {
-  background: #FF416C;
-  background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-  background: linear-gradient(to right, #FF4B2B, #FF416C);
+  background: linear-gradient(#2F2F2F, #524D5B, #584E58);
+  background: -webkit-linear-gradient( #2F2F2F, #524D5B, #584E58);
+  background: linear-gradient(#2F2F2F, #524D5B, #584E58);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 0;
-  color: #FFFFFF;
+  color: #484850;
   position: relative;
   left: -100%;
   height: 100%;
@@ -655,6 +665,7 @@ form.login-form {
 }
 
 .overlay-panel {
+  background: linear-gradient(#2F2F2F, #524D5B, #584E58);
   position: absolute;
   display: flex;
   align-items: center;
@@ -667,6 +678,11 @@ form.login-form {
   width: 50%;
   transform: translateX(0);
   transition: transform 0.6s ease-in-out;
+}
+
+.login-text {
+  color: #FFFAB9;
+  text-shadow: 0 0 10px #000000;
 }
 
 .overlay-left {

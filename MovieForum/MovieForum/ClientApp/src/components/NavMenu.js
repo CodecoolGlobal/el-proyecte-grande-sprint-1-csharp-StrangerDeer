@@ -20,6 +20,7 @@ const NavMenu = () => {
     const navigate = useNavigate();
     
     const [userName, setUserName] = useState("");
+    let cookie = "";
     const logout = () => {
         fetch("/api/user/logout", {
             method: "post",
@@ -37,12 +38,12 @@ const NavMenu = () => {
     
     useEffect(() => {
 
-        const cookie = document.cookie;
+        cookie = document.cookie;
         
-        if(cookie.length !== 0){
+        /*if(cookie.length !== 0){
             let cookieObjectum = cookieStringToObj(cookie);
             cookieObjectum["token"]
-        }
+        }*/
         
     }, []);
     
