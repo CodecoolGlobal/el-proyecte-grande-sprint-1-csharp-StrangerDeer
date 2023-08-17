@@ -70,6 +70,7 @@ public class UserController : ControllerBase
             new Claim(ClaimTypes.NameIdentifier, userModel.UserName),
             new Claim(ClaimTypes.Email, userModel.EmailAddress),
             new Claim(ClaimTypes.Role, userModel.Role),
+            new Claim(ClaimTypes.Gender, userModel.Badge)
         };
 
         var token = new JwtSecurityToken(_configuration["Jwt:Issuer"],
@@ -81,21 +82,23 @@ public class UserController : ControllerBase
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 
-    [HttpPut("/user_ratings/{username}")]
+    [HttpPut("{username}")]
     public async Task<IActionResult> UpdateRatings([FromRoute] string username)
     {
         await _movieService.UpdateUserRatings(username);
         return Ok();
     } 
 
-    [HttpGet("/current_user")]
+    [Authorize(Roles = "User")]
+    [HttpGet("current_user")]
     public IActionResult UserEndpoint()
     {
         var currentUser = GetCurrentUser();
         return Ok(currentUser);
     }
 
-    [HttpGet("/current_user_data/{username}")]
+    [Authorize(Roles = "User")]
+    [HttpGet("current_user_data/{username}")]
     public IActionResult GetUserData([FromRoute] string username)
     {
         return Ok(_movieService.GetUserData(username));
@@ -106,13 +109,14 @@ public class UserController : ControllerBase
     {
         var identity = HttpContext.User.Identity as ClaimsIdentity;
 
-        if (identity != null)
+        if (identity != null && identity.Claims.Any()) 
         {
             var userClaims = identity.Claims;
 
             return new CurrentUser(userClaims.FirstOrDefault(user => user.Type == ClaimTypes.NameIdentifier)?.Value,
                 userClaims.FirstOrDefault(user => user.Type == ClaimTypes.Email)?.Value,
-                userClaims.FirstOrDefault(user => user.Type == ClaimTypes.Role)?.Value);
+                userClaims.FirstOrDefault(user => user.Type == ClaimTypes.Role)?.Value,
+                userClaims.FirstOrDefault(user => user.Type == ClaimTypes.Gender)?.Value);
 
         }
         return null;

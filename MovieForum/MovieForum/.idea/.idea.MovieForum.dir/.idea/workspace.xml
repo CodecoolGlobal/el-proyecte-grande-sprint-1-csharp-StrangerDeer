@@ -8,7 +8,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="publishing branch" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="working on token on frontend">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/NavMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/setupProxy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Entities/CurrentUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/Entities/CurrentUser.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -372,7 +382,23 @@
       <option name="project" value="LOCAL" />
       <updated>1692274313751</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fix stars">
+      <option name="closed" value="true" />
+      <created>1692281426742</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1692281426742</updated>
+    </task>
+    <task id="LOCAL-00037" summary="working on token on frontend">
+      <option name="closed" value="true" />
+      <created>1692283322147</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1692283322147</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,8 +418,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="fix problems with date of creation" />
-    <MESSAGE value="add genre selection to AddNewMovie page" />
     <MESSAGE value="adjust messages; clean up css" />
     <MESSAGE value="make it possible to upload youtube links for the trailers" />
     <MESSAGE value="show uploaded trailer on the MovieDetails page" />
@@ -420,7 +444,9 @@
     <MESSAGE value="adjust shooting stars" />
     <MESSAGE value="publishing branch" />
     <MESSAGE value="add a fadeout effect to the ratings message" />
-    <option name="LAST_COMMIT_MESSAGE" value="add a fadeout effect to the ratings message" />
+    <MESSAGE value="fix stars" />
+    <MESSAGE value="working on token on frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on token on frontend" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

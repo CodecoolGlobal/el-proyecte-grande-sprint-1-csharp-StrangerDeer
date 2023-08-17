@@ -19,7 +19,8 @@ const NavMenu = () => {
     
     const navigate = useNavigate();
     
-    const [userName, setUserName] = useState("");
+    const [userObj, setUserObj] = useState(null);
+    
     const logout = () => {
         fetch("/api/user/logout", {
             method: "post",
@@ -36,13 +37,10 @@ const NavMenu = () => {
     }
     
     useEffect(() => {
-
-        const cookie = document.cookie;
         
-        if(cookie.length !== 0){
-            let cookieObjectum = cookieStringToObj(cookie);
-            cookieObjectum["token"]
-        }
+        fetch("/api/user/current_user")
+            .then(res => res.json())
+            .then(data => setUserObj(data))
         
     }, []);
     
@@ -52,7 +50,7 @@ const NavMenu = () => {
                 <nav className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3">
                     <Link className="movie-forum-button" to="/">IMDb</Link>
                     <ul className="navbar-nav flex-grow">
-                        {cookie.length === 0 ?
+                        {userObj === null ?
                             <li>
                                 <Link className={"text-dark"} to={"/login"}>Login</Link>
                             </li> 
@@ -62,7 +60,7 @@ const NavMenu = () => {
                                 <Link className="text-dark" to="/add-new-movie">Add Movie</Link>
                             </li>
                                 <li>
-                                <Link className={"text-dark"} to={`/user/${userName}`}>Profile</Link>
+                               {<Link className={"text-dark"} to={`/user/${userObj.userName}`}>Profile</Link>}
                                 </li>
                             <li>
                             <Link className={"text-dark"} onClick={() => logout()}>Logout</Link>
