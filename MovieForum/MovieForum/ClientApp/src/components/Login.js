@@ -9,6 +9,7 @@ const Login = () =>{
     
     const registerUser = (event) => {
         event.preventDefault()
+        
         const registerUserModel = {
             "Username":userName,
             "Password":userPassword,
@@ -17,8 +18,10 @@ const Login = () =>{
         
         }
         
-        fetch("/registration", {
-            method: "post",
+        console.log(registerUserModel)
+        
+        fetch("/api/user/registrationXX", {
+            method: "POST",
             body: JSON.stringify(registerUserModel),
             headers: {
                 "Content-Type": "application/json"
@@ -49,7 +52,7 @@ const Login = () =>{
         <div className={signUpActive ? "container right-panel-active" : "container"} id="container">
             <div className="form-container sign-up-container">
                 <form className="login-form" action="#">
-                    <h1>Create Account</h1>
+                    <h1 className={"login-h1"}>Create Account</h1>
                     <input className="login-input" type="text" placeholder="Name" onChange={(e) => setUserName(e.target.value)}/>
                     <input className="login-input" type="email" placeholder="Email" onChange={(e) => setUserEmail(e.target.value)}/>
                     <input className="login-input" type="password" placeholder="Password" onChange={(e) => setUserPassword(e.target.value)}/>
@@ -59,7 +62,7 @@ const Login = () =>{
             </div>
             <div className="form-container sign-in-container">
                 <form className="login-form" action="#">
-                    <h1>Sign in</h1>
+                    <h1 className={"login-h1"}>Sign in</h1>
                     <input className="login-input" type="text" placeholder="username" onChange={(e) => setUserName(e.target.value)}/>
                     <input className="login-input" type="password" placeholder="Password" onChange={(e) => setUserPassword(e.target.value)}/>
                     <a href="#">Forgot your password?</a>

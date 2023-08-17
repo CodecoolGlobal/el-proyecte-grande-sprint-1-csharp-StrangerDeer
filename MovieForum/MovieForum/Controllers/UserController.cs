@@ -13,10 +13,9 @@ namespace MovieForum.Controllers;
 
 
 [ApiController]
-[Route("/api/user/")]
+[Route("/api/user")]
 [Produces("application/json")] 
 [EnableCors("AllowAllHeaders")]
-
 public class UserController : ControllerBase
 {
     private IConfiguration _configuration;
@@ -29,7 +28,7 @@ public class UserController : ControllerBase
     }
 
     [AllowAnonymous]
-    [HttpPost("/registration")]
+    [HttpPost("/registrationXX")]
     public async Task<IActionResult> Registration([FromBody] RegisterModel registerModel)
     {
         Console.WriteLine("Hello");

@@ -11,6 +11,11 @@
     <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/setupProxy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +37,8 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientApp/package-lock.json" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -63,9 +68,9 @@
       &quot;postgresql&quot;
     ],
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\AsusTuf\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\AsusTuf\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\AsusTuf\\AppData\\Local\\Symbols\\src&quot;
+      &quot;C:\\Users\\Deer\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\Deer\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\Deer\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
 }</component>
@@ -120,6 +125,8 @@
       <workItem from="1692008942153" duration="3946000" />
       <workItem from="1692083548866" duration="5409000" />
       <workItem from="1692178212049" duration="3732000" />
+      <workItem from="1692255825883" duration="3220000" />
+      <workItem from="1692260163274" duration="1532000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -348,7 +355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692104279636</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="merge">
+      <option name="closed" value="true" />
+      <created>1692185537141</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1692185537142</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +383,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="add date property to movie" />
     <MESSAGE value="fix date of creation" />
     <MESSAGE value="fix problems with date of creation" />
     <MESSAGE value="add genre selection to AddNewMovie page" />
@@ -393,6 +407,7 @@
     <MESSAGE value="add user profile on frontend" />
     <MESSAGE value="change user profile colors and display" />
     <MESSAGE value="adjust layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjust layout" />
+    <MESSAGE value="merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge" />
   </component>
 </project>

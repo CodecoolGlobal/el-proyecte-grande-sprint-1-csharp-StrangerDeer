@@ -10,7 +10,7 @@ const context = [
   "/Uploads/",
   "/api/",
   "/add-new-movie",
-    "/api/user/registration"
+    "/registration"
 ];
 
 const onError = (err, req, resp, target) => {

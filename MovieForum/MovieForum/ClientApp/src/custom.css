@@ -467,9 +467,10 @@ input[type=file]::file-selector-button {
   box-sizing: border-box;
 }
 
-h1 {
+.login-h1 {
   font-weight: bold;
   margin: 0;
+  color: red;
 }
 
 h2 {

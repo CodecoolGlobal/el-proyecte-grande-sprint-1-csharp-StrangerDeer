@@ -11,6 +11,9 @@ using MovieForum.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
 //Connect db
 builder.Services.AddDbContext<MovieContext>(options => 
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
@@ -49,7 +52,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 builder.Services.AddMvc();
 builder.Services.AddControllers();
-
 
 
 var app = builder.Build();
