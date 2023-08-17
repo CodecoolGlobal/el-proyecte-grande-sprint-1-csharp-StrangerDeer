@@ -10,14 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="adjust shooting stars">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/setupProxy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,15 +358,6 @@
       <option name="project" value="LOCAL" />
       <updated>1692104279636</updated>
     </task>
-    <task id="LOCAL-00033" summary="merge">
-      <option name="closed" value="true" />
-      <created>1692185537141</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1692185537142</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
     <task id="LOCAL-00033" summary="change color scheme">
       <created>1692189523798</created>
       <option name="number" value="00033" />
@@ -432,7 +417,6 @@
     <MESSAGE value="change user profile colors and display" />
     <MESSAGE value="adjust layout" />
     <MESSAGE value="merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="merge" />
     <MESSAGE value="change color scheme" />
     <MESSAGE value="adjust shooting stars" />
     <option name="LAST_COMMIT_MESSAGE" value="adjust shooting stars" />
