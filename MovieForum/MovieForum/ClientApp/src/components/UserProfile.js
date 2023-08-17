@@ -4,6 +4,8 @@ import EditMovieDetails from "./EditMovieDetails";
 import profilePicture from '../User/noimage.jpg';
 const UserProfile = () => {
     const navigate = useNavigate();
+    const { username } = useParams();
+    
     const userObj = {
         "Username": "",
         "EmailAddress": "",
@@ -13,37 +15,36 @@ const UserProfile = () => {
     const [loading, setLoading] = useState(false);
     const [userDetails, setUserDetails] = useState(userObj);
     
-    let userName = userObj.Username;
-    let emailAddress = userObj.EmailAddress;
-    let badge = userObj.Badge;
+    
 
-    /*useEffect(() => {
-        fetch(`/current_user_data/${username}`, {
-            method: 'get',
-                headers: new Headers({
-                'Authorization': ////TOKEN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            })})
+    useEffect(() => {
+        fetch(`/api/user/current_user`)
             .then(res => res.json())
-            .then(data => {
+            .then(data => { 
                 setUserDetails({
-                    "Username": data.username,
-                    "EmailAddress": data.EmailAddress,
+                    "Username": data.userName,
+                    "EmailAddress": data.emailAddress,
                     "Badge": data.badge
-                });
-                setLoading(false);
-            })}, [])*/
+                })})
+            .then(() => setLoading(false))
+                
+            }, [])
 
     if (loading)
         return <p className="loading"><em>Loading...</em></p>;
+
+    let userName = userDetails.Username;
+    let emailAddress = userDetails.EmailAddress;
+    let badge = userDetails.Badge;
     
     return <div className="user-container">
             <div className="user-card">
                 <img
                     src={profilePicture}
                     alt="Person" className="card__image"/>
-                    <p className="card__name">User Name</p>
-                    <p className="email">Email@Address.com</p>
-                    <p className="user-badge">Badge</p>
+                    <p className="card__name">{userName}</p>
+                    <p className="email">{emailAddress}</p>
+                    <p className="user-badge">{badge}</p>
                     <ul className="social-icons">
                         <li><a href="/"><i className='fa fa-instagram'></i></a></li>
                         <li><a href="#"><i className='fa fa-twitter'></i></a></li>
