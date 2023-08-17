@@ -1,12 +1,7 @@
-﻿@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap"); /* Provide sufficient contrast against white background */
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap"); /* Provide sufficient contrast against white background */
 a {
   color: #0366d6;
-}
-
-@mixin sp-layout {
-  @media screen and (max-width: 750px) {
-    @content;
-  }
 }
 
 body {
@@ -76,19 +71,19 @@ li {
 }
 
 .text-dark:hover {
-  color:#FDEE87 !important;
+  color: #FDEE87 !important;
   border-color: #FDEE87;
   background: linear-gradient(#343340, #242424);
 }
 
 .nav-link:hover {
-  color:#FFFFAA !important;
+  color: #FFFFAA !important;
   background: linear-gradient(45deg, #E33C23, #EE7C39);
   transition: 0.3s;
 }
 
 .text-dark:active {
-  color:white;
+  color: white;
 }
 
 body, html {
@@ -115,29 +110,35 @@ code {
   height: 46px;
   padding: 0 10px;
 }
+
 .rate:not(:checked) > input {
-  position:absolute;
-  top:-9999px;
+  position: absolute;
+  top: -9999px;
 }
+
 .rate:not(:checked) > label {
-  float:right;
-  width:1em;
-  overflow:hidden;
-  white-space:nowrap;
-  cursor:pointer;
-  font-size:30px;
-  color:#ccc;
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
 }
+
 .rate:not(:checked) > label:before {
-  content: '★ ';
+  content: "★ ";
 }
+
 .rate > input:checked ~ label {
   color: #ffc700;
 }
+
 .rate:not(:checked) > label:hover,
 .rate:not(:checked) > label:hover ~ label {
   color: #ffdc42;
 }
+
 .rate > input:checked + label:hover,
 .rate > input:checked + label:hover ~ label,
 .rate > input:checked ~ label:hover,
@@ -277,8 +278,8 @@ input[type=file]::file-selector-button {
 }
 
 .top-page {
-  display:inline-block;
-  width:50%;
+  display: inline-block;
+  width: 50%;
   margin-left: 25%;
   margin-right: 25%;
   justify-content: center;
@@ -319,7 +320,7 @@ input[type=file]::file-selector-button {
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-family: 'Baloo Paaji 2', cursive;
+  font-family: "Baloo Paaji 2", cursive;
 }
 
 .user-card {
@@ -363,7 +364,7 @@ input[type=file]::file-selector-button {
 .draw-border::after {
   border: 0 solid transparent;
   box-sizing: border-box;
-  content: '';
+  content: "";
   pointer-events: none;
   position: absolute;
   width: 0rem;
@@ -410,7 +411,7 @@ input[type=file]::file-selector-button {
   border: none;
   cursor: pointer;
   line-height: 1.5;
-  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  font: 700 1.2rem "Roboto Slab", sans-serif;
   padding: 0.75em 2em;
   letter-spacing: 0.05rem;
   margin: 1em;
@@ -420,7 +421,6 @@ input[type=file]::file-selector-button {
 .user-btn:focus {
   outline: 2px dotted #55d7dc;
 }
-
 
 .social-icons {
   padding: 0;
@@ -484,7 +484,6 @@ input[type=file]::file-selector-button {
 }
 
 /*--------------------------------------------------*/
-
 * {
   box-sizing: border-box;
 }
@@ -567,8 +566,7 @@ form.login-form {
 .container {
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25),
-  0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
   width: 768px;
@@ -612,13 +610,11 @@ form.login-form {
     opacity: 0;
     z-index: 1;
   }
-
   50%, 100% {
     opacity: 1;
     z-index: 5;
   }
 }
-
 .overlay-container {
   position: absolute;
   top: 0;
@@ -630,7 +626,7 @@ form.login-form {
   z-index: 100;
 }
 
-.container.right-panel-active .overlay-container{
+.container.right-panel-active .overlay-container {
   transform: translateX(-100%);
 }
 
@@ -726,12 +722,6 @@ footer a {
   text-decoration: none;
 }
 
-@function random_range($min, $max) {
-  $rand: random();
-  $random_range: $min + floor($rand * (($max - $min) + 1));
-  @return $random_range;
-}
-
 .shooting-stars {
   position: fixed;
   top: 0;
@@ -753,14 +743,12 @@ footer a {
 }
 
 .shooting-star {
-  $star-count: 25;
   --star-color: #C08432;
   --star-tail-length: 10em;
   --star-tail-height: 2px;
   --star-width: calc(var(--star-tail-length) / 6);
   --fall-duration: 9s;
   --tail-fade-duration: var(--fall-duration);
-
   position: absolute;
   top: var(--top-offset);
   left: 10%;
@@ -772,51 +760,187 @@ footer a {
   filter: drop-shadow(0 0 6px currentColor);
   transform: translate3d(104em, 0, 0);
   animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
-
-  @include sp-layout {
-    // For mobile performance, tail-fade animation will be removed QAQ
+}
+@media screen and (max-width: 750px) {
+  .shooting-star {
     animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
   }
-
-  @for $i from 1 through $star-count {
-    &:nth-child(#{$i}) {
-      --star-tail-length: #{random_range(500em, 1500em) / 100};
-      --top-offset: #{random_range(0vh, 10000vh) / 100};
-      --fall-duration: #{random_range(6000, 12000s) / 1000};
-      --fall-delay: #{random_range(0, 10000s) / 1000};
-    }
-  }
-
-  &::before, &::after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: calc(var(--star-width) / -2);
-    width: var(--star-width);
-    height: 100%;
-    background: linear-gradient(45deg, transparent, currentColor, transparent);
-    border-radius: inherit;
-    animation: blink 2s linear infinite;
-  }
-
-  &::before {
-    transform: rotate(45deg);
-  }
-
-  &::after {
-    transform: rotate(-45deg);
-  }
+}
+.shooting-star:nth-child(1) {
+  --star-tail-length: 7.88em;
+  --top-offset: 94.38vh;
+  --fall-duration: 7.476s;
+  --fall-delay: 2.415s;
+}
+.shooting-star:nth-child(2) {
+  --star-tail-length: 6.3em;
+  --top-offset: 61.19vh;
+  --fall-duration: 10.454s;
+  --fall-delay: 1.734s;
+}
+.shooting-star:nth-child(3) {
+  --star-tail-length: 13.7em;
+  --top-offset: 75.02vh;
+  --fall-duration: 7.645s;
+  --fall-delay: 2.885s;
+}
+.shooting-star:nth-child(4) {
+  --star-tail-length: 12.16em;
+  --top-offset: 9.31vh;
+  --fall-duration: 6.261s;
+  --fall-delay: 4.863s;
+}
+.shooting-star:nth-child(5) {
+  --star-tail-length: 14.51em;
+  --top-offset: 50.21vh;
+  --fall-duration: 6.826s;
+  --fall-delay: 1.029s;
+}
+.shooting-star:nth-child(6) {
+  --star-tail-length: 11.61em;
+  --top-offset: 34.94vh;
+  --fall-duration: 10.014s;
+  --fall-delay: 7.77s;
+}
+.shooting-star:nth-child(7) {
+  --star-tail-length: 9.95em;
+  --top-offset: 71.76vh;
+  --fall-duration: 6.26s;
+  --fall-delay: 2.694s;
+}
+.shooting-star:nth-child(8) {
+  --star-tail-length: 8.1em;
+  --top-offset: 62.37vh;
+  --fall-duration: 7.741s;
+  --fall-delay: 0.383s;
+}
+.shooting-star:nth-child(9) {
+  --star-tail-length: 7.34em;
+  --top-offset: 12.52vh;
+  --fall-duration: 9.795s;
+  --fall-delay: 5.495s;
+}
+.shooting-star:nth-child(10) {
+  --star-tail-length: 7.34em;
+  --top-offset: 81.23vh;
+  --fall-duration: 10.913s;
+  --fall-delay: 4.073s;
+}
+.shooting-star:nth-child(11) {
+  --star-tail-length: 10.48em;
+  --top-offset: 53.73vh;
+  --fall-duration: 10.404s;
+  --fall-delay: 2.788s;
+}
+.shooting-star:nth-child(12) {
+  --star-tail-length: 13.86em;
+  --top-offset: 42.79vh;
+  --fall-duration: 6.284s;
+  --fall-delay: 7.113s;
+}
+.shooting-star:nth-child(13) {
+  --star-tail-length: 7.45em;
+  --top-offset: 21.95vh;
+  --fall-duration: 8.689s;
+  --fall-delay: 6.765s;
+}
+.shooting-star:nth-child(14) {
+  --star-tail-length: 10.93em;
+  --top-offset: 93.64vh;
+  --fall-duration: 7.164s;
+  --fall-delay: 6.223s;
+}
+.shooting-star:nth-child(15) {
+  --star-tail-length: 9.87em;
+  --top-offset: 22.6vh;
+  --fall-duration: 9.265s;
+  --fall-delay: 5.53s;
+}
+.shooting-star:nth-child(16) {
+  --star-tail-length: 8.63em;
+  --top-offset: 99.23vh;
+  --fall-duration: 10.585s;
+  --fall-delay: 3.093s;
+}
+.shooting-star:nth-child(17) {
+  --star-tail-length: 9.59em;
+  --top-offset: 39.12vh;
+  --fall-duration: 9.691s;
+  --fall-delay: 5.797s;
+}
+.shooting-star:nth-child(18) {
+  --star-tail-length: 8.35em;
+  --top-offset: 60.67vh;
+  --fall-duration: 10.507s;
+  --fall-delay: 8.51s;
+}
+.shooting-star:nth-child(19) {
+  --star-tail-length: 12.94em;
+  --top-offset: 73.72vh;
+  --fall-duration: 8.218s;
+  --fall-delay: 3.376s;
+}
+.shooting-star:nth-child(20) {
+  --star-tail-length: 10.65em;
+  --top-offset: 93.99vh;
+  --fall-duration: 9.5s;
+  --fall-delay: 3.332s;
+}
+.shooting-star:nth-child(21) {
+  --star-tail-length: 13.08em;
+  --top-offset: 26.55vh;
+  --fall-duration: 11.084s;
+  --fall-delay: 7.735s;
+}
+.shooting-star:nth-child(22) {
+  --star-tail-length: 13.94em;
+  --top-offset: 56.71vh;
+  --fall-duration: 8.554s;
+  --fall-delay: 5.406s;
+}
+.shooting-star:nth-child(23) {
+  --star-tail-length: 10.16em;
+  --top-offset: 88.34vh;
+  --fall-duration: 8.96s;
+  --fall-delay: 9.608s;
+}
+.shooting-star:nth-child(24) {
+  --star-tail-length: 9.27em;
+  --top-offset: 14.43vh;
+  --fall-duration: 7.222s;
+  --fall-delay: 7.493s;
+}
+.shooting-star:nth-child(25) {
+  --star-tail-length: 5.13em;
+  --top-offset: 29.91vh;
+  --fall-duration: 8.164s;
+  --fall-delay: 6.236s;
+}
+.shooting-star::before, .shooting-star::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: calc(var(--star-width) / -2);
+  width: var(--star-width);
+  height: 100%;
+  background: linear-gradient(45deg, transparent, currentColor, transparent);
+  border-radius: inherit;
+  animation: blink 2s linear infinite;
+}
+.shooting-star::before {
+  transform: rotate(45deg);
+}
+.shooting-star::after {
+  transform: rotate(-45deg);
 }
 
 .shooting-star2 {
-  $star-count: 25;
   --star-color: #C08432;
   --star-tail-length: 10em;
   --star-tail-height: 2px;
   --star-width: calc(var(--star-tail-length) / 6);
   --fall-duration: 9s;
   --tail-fade-duration: var(--fall-duration);
-
   position: absolute;
   top: var(--top-offset);
   left: -10%;
@@ -828,40 +952,178 @@ footer a {
   filter: drop-shadow(0 0 6px currentColor);
   transform: translate3d(104em, 0, 0);
   animation: fall var(--fall-duration) var(--fall-delay) linear infinite, tail-fade var(--tail-fade-duration) var(--fall-delay) ease-out infinite;
-
-  @include sp-layout {
-    // For mobile performance, tail-fade animation will be removed QAQ
+}
+@media screen and (max-width: 750px) {
+  .shooting-star2 {
     animation: fall var(--fall-duration) var(--fall-delay) linear infinite;
   }
-
-  @for $i from 1 through $star-count {
-    &:nth-child(#{$i}) {
-      --star-tail-length: #{random_range(500em, 1500em) / 100};
-      --top-offset: #{random_range(0vh, 10000vh) / 100};
-      --fall-duration: #{random_range(6000, 12000s) / 1000};
-      --fall-delay: #{random_range(0, 10000s) / 1000};
-    }
-  }
-
-  &::before, &::after {
-    position: absolute;
-    content: '';
-    top: 0;
-    left: calc(var(--star-width) / -2);
-    width: var(--star-width);
-    height: 100%;
-    background: linear-gradient(45deg, transparent, currentColor, transparent);
-    border-radius: inherit;
-    animation: blink 2s linear infinite;
-  }
-
-  &::before {
-    transform: rotate(45deg);
-  }
-
-  &::after {
-    transform: rotate(-45deg);
-  }
+}
+.shooting-star2:nth-child(1) {
+  --star-tail-length: 7.13em;
+  --top-offset: 1.64vh;
+  --fall-duration: 11.895s;
+  --fall-delay: 6.346s;
+}
+.shooting-star2:nth-child(2) {
+  --star-tail-length: 13.08em;
+  --top-offset: 34.76vh;
+  --fall-duration: 6.398s;
+  --fall-delay: 7.948s;
+}
+.shooting-star2:nth-child(3) {
+  --star-tail-length: 8.33em;
+  --top-offset: 76.57vh;
+  --fall-duration: 7.229s;
+  --fall-delay: 3.985s;
+}
+.shooting-star2:nth-child(4) {
+  --star-tail-length: 10.81em;
+  --top-offset: 29.52vh;
+  --fall-duration: 8.902s;
+  --fall-delay: 9.675s;
+}
+.shooting-star2:nth-child(5) {
+  --star-tail-length: 13.32em;
+  --top-offset: 33.86vh;
+  --fall-duration: 8.529s;
+  --fall-delay: 1.892s;
+}
+.shooting-star2:nth-child(6) {
+  --star-tail-length: 12.04em;
+  --top-offset: 75.52vh;
+  --fall-duration: 8.402s;
+  --fall-delay: 4.725s;
+}
+.shooting-star2:nth-child(7) {
+  --star-tail-length: 14.46em;
+  --top-offset: 13.43vh;
+  --fall-duration: 8.007s;
+  --fall-delay: 9.909s;
+}
+.shooting-star2:nth-child(8) {
+  --star-tail-length: 6.18em;
+  --top-offset: 52.4vh;
+  --fall-duration: 8.394s;
+  --fall-delay: 6.36s;
+}
+.shooting-star2:nth-child(9) {
+  --star-tail-length: 14.17em;
+  --top-offset: 82.76vh;
+  --fall-duration: 8.974s;
+  --fall-delay: 1.804s;
+}
+.shooting-star2:nth-child(10) {
+  --star-tail-length: 5.9em;
+  --top-offset: 99.37vh;
+  --fall-duration: 6.762s;
+  --fall-delay: 0.132s;
+}
+.shooting-star2:nth-child(11) {
+  --star-tail-length: 9em;
+  --top-offset: 1.6vh;
+  --fall-duration: 10.158s;
+  --fall-delay: 1.929s;
+}
+.shooting-star2:nth-child(12) {
+  --star-tail-length: 7.46em;
+  --top-offset: 43.55vh;
+  --fall-duration: 9.969s;
+  --fall-delay: 7.814s;
+}
+.shooting-star2:nth-child(13) {
+  --star-tail-length: 7.33em;
+  --top-offset: 87.91vh;
+  --fall-duration: 11.279s;
+  --fall-delay: 8.903s;
+}
+.shooting-star2:nth-child(14) {
+  --star-tail-length: 7.04em;
+  --top-offset: 76.7vh;
+  --fall-duration: 9.895s;
+  --fall-delay: 0.926s;
+}
+.shooting-star2:nth-child(15) {
+  --star-tail-length: 6.31em;
+  --top-offset: 1.57vh;
+  --fall-duration: 10.421s;
+  --fall-delay: 3.223s;
+}
+.shooting-star2:nth-child(16) {
+  --star-tail-length: 6.98em;
+  --top-offset: 62.23vh;
+  --fall-duration: 9.249s;
+  --fall-delay: 4.673s;
+}
+.shooting-star2:nth-child(17) {
+  --star-tail-length: 7.63em;
+  --top-offset: 4.78vh;
+  --fall-duration: 10.397s;
+  --fall-delay: 2.276s;
+}
+.shooting-star2:nth-child(18) {
+  --star-tail-length: 8.74em;
+  --top-offset: 28.45vh;
+  --fall-duration: 8.629s;
+  --fall-delay: 0.533s;
+}
+.shooting-star2:nth-child(19) {
+  --star-tail-length: 5.62em;
+  --top-offset: 3.51vh;
+  --fall-duration: 6.175s;
+  --fall-delay: 4.919s;
+}
+.shooting-star2:nth-child(20) {
+  --star-tail-length: 5.17em;
+  --top-offset: 42.28vh;
+  --fall-duration: 9.258s;
+  --fall-delay: 8.899s;
+}
+.shooting-star2:nth-child(21) {
+  --star-tail-length: 5.89em;
+  --top-offset: 50.2vh;
+  --fall-duration: 10.774s;
+  --fall-delay: 9.29s;
+}
+.shooting-star2:nth-child(22) {
+  --star-tail-length: 11.02em;
+  --top-offset: 64.23vh;
+  --fall-duration: 11.919s;
+  --fall-delay: 7.69s;
+}
+.shooting-star2:nth-child(23) {
+  --star-tail-length: 6.21em;
+  --top-offset: 40.86vh;
+  --fall-duration: 8.097s;
+  --fall-delay: 3.313s;
+}
+.shooting-star2:nth-child(24) {
+  --star-tail-length: 12.04em;
+  --top-offset: 72.87vh;
+  --fall-duration: 7.946s;
+  --fall-delay: 2.603s;
+}
+.shooting-star2:nth-child(25) {
+  --star-tail-length: 6.92em;
+  --top-offset: 60.77vh;
+  --fall-duration: 7.972s;
+  --fall-delay: 5.985s;
+}
+.shooting-star2::before, .shooting-star2::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: calc(var(--star-width) / -2);
+  width: var(--star-width);
+  height: 100%;
+  background: linear-gradient(45deg, transparent, currentColor, transparent);
+  border-radius: inherit;
+  animation: blink 2s linear infinite;
+}
+.shooting-star2::before {
+  transform: rotate(45deg);
+}
+.shooting-star2::after {
+  transform: rotate(-45deg);
 }
 
 @keyframes fall {
@@ -869,37 +1131,42 @@ footer a {
     transform: translate3d(-30em, 0, 0);
   }
 }
-
 @keyframes tail-fade {
   0%, 50% {
     width: var(--star-tail-length);
     opacity: 1;
   }
-
   70%, 80% {
     width: 0;
     opacity: 0.4;
   }
-
   100% {
     width: 0;
     opacity: 0;
   }
 }
-
 @keyframes blink {
   50% {
     opacity: 0.6;
   }
 }
-
 .ratings-message {
-animation: fadeInOut 3s linear forwards;
+  animation: fadeInOut 3s linear forwards;
 }
 
 @keyframes fadeInOut {
-  0% { opacity:0; }
-  5% { opacity:1; }
-  90% { opacity:1; }
-  100% { opacity:0; }
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
+
+/*# sourceMappingURL=custom.css.map */

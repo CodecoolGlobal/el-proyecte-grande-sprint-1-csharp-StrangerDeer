@@ -12,6 +12,7 @@ import UserProfile from "./components/UserProfile";
 
 import './custom.css'
 import EditMovieDetails from "./components/EditMovieDetails";
+import Login from "./components/Login";
 
 
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([{
         {
             path:"/user/:username",
             element: <UserProfile/>
+        },
+        {
+            path:"/login",
+            element: <Login />
         }
     ],
 }
