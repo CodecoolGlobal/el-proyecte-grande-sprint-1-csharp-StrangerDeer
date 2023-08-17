@@ -8,8 +8,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="">
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="adjust shooting stars">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/setupProxy.js" afterDir="false" />
@@ -35,10 +37,17 @@
         <entry key="$PROJECT_DIR$/../.." value="development" />
       </map>
     </option>
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/ClientApp/package-lock.json" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ClientApp/src/custom.css.map" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Controllers/UserController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Models/Entities/UserModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Services/IMovieService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/AsusTuf/codecool/el-proyecte-grande-sprint-1-csharp-StrangerDeer/MovieForum/MovieForum/Services/MovieDbService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/package-lock.json" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -60,7 +69,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;watcher.settings&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -364,6 +373,21 @@
       <updated>1692185537142</updated>
     </task>
     <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00033" summary="change color scheme">
+      <created>1692189523798</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1692189523798</updated>
+    </task>
+    <task id="LOCAL-00034" summary="adjust shooting stars">
+      <created>1692260893379</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1692260893379</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,5 +433,12 @@
     <MESSAGE value="adjust layout" />
     <MESSAGE value="merge" />
     <option name="LAST_COMMIT_MESSAGE" value="merge" />
+    <MESSAGE value="change color scheme" />
+    <MESSAGE value="adjust shooting stars" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjust shooting stars" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
