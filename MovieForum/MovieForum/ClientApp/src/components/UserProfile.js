@@ -102,6 +102,60 @@ const UserProfile = () => {
             <div className="shooting-star"></div>
             <div className="shooting-star"></div>
         </div>
+
+        <div className="shooting-stars2">
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+            <div className="shooting-star2"></div>
+        </div>
         </div>
 }
 
