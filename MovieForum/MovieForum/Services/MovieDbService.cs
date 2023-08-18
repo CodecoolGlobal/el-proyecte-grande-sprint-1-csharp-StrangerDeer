@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
-using System.Transactions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using MovieForum.Models;
+using MovieForum.Models.Entities;
 
 namespace MovieForum.Services;
 
@@ -15,13 +15,13 @@ public class MovieDbService : IMovieService
         _context = context;
     }
     
-    public async Task<List<Movie?>> GetMovies()
+    public async Task<List<Movie>> GetMovies()
     {
         return await _context.movies.ToListAsync().ConfigureAwait(true);
     }
 
 
-    public async Task<string> AddNewMovie(Movie? movie)
+    public async Task<string> AddNewMovie(Movie movie)
     {
         var transaction = await _context.Database.BeginTransactionAsync();
         _context.movies.Add(movie);
@@ -32,27 +32,30 @@ public class MovieDbService : IMovieService
 
     public async Task<Movie?> GetMovieById(string id)
     {
-        Movie? movie = await _context.movies
+        if (id.IsNullOrEmpty())
+        {
+            return null;
+        }
+        var movie = await _context.movies
             .AsNoTracking()
-            .Where(movie => movie != null && movie.Id.Equals(Guid.Parse(id)))
+            .Where(movie => movie.Id.Equals(Guid.Parse(id)))
             .FirstOrDefaultAsync()
             .ConfigureAwait(true);
-        
         return movie;
     }
 
     public async Task DeleteMovieById(string id)
     {
-        var transaction = await _context.Database.BeginTransactionAsync();
-        var movieToDelete = _context.movies.FirstOrDefault(movie => movie != null && movie.Id.Equals(Guid.Parse(id)));
+        /*var transaction = await _context.Database.BeginTransactionAsync();*/
+        var movieToDelete = _context.movies.FirstOrDefault(movie => movie.Id.Equals(Guid.Parse(id)));
         if (movieToDelete == null) return;
         _context.movies.Remove(movieToDelete);
         await _context.SaveChangesAsync().ConfigureAwait(true);
-        await transaction.CommitAsync();
+        /*await transaction.CommitAsync();*/
         
     }
 
-    public async Task UpdateMovie(string id, Movie? updatedMovie)
+    public async Task UpdateMovie(string id, Movie updatedMovie)
     {
         var transaction = await _context.Database.BeginTransactionAsync();
         var movieToUpdate = await _context.movies.FirstOrDefaultAsync(movie => movie.Id.Equals(Guid.Parse(id)));
@@ -64,7 +67,7 @@ public class MovieDbService : IMovieService
         await transaction.CommitAsync();
     }
 
-    private void UpdateMovieProperties(Movie movieToUpdate, Movie? updatedMovie)
+    private void UpdateMovieProperties(Movie movieToUpdate, Movie updatedMovie)
     {
         PropertyInfo[] movieProperties = movieToUpdate.GetType().GetProperties();
 
@@ -86,12 +89,7 @@ public class MovieDbService : IMovieService
     {
         var currentUser = await _context.users.FirstOrDefaultAsync(user =>
             user.UserName == loginModel.Username && user.Password == loginModel.Password);
-        if (currentUser != null)
-        {
-            return currentUser;
-        }
-
-        return null;
+        return currentUser;
     }
 
     public async Task RegisterUser(RegisterModel registerModel)
@@ -121,11 +119,15 @@ public class MovieDbService : IMovieService
         await transaction.CommitAsync();
     }
 
-    public async Task<UserModel> GetUserData(string username)
+    public async Task<UserModel?> GetUserData(string username)
     {
-        UserModel? user = await _context.users
+        if (username.IsNullOrEmpty())
+        {
+            return null;
+        }
+        var user = await _context.users
             .AsNoTracking()
-            .Where(user => user != null && user.UserName == username)
+            .Where(user => user.UserName == username)
             .FirstOrDefaultAsync()
             .ConfigureAwait(true);
         return user;
@@ -153,7 +155,7 @@ public class MovieDbService : IMovieService
                 break;
         }
 
-        if (userRatings < 5)
+        if (userRatings > 5)
         {
             user.Badge = "Movie Guru";
         }

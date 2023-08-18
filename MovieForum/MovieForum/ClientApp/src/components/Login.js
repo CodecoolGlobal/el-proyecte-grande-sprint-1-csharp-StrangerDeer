@@ -46,6 +46,7 @@ const Login = () =>{
             }
         })
             .then(() => navigate("/"))
+            .then(() => window.location.reload())
     }
     
     return <>

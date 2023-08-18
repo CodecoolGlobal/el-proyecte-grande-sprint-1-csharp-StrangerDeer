@@ -31,8 +31,9 @@ const NavMenu = () => {
             .then(() => {
                 document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
             })
+            .then(() => navigate("/"))
             .then(() => {
-                navigate("/")
+                window.location.reload()
             })
     }
     
