@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Cors;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
 using MovieForum.Services;
 
 namespace MovieForum.Controllers;
@@ -43,8 +44,17 @@ public class MovieController : ControllerBase
     public async Task<IActionResult> AddNewMovie([FromBody] JsonElement body)
     {
         var jsonObject = JsonSerializer.Deserialize<Movie>(body);
-        string title = await _movieService.AddNewMovie(jsonObject);
-        return StatusCode(StatusCodes.Status200OK, $"{title} added");
+        if (jsonObject == null)
+        {
+            return BadRequest("Movie cannot be added.");
+        }
+        var title = await _movieService.AddNewMovie(jsonObject);
+        if (!title.IsNullOrEmpty())
+        {
+            return StatusCode(StatusCodes.Status200OK, $"{title} added");
+        }
+
+        return BadRequest("Movie cannot be added.");
 
     }
 
@@ -76,6 +86,10 @@ public class MovieController : ControllerBase
     public async Task<IActionResult> UpdateMovie([FromRoute] string id, [FromBody] JsonElement body)
     {
         var updatedMovie = JsonSerializer.Deserialize<Movie>(body);
+        if (updatedMovie == null)
+        {
+            return BadRequest("Cannot update movie.");
+        }
         await _movieService.UpdateMovie(id, updatedMovie);
         return Ok();
     }
@@ -133,7 +147,7 @@ public class MovieController : ControllerBase
     [NonAction]
     private string GetImagesByMovie(string movieId)
     {
-        string imageUrl = string.Empty;
+        string imageUrl;
         string filePath = GetFilePath(movieId);
         string movieImgName = "";
        
