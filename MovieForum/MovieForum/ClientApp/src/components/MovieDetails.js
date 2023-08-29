@@ -72,7 +72,18 @@ const MovieDetails = () => {
             headers: {
                 "Content-type": "application/json",
             }
-        });
+        }).then();
+
+        fetch("/api/user/current_user")
+            .then(res => res.json())
+            .then(data => fetchMovieStar(data.userName))
+    }
+    
+    const fetchMovieStar = (uName) => {
+        fetch(`/api/user/${uName}`, {
+            method:"PUT"
+        })
+            .then()
     }
     const updateMovie = (id) => {
         fetch(`/movies/${id}`, {

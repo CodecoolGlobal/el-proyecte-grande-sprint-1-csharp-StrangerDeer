@@ -5,12 +5,12 @@ const target = env.ASPNETCORE_HTTPS_PORT ? `https://localhost:${env.ASPNETCORE_H
   env.ASPNETCORE_URLS ? env.ASPNETCORE_URLS.split(';')[0] : 'http://localhost:63644';
 
 const context = [
-  "/weatherforecast",
   "/movies",
   "/Uploads/",
   "/api/",
   "/add-new-movie",
-    "/registration"
+    "/registration",
+    "/api/user/",
 ];
 
 const onError = (err, req, resp, target) => {
