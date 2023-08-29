@@ -1,0 +1,53 @@
+﻿version: '3.4'
+
+networks:
+  dev:
+    driver: bridge
+
+services:
+  movieforum:
+    image: docker.io/library/movieforum
+    depends_on: 
+      - "movieforum_db"
+    container_name: movieforum-services
+    ports:
+      - "8088:80"  
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ConnectionStrings__DefaultConnection=User ID=postgres;Password=postgres;Server=movieforum_db;Port=5432;Database=MovieForum;IntegratedSecurity=true;Pooling=true;
+      - ASPNETCORE_URLS=http://+:80
+    networks:
+      - dev
+
+  movieforum_db:
+    image: postgres:latest
+    container_name: movieforum_db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=MovieForum
+    ports:
+      - "5433:5432"
+    restart: always
+    volumes:
+      - app_data:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/1-init.sql
+    networks: 
+      - dev
+        
+
+  migration:
+    image: movieforum:latest
+    command: ["./wait-for-it/wait-for-it.sh", "movieforum_db:5432", "--", "npm", "run", "migrate", "up"]
+    links:
+      - movieforum_db
+    depends_on:
+      - movieforum_db
+        
+        
+volumes: 
+  scripts:
+  app_data:
+      

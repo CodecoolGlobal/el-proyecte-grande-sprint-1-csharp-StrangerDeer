@@ -3,6 +3,15 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
+FROM postgres:latest AS database_setup
+USER postgres
+RUN whoami
+ADD ./scripts/init.sql /docker-entrypoint-initdb.d/
+ENTRYPOINT ["docker-entrypoint.sh"]
+RUN chown postgres:postgres /docker-entrypoint-initdb.d/init.sql
+EXPOSE 5432
+CMD ["postgres"]
+
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 
 # Install Node.js
