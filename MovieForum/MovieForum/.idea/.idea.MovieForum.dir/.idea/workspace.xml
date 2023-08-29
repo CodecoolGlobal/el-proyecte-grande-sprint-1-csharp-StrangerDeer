@@ -8,10 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="add docker-compose file; add database that isn't fully functional yet">
+      <change beforePath="$PROJECT_DIR$/scripts/init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/init.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +167,7 @@
       <workItem from="1693228403044" duration="1003000" />
       <workItem from="1693229440020" duration="439000" />
       <workItem from="1693298966081" duration="10991000" />
-      <workItem from="1693313095054" duration="966000" />
+      <workItem from="1693313095054" duration="1406000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -449,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693228466234</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="add docker-compose file; add database that isn't fully functional yet">
+      <created>1693314335050</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1693314335050</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +474,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="show uploaded trailer on the MovieDetails page" />
     <MESSAGE value="add trailer url to EditMovieDetails page" />
     <MESSAGE value="remove underline from movie cards on home page" />
     <MESSAGE value="make slight changes to the layout and css" />
@@ -497,7 +501,8 @@
     <MESSAGE value="finish" />
     <MESSAGE value="hot fix" />
     <MESSAGE value="add docker files" />
-    <option name="LAST_COMMIT_MESSAGE" value="add docker files" />
+    <MESSAGE value="add docker-compose file; add database that isn't fully functional yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="add docker-compose file; add database that isn't fully functional yet" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

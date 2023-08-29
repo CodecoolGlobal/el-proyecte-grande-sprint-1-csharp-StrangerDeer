@@ -1,8 +1,8 @@
 ﻿CREATE TABLE IF NOT EXISTS "__EFMigrationsHistory" (
-    "MigrationId" character varying(150) NOT NULL,
-    "ProductVersion" character varying(32) NOT NULL,
-    CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
-    );
+                                                       "MigrationId" character varying(150) NOT NULL,
+                                                       "ProductVersion" character varying(32) NOT NULL,
+                                                       CONSTRAINT "PK___EFMigrationsHistory" PRIMARY KEY ("MigrationId")
+);
 
 START TRANSACTION;
 
@@ -87,8 +87,7 @@ CREATE TABLE "AspNetRoleClaims" (
                                     "ClaimType" text NULL,
                                     "ClaimValue" text NULL,
                                     CONSTRAINT "PK_AspNetRoleClaims" PRIMARY KEY ("Id"),
-                                    CONSTRAINT "FK_AspNetRoleClaims_AspNetRoles_RoleId" FOREIGN KEY ("RoleId") REFERENCES "AspNetRoles" ("Id") ON DELETE C
-                                        ASCADE
+                                    CONSTRAINT "FK_AspNetRoleClaims_AspNetRoles_RoleId" FOREIGN KEY ("RoleId") REFERENCES "AspNetRoles" ("Id") ON DELETE CASCADE
 );
 
 CREATE TABLE "AspNetUserClaims" (
@@ -97,8 +96,7 @@ CREATE TABLE "AspNetUserClaims" (
                                     "ClaimType" text NULL,
                                     "ClaimValue" text NULL,
                                     CONSTRAINT "PK_AspNetUserClaims" PRIMARY KEY ("Id"),
-                                    CONSTRAINT "FK_AspNetUserClaims_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE C
-                                        ASCADE
+                                    CONSTRAINT "FK_AspNetUserClaims_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE
 );
 
 CREATE TABLE "AspNetUserLogins" (
@@ -107,18 +105,15 @@ CREATE TABLE "AspNetUserLogins" (
                                     "ProviderDisplayName" text NULL,
                                     "UserId" text NOT NULL,
                                     CONSTRAINT "PK_AspNetUserLogins" PRIMARY KEY ("LoginProvider", "ProviderKey"),
-                                    CONSTRAINT "FK_AspNetUserLogins_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE C
-                                        ASCADE
+                                    CONSTRAINT "FK_AspNetUserLogins_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE
 );
 
 CREATE TABLE "AspNetUserRoles" (
                                    "UserId" text NOT NULL,
                                    "RoleId" text NOT NULL,
                                    CONSTRAINT "PK_AspNetUserRoles" PRIMARY KEY ("UserId", "RoleId"),
-                                   CONSTRAINT "FK_AspNetUserRoles_AspNetRoles_RoleId" FOREIGN KEY ("RoleId") REFERENCES "AspNetRoles" ("Id") ON DELETE CA
-                                       SCADE,
-                                   CONSTRAINT "FK_AspNetUserRoles_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CA
-                                       SCADE
+                                   CONSTRAINT "FK_AspNetUserRoles_AspNetRoles_RoleId" FOREIGN KEY ("RoleId") REFERENCES "AspNetRoles" ("Id") ON DELETE CASCADE,
+                                   CONSTRAINT "FK_AspNetUserRoles_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE
 );
 
 CREATE TABLE "AspNetUserTokens" (
@@ -127,8 +122,7 @@ CREATE TABLE "AspNetUserTokens" (
                                     "Name" text NOT NULL,
                                     "Value" text NULL,
                                     CONSTRAINT "PK_AspNetUserTokens" PRIMARY KEY ("UserId", "LoginProvider", "Name"),
-                                    CONSTRAINT "FK_AspNetUserTokens_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE C
-                                        ASCADE
+                                    CONSTRAINT "FK_AspNetUserTokens_AspNetUsers_UserId" FOREIGN KEY ("UserId") REFERENCES "AspNetUsers" ("Id") ON DELETE CASCADE
 );
 
 CREATE INDEX "IX_AspNetRoleClaims_RoleId" ON "AspNetRoleClaims" ("RoleId");
