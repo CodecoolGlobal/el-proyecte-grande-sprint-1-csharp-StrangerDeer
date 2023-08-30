@@ -30,7 +30,6 @@ public class UserController : ControllerBase
     [HttpPost("registrationXX")]
     public async Task<IActionResult> Registration([FromBody] RegisterModel registerModel)
     {
-        Console.WriteLine("Hello");
         await _movieService.RegisterUser(registerModel);
         return Ok();
     }

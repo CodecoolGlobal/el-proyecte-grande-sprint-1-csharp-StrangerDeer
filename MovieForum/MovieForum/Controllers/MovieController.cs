@@ -117,7 +117,7 @@ public class MovieController : ControllerBase
                     Directory.CreateDirectory(filepath);
                 }
 
-                string imagepath = filepath + "\\" + imgName;
+                string imagepath = filepath + "/" + imgName;
 
                 if (System.IO.File.Exists(imagepath))
                 {
