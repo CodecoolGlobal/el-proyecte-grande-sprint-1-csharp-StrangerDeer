@@ -46,6 +46,16 @@
 
     <ItemGroup>
       <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\Screenshot_10.png\image.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\Harry Potter I\d04a90f289581ddc8b41ed14f9cafca7.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\88acd996-4174-4a1c-ae3f-d4d7af711e09\image.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\b6b1454f-4c36-4dc0-8338-95decd4d593e\1825-nanashimumei-thisisfine.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\53281e12-6ed6-4776-9b5b-ee178268a55b\6833-heart.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\4496e439-6b01-42bc-82b2-1c869161278e\that sus boo.png" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\4787211b-709f-42de-b7ca-6eab9fd3c7ce\coffee.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\4787211b-709f-42de-b7ca-6eab9fd3c7ce\d04a90f289581ddc8b41ed14f9cafca7.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\7c633ffc-a147-4272-a9e3-381d02caa56d\d04a90f289581ddc8b41ed14f9cafca7.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\s\d04a90f289581ddc8b41ed14f9cafca7.jpg" />
+      <_ContentIncludedByDefault Remove="wwwroot\Uploads\Movie\fd2c1068-21cf-4f47-a01b-754e13206092\d04a90f289581ddc8b41ed14f9cafca7.jpg" />
     </ItemGroup>
 
     <ItemGroup>
