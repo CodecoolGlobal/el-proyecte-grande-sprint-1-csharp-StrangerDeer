@@ -8,15 +8,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="make ShootingStars.js">
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="change endpoints">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/AddNewMovie.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/AddNewMovie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/EditMovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/EditMovieDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/GenreController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/GenreController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +171,7 @@
       <workItem from="1693298966081" duration="10991000" />
       <workItem from="1693313095054" duration="1667000" />
       <workItem from="1693378461857" duration="5007000" />
-      <workItem from="1693469296964" duration="15052000" />
+      <workItem from="1693469296964" duration="15760000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -511,7 +505,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693488917544</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="change endpoints">
+      <option name="closed" value="true" />
+      <created>1693489532378</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1693489532378</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +533,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="edit details layout; hide default dropdown options" />
     <MESSAGE value="remove console logs" />
     <MESSAGE value="bugfix" />
     <MESSAGE value="add authentication configuration to startup" />
@@ -558,7 +559,8 @@
     <MESSAGE value="fix homepage http 401 error" />
     <MESSAGE value="remove window.location.reload from react component" />
     <MESSAGE value="make ShootingStars.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="make ShootingStars.js" />
+    <MESSAGE value="change endpoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="change endpoints" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -19,7 +19,7 @@ const UserProfile = () => {
     
 
     useEffect(() => {
-        fetch(`/api/user/current_user`)
+        fetch(`/api/user/current_user/${username}`)
             .then(res => res.json())
             .then(data => { 
                 setUserDetails({
