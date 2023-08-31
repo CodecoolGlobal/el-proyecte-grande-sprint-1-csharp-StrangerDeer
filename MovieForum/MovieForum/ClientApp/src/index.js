@@ -1,58 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
-import { createRoot } from 'react-dom/client';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import NavMenu from "./components/NavMenu";
-import Home from "./components/Home";
-import AddNewMovie from "./components/AddNewMovie";
-import MovieDetails from "./components/MovieDetails";
-import UserProfile from "./components/UserProfile";
-
 import './custom.css'
-import EditMovieDetails from "./components/EditMovieDetails";
-import Login from "./components/Login";
+import App from "./App";
 
-
-
-
-const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
-
-
-const router = createBrowserRouter([{
-    path: "/",
-    element: <NavMenu/>,
-    children:[
-        {
-            path:"/",
-            element: <Home />
-        },
-        {
-            path:"/add-new-movie",
-            element: <AddNewMovie />
-        },
-        {
-            path:"/movie/:id",
-            element: <MovieDetails/>
-        },
-        {
-            path:"/user/:username",
-            element: <UserProfile/>
-        },
-        {
-            path:"/login",
-            element: <Login />
-        }
-    ],
-}
-]);
+const container = document.getElementById("root");
+const root = ReactDOM.createRoot(container);
 
 root.render(
   <React.StrictMode>
-      <RouterProvider router={router}/>
+      <App/>
   </React.StrictMode>);
 
 // If you want your app to work offline and load faster, you can change
