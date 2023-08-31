@@ -41,8 +41,8 @@ const Home = () => {
             <div className="top-page">
                 <div className="search-container">
                 <input className="searchbox" placeholder={"Search for movie title"} value={searchMovie} onChange={(e) => setSearchMovie(e.target.value)}/>
-                <select onChange={(event) => setSelectedGenre(event.target.value)}>
-                    <option selected={true} disabled={true} hidden={true}>Filter by genres</option>
+                <select defaultValue={"DEFAULT"} onChange={(event) => setSelectedGenre(event.target.value)}>
+                    <option value={"DEFAULT"}  disabled={true} hidden={true}>Filter by genres</option>
                     <option value={""}>Not specified</option>
                     {genres.map((genre, index) =>
                         <option key={index} value={genre.name}>{genre.name}</option>
