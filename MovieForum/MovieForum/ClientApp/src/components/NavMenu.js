@@ -29,19 +29,23 @@ const NavMenu = () => {
             }
         })    
             .then(() => {
-                document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+                document.cookie.split(";")
+                    .forEach(function(c) { 
+                        document.cookie = c.replace(/^ +/, "")
+                            .replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
             })
             .then(() => navigate("/"))
             .then(() => {
                 window.location.reload()
             })
     }
-    
     useEffect(() => {
         
-        fetch("/api/user/current_user")
-            .then(res => res.json())
-            .then(data => setUserObj(data))
+        if(cookieStringToObj(document.cookie).hasOwnProperty("token")){
+            fetch("/api/user/current_user")
+                .then(res => res.json())
+                .then(data => setUserObj(data))
+        }
         
     }, []);
     
