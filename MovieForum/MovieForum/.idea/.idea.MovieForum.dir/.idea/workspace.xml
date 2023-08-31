@@ -8,13 +8,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="fix homepage http 401 error">
-      <change afterPath="$PROJECT_DIR$/ClientApp/src/contexts/LoginContext.js" afterDir="false" />
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="remove window.location.reload from react component">
+      <change afterPath="$PROJECT_DIR$/ClientApp/src/components/ShootingStars.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/AddNewMovie.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/AddNewMovie.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/EditMovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/EditMovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Layout.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/NavMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/MovieDetails.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ClientApp/src/setupProxy.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/setupProxy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/MovieController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/MovieController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,7 +180,7 @@
       <workItem from="1693298966081" duration="10991000" />
       <workItem from="1693313095054" duration="1667000" />
       <workItem from="1693378461857" duration="5007000" />
-      <workItem from="1693469296964" duration="9944000" />
+      <workItem from="1693469296964" duration="14360000" />
     </task>
     <task id="LOCAL-00001" summary="merge current version">
       <option name="closed" value="true" />
@@ -492,7 +498,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693472873251</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="remove window.location.reload from react component">
+      <option name="closed" value="true" />
+      <created>1693482966536</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1693482966536</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +526,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="enable filtering movies by genres" />
     <MESSAGE value="change search box and genre dropdown menu layout" />
     <MESSAGE value="edit details layout; hide default dropdown options" />
     <MESSAGE value="remove console logs" />
@@ -539,7 +552,8 @@
     <MESSAGE value="merge" />
     <MESSAGE value="fix Home page genre selected menu warning" />
     <MESSAGE value="fix homepage http 401 error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix homepage http 401 error" />
+    <MESSAGE value="remove window.location.reload from react component" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove window.location.reload from react component" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

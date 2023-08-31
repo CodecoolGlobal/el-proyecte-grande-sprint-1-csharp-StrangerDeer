@@ -38,7 +38,7 @@ public class MovieController : ControllerBase
         return Ok(movies);
     }
 
-    [Route("/add-new-movie")]
+    [Route("/api/add-new-movie")]
     [HttpPost]
     [Authorize(Roles = "User")]
     public async Task<IActionResult> AddNewMovie([FromBody] JsonElement body)

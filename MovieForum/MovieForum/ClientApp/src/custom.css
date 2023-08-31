@@ -222,7 +222,7 @@ code {
 .movie-img, #uploaded-image {
   display: block;
   position: absolute;
-  top: 15%;
+  top: 5%;
   left: 60%;
   max-width: 500px;
 }

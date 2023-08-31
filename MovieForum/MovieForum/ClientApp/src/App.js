@@ -1,5 +1,4 @@
-import {createRoot} from "react-dom/client";
-import {BrowserRouter, createBrowserRouter, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {LoginContext} from "./contexts/LoginContext";
 import NavMenu from "./components/NavMenu";
 import Home from "./components/Home";

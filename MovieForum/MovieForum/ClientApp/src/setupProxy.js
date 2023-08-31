@@ -8,7 +8,6 @@ const context = [
   "/movies",
   "/Uploads/",
   "/api/",
-  "/add-new-movie",
     "/registration",
     "/api/user/",
 ];
