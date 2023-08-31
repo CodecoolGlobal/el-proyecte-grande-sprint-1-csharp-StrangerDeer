@@ -27,7 +27,7 @@ public class UserController : ControllerBase
     }
 
     [AllowAnonymous]
-    [HttpPost("registrationXX")]
+    [HttpPost("registration")]
     public async Task<IActionResult> Registration([FromBody] RegisterModel registerModel)
     {
         await _movieService.RegisterUser(registerModel);

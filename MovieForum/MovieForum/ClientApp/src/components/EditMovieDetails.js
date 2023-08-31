@@ -24,7 +24,7 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
         let formData = new FormData();
         formData.append("file", file);
         
-        fetch(`/movies/${id}/uploadimage`, {
+        fetch(`/api/movies/${id}/uploadimage`, {
             method: "post",
             body: formData,
             
@@ -40,7 +40,7 @@ const EditMovieDetails = ({ movieDetails, setMovieDetails, updateMovie, navigate
         }
     }
     const deleteMovie = (id) => {
-        fetch(`/movies/${id}`, {
+        fetch(`/api/movies/${id}`, {
             method: "delete"
         }).then(() => navigate("/"))
     }

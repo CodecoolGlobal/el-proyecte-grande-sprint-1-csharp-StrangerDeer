@@ -8,7 +8,7 @@ using MovieForum.Services;
 namespace MovieForum.Controllers;
 
 [ApiController]
-[Route("/movies")]
+[Route("api/movies")]
 [Produces("application/json")] 
 [EnableCors("AllowAllHeaders")]
 
@@ -38,7 +38,7 @@ public class MovieController : ControllerBase
         return Ok(movies);
     }
 
-    [Route("/api/add-new-movie")]
+    [Route("add-new-movie")]
     [HttpPost]
     [Authorize(Roles = "User")]
     public async Task<IActionResult> AddNewMovie([FromBody] JsonElement body)

@@ -23,7 +23,7 @@ const Login = () =>{
         
         }
         
-        fetch("/api/user/registrationXX", {
+        fetch("/api/user/registration", {
             method: "POST",
             body: JSON.stringify(registerUserModel),
             headers: {

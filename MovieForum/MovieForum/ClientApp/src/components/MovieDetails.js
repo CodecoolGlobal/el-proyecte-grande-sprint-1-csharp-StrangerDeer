@@ -67,7 +67,7 @@ const MovieDetails = () => {
             }, 3000);
     }
     const updateMovieRatings = (id) => {
-        fetch(`/movies/${id}`, {
+        fetch(`/api/movies/${id}`, {
             method: "put",
             body: JSON.stringify(movieDetails),
             headers: {
@@ -87,7 +87,7 @@ const MovieDetails = () => {
             .then()
     }
     const updateMovie = (id) => {
-        fetch(`/movies/${id}`, {
+        fetch(`/api/movies/${id}`, {
             method: "put",
             body: JSON.stringify(movieDetails),
             headers: {
@@ -97,7 +97,7 @@ const MovieDetails = () => {
     }
     
     useEffect(() => {
-        fetch(`/movies/${id}`)
+        fetch(`/api/movies/${id}`)
             .then(res => res.json())
             .then(data => {
                 setMovie(data);

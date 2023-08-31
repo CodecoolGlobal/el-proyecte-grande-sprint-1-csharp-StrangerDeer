@@ -36,7 +36,7 @@ const AddNewMovie = () =>{
     }
   }
     const saveMovie = () => {
-        fetch('/api/add-new-movie', {
+        fetch('/api/movies/add-new-movie', {
             method: "post",
             body: JSON.stringify(inputs),
             headers: {

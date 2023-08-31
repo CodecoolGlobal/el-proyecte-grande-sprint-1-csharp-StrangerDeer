@@ -13,7 +13,7 @@ const Home = () => {
     const [selectedGenre, setSelectedGenre] = useState("");
     
     useEffect(() =>{
-        fetch('/movies')
+        fetch('/api/movies')
             .then(req => req.json())
             .then(data => {setMovies(data)})
 
