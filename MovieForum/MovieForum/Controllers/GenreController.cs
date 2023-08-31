@@ -6,7 +6,7 @@ using MovieForum.Services;
 namespace MovieForum.Controllers;
 
 [ApiController]
-[Route("/api/genres")]
+[Route("api/genres")]
 [Produces("application/json")] 
 [EnableCors("AllowAllHeaders")]
 

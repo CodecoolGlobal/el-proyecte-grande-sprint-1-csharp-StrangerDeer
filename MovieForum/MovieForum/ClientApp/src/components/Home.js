@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import Tilt from 'react-vanilla-tilt';
 import {Link, useNavigate} from 'react-router-dom'
+import ShootingStars from "./ShootingStars";
 const Home = () => {
     
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Home = () => {
     const [selectedGenre, setSelectedGenre] = useState("");
     
     useEffect(() =>{
-        fetch('/movies')
+        fetch('/api/movies')
             .then(req => req.json())
             .then(data => {setMovies(data)})
 
@@ -79,112 +80,7 @@ const Home = () => {
                 </Link>
                 )}
             </div>
-            <div className="shooting-stars">
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-                <div className="shooting-star"></div>
-            </div>
-
-            <div className="shooting-stars2">
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-                <div className="shooting-star2"></div>
-            </div>
+           <ShootingStars/>
         </>
         );
 }

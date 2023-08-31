@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useNavigate} from "react-router-dom";
+import ShootingStars from "./ShootingStars";
 
 const AddNewMovie = () =>{
   const navigate = useNavigate();
@@ -34,37 +35,37 @@ const AddNewMovie = () =>{
       saveMovie()
     }
   }
-  
+    const saveMovie = () => {
+        fetch('/api/movies/add-new-movie', {
+            method: "post",
+            body: JSON.stringify(inputs),
+            headers: {
+                "Content-type": "application/json",
+            }
+        }).then(() => navigate("/"))
+    }
+    const setInputValue = (key, value) => {setInputs({...inputs, [key]: value})};
+    const convertYouTubeUrl = (value) => {
+        const videoSource = value.replace(/(?:^https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, "//www.youtube.com/embed/$1");
+        setInputValue("TrailerUrl", videoSource)
+    }
+    
     useEffect(() => {
         fetch(`/api/genres`)
             .then(res => res.json())
             .then(data => {setGenres(data); setLoading(false)})
     }, [])
-  const saveMovie = () => {
-    fetch('/add-new-movie', {
-      method: "post",
-      body: JSON.stringify(inputs),
-      headers: {
-        "Content-type": "application/json",
-      }
-    }).then(() => navigate("/"))
-  }
-  const setInputValue = (key, value) => {setInputs({...inputs, [key]: value})};
-  const convertYouTubeUrl = (value) => {
-      const videoSource = value.replace(/(?:^https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/g, "//www.youtube.com/embed/$1");
-      setInputValue("TrailerUrl", videoSource)
-  }
-  
-  let titleInput = inputs.Title;
-  let yearInput = Number(inputs.ReleaseYear);
-  let storyInput = inputs.Story;
-  let genreInput = inputs.Genre;
-  let trailerUrlInput = inputs.TrailerUrl;
     
-  if (loading) {
-      return <div className="loading">Loading...</div>
-  }
-  return (
+    let titleInput = inputs.Title;
+    let yearInput = Number(inputs.ReleaseYear);
+    let storyInput = inputs.Story;
+    let trailerUrlInput = inputs.TrailerUrl;
+    
+    if (loading) {
+        return <div className="loading">Loading...</div>
+    }
+    
+    return (
       <div className="add-new-movie">
         <div>Movie Title</div>
           <input key={"title"} 
@@ -109,113 +110,7 @@ const AddNewMovie = () =>{
                  onChange={(e) => convertYouTubeUrl(e.target.value)}/>
           <br/><br/>
           <button onClick={() => clickEvent(trailerUrlInput)}>Save</button>
-
-          <div className="shooting-stars">
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-              <div className="shooting-star"></div>
-          </div>
-
-          <div className="shooting-stars2">
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-              <div className="shooting-star2"></div>
-          </div>
+          <ShootingStars/>
       </div>
     );
 }

@@ -27,7 +27,7 @@ public class UserController : ControllerBase
     }
 
     [AllowAnonymous]
-    [HttpPost("registrationXX")]
+    [HttpPost("registration")]
     public async Task<IActionResult> Registration([FromBody] RegisterModel registerModel)
     {
         await _movieService.RegisterUser(registerModel);
@@ -101,13 +101,15 @@ public class UserController : ControllerBase
     }
 
     [Authorize(Roles = "User")]
-    [HttpGet("current_user_data/{username}")]
-    public IActionResult GetUserData([FromRoute] string username)
+    [HttpGet("current_user/{username}")]
+    public async Task<IActionResult> GetUserData([FromRoute] string username)
     {
+        
         bool usernameCheck = !username.IsNullOrEmpty();
         if (usernameCheck)
         {
-            return Ok(_movieService.GetUserData(username));
+            var currentUser = await _movieService.GetUserData(username);
+            return Ok(currentUser);
         }
 
         return BadRequest("Username not found");
