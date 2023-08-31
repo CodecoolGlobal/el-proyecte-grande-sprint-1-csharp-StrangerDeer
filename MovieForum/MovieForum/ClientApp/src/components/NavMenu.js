@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {Link, Outlet, useNavigate} from 'react-router-dom';
 import './NavMenu.css';
+import {LoginContext} from "../contexts/LoginContext";
 
 
 const cookieStringToObj = (cookieString) => {
@@ -18,8 +19,11 @@ const cookieStringToObj = (cookieString) => {
 const NavMenu = () => {
     
     const navigate = useNavigate();
+    const { loggedIn, setLoggedIn } = useContext(LoginContext);
     
     const [userObj, setUserObj] = useState(null);
+    
+    let userIsLoggedIn = cookieStringToObj(document.cookie).hasOwnProperty("token");
     
     const logout = () => {
         fetch("/api/user/logout", {
@@ -36,12 +40,13 @@ const NavMenu = () => {
             })
             .then(() => navigate("/"))
             .then(() => {
-                window.location.reload()
+               setLoggedIn(false);
             })
     }
+    
     useEffect(() => {
         
-        if(cookieStringToObj(document.cookie).hasOwnProperty("token")){
+        if(userIsLoggedIn){
             fetch("/api/user/current_user")
                 .then(res => res.json())
                 .then(data => setUserObj(data))
@@ -49,13 +54,17 @@ const NavMenu = () => {
         
     }, []);
     
+    if(userIsLoggedIn && userObj === null){
+        return <div>Loading</div>
+    }
+    
     return (
         <div>
             <header>
                 <nav className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3">
                     <Link className="movie-forum-button" to="/">IMDb</Link>
                     <ul className="navbar-nav flex-grow">
-                        {userObj === null ?
+                        {!userIsLoggedIn && !loggedIn ?
                             <li>
                                 <Link className={"text-dark"} to={"/login"}>Login</Link>
                             </li> 
@@ -71,9 +80,7 @@ const NavMenu = () => {
                             <Link className={"text-dark"} onClick={() => logout()}>Logout</Link>
                              </li>
                             </>
-                        } 
-                        
-                        
+                        }
                     </ul>
                 </nav>
             </header>

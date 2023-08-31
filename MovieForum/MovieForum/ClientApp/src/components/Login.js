@@ -1,7 +1,9 @@
-﻿import React, {useState} from "react";
+﻿import React, {useContext, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {LoginContext} from "../contexts/LoginContext";
 const Login = () =>{
     const navigate = useNavigate();
+    const { setLoggedIn } = useContext(LoginContext);
     
     const [signUpActive, setSignUpActive] = useState(false);
     const [userName, setUserName] = useState("");
@@ -45,8 +47,9 @@ const Login = () =>{
                 "Content-Type": "application/json"
             }
         })
+            .then(() => setLoggedIn(true))
             .then(() => navigate("/"))
-            .then(() => window.location.reload())
+            
     }
     
     return <>
