@@ -4,7 +4,7 @@
 ## About the project
 The point of this project to users can add, edit and delete movies. 
 We use a very simple authentication.
-The project made by C#, .Net, React and JS.
+The application made by C#, .Net, React, JS and Docker.
 
 
 ## How you can run the project?
