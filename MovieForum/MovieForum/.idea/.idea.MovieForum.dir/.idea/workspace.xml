@@ -8,18 +8,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="change endpoints">
+    <list default="true" id="4856f27a-1fb5-48c8-bd4b-8a93a78bd436" name="Changes" comment="merge">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MovieForum.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/UserProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/NavMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/NavMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClientApp/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/ClientApp/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
