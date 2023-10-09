@@ -2,7 +2,20 @@ import React, {useEffect, useState} from 'react';
 import Tilt from 'react-vanilla-tilt';
 import {Link, useNavigate} from 'react-router-dom'
 import ShootingStars from "./ShootingStars";
-const Home = () => {
+
+const cookieStringToObj = (cookieString) => {
+    let cookieEntries = cookieString.split(';');
+    let result= {};
+
+    for (const cookieEntry of cookieEntries) {
+        let cookieKeyValuePair = cookieEntry.trim().split("=");
+
+        result[cookieKeyValuePair[0]] = cookieKeyValuePair[1];
+    }
+
+    return result;
+}
+const Home = ({setUserObj}) => {
     
     const navigate = useNavigate();
 
@@ -11,6 +24,8 @@ const Home = () => {
     const [searchMovie, setSearchMovie] = useState("");
     const [genres, setGenres] = useState(null);
     const [selectedGenre, setSelectedGenre] = useState("");
+
+    let userIsLoggedIn = cookieStringToObj(document.cookie).hasOwnProperty("token");
     
     useEffect(() =>{
         fetch('/api/movies')
@@ -20,6 +35,12 @@ const Home = () => {
         fetch(`/api/genres`)
             .then(res => res.json())
             .then(data => {setGenres(data); setLoading(false)})
+
+        if(userIsLoggedIn){
+            fetch("/api/user/current_user")
+                .then(res => res.json())
+                .then(data => setUserObj(data))
+        }
     }, [])
     
     function chooseRandomMovie() {

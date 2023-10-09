@@ -3,27 +3,10 @@ import {Link, Outlet, useNavigate} from 'react-router-dom';
 import './NavMenu.css';
 import {LoginContext} from "../contexts/LoginContext";
 
-
-const cookieStringToObj = (cookieString) => {
-    let cookieEntries = cookieString.split(';');
-    let result= {};
-    
-    for (const cookieEntry of cookieEntries) {
-        let cookieKeyValuePair = cookieEntry.trim().split("=");
-        
-        result[cookieKeyValuePair[0]] = cookieKeyValuePair[1];
-    }
-    
-    return result;
-}
-const NavMenu = () => {
+const NavMenu = ({userObj}) => {
     
     const navigate = useNavigate();
     const { loggedIn, setLoggedIn } = useContext(LoginContext);
-    
-    const [userObj, setUserObj] = useState(null);
-    
-    let userIsLoggedIn = cookieStringToObj(document.cookie).hasOwnProperty("token");
     
     const logout = () => {
         fetch("/api/user/logout", {
@@ -44,19 +27,9 @@ const NavMenu = () => {
             })
     }
     
-    useEffect(() => {
-        
-        if(userIsLoggedIn){
-            fetch("/api/user/current_user")
-                .then(res => res.json())
-                .then(data => setUserObj(data))
-        }
-        
-    }, []);
+   
     
-    if(userIsLoggedIn && userObj === null){
-        return <div>Loading</div>
-    }
+  
     
     return (
         <div>
@@ -64,7 +37,7 @@ const NavMenu = () => {
                 <nav className="navbar-expand-sm navbar-toggleable-sm ng-white border-bottom box-shadow mb-3">
                     <Link className="movie-forum-button" to="/">IMDb</Link>
                     <ul className="navbar-nav flex-grow">
-                        {!userIsLoggedIn && !loggedIn ?
+                        {!loggedIn ?
                             <li>
                                 <Link className={"text-dark"} to={"/login"}>Login</Link>
                             </li> 

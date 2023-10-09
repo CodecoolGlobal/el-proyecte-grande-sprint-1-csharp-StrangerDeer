@@ -10,16 +10,17 @@ import React, {useState} from "react";
 
 const App = () => {
     const [loggedIn, setLoggedIn] = useState(false);
+    const [userObj, setUserObj] = useState(null);
     
     const router = createBrowserRouter([{
         path: "/",
         element: <LoginContext.Provider value={{loggedIn, setLoggedIn}}>
-            <NavMenu/>
+            <NavMenu userObj={userObj}/>
         </LoginContext.Provider>,
         children:[
             {
                 path:"/",
-                element: <Home />
+                element: <Home setUserObj={setUserObj}/>
             },
             {
                 path:"/add-new-movie",
