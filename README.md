@@ -28,23 +28,33 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Using IMDb as a template, this project features a web application in which you can upload your favorite movie's details, attach images and trailers, store ratings and the like!
+Using IMDb as a template, this project features a web application in which you can upload your favorite movie's details, attach images and trailers and store ratings. You can search and filter movies by title and genre, update and delete them.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Technologies used
 
+For the frontend:
 * [![React][React.js]][React-url]
-* ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-* ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
 * ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 * ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 * ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-* ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)
-* ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 * ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
+* [Font Awesome](https://fontawesome.com)
+* [Vanilla Tilt](https://micku7zu.github.io/vanilla-tilt.js/)
+
+For the backend:
+* ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
+* ![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)
+
+For the authentication:
 * ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
-* ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+
+For the database: 
+* ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+
+For the dockerization:
+* ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -60,19 +70,15 @@ You will need node and npm to use this project
   ```
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/CodecoolGlobal/el-proyecte-grande-sprint-1-csharp-StrangerDeer.git
    ```
-3. Install packages on the Backend
+2. Install packages on the Backend
    ```sh
    dotnet restore
    ```
-4. Install NPM packages on the Frontend
+3. Install NPM packages on the Frontend
    ```js
    cd ClientApp/.
    npm install
@@ -103,18 +109,6 @@ You can upload images to each and add trailers via a youtube link. If you would 
 - [StrangerDeer](https://github.com/StrangerDeer)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-
-* [Font Awesome](https://fontawesome.com)
-* [Sass CSS](https://sass-lang.com)
-* [Vanilla Tilt](https://micku7zu.github.io/vanilla-tilt.js/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
