@@ -85,6 +85,8 @@ You will need node and npm to use this project
    ```
 After this, you will be ready to run the project!
 
+#### /!\ If the application appears to be slow, you may want to switch to another browser. /!\ 
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
