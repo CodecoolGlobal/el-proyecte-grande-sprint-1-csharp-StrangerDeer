@@ -6,7 +6,7 @@ import AddNewMovie from "./components/AddNewMovie";
 import MovieDetails from "./components/MovieDetails";
 import UserProfile from "./components/UserProfile";
 import Login from "./components/Login";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 const App = () => {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -14,13 +14,12 @@ const App = () => {
     
     const router = createBrowserRouter([{
         path: "/",
-        element: <LoginContext.Provider value={{loggedIn, setLoggedIn}}>
-            <NavMenu userObj={userObj}/>
-        </LoginContext.Provider>,
+        element: 
+            <NavMenu userObj={userObj} setLoggedIn={setLoggedIn} loggedIn={loggedIn} setUserObj={setUserObj}/>,
         children:[
             {
                 path:"/",
-                element: <Home setUserObj={setUserObj}/>
+                element: <Home setUserObj={setUserObj} setLoggedIn={setLoggedIn}/>
             },
             {
                 path:"/add-new-movie",

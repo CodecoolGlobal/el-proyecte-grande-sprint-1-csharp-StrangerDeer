@@ -15,7 +15,7 @@ const cookieStringToObj = (cookieString) => {
 
     return result;
 }
-const Home = ({setUserObj}) => {
+const Home = ({setUserObj, setLoggedIn}) => {
     
     const navigate = useNavigate();
 
@@ -40,6 +40,7 @@ const Home = ({setUserObj}) => {
             fetch("/api/user/current_user")
                 .then(res => res.json())
                 .then(data => setUserObj(data))
+                .then(() => setLoggedIn(true))
         }
     }, [])
     

@@ -3,10 +3,9 @@ import {Link, Outlet, useNavigate} from 'react-router-dom';
 import './NavMenu.css';
 import {LoginContext} from "../contexts/LoginContext";
 
-const NavMenu = ({userObj}) => {
+const NavMenu = ({userObj, loggedIn, setLoggedIn, setUserObj}) => {
     
     const navigate = useNavigate();
-    const { loggedIn, setLoggedIn } = useContext(LoginContext);
     
     const logout = () => {
         fetch("/api/user/logout", {
@@ -25,11 +24,12 @@ const NavMenu = ({userObj}) => {
             .then(() => {
                setLoggedIn(false);
             })
+            .then(() => setUserObj(null));
     }
     
    
     
-  
+  console.log(userObj)
     
     return (
         <div>

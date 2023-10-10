@@ -48,7 +48,6 @@ const Login = () =>{
                 "Content-Type": "application/json"
             }
         })
-            .then(() => setLoggedIn(true))
             .then(() => navigate("/"))
             
     }
