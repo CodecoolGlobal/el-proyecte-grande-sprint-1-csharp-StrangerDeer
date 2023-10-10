@@ -8,7 +8,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#built-with">Technologies used</a></li>
+        <li><a href="#technologies-used">Technologies used</a></li>
       </ul>
     </li>
     <li>
@@ -19,7 +19,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributors</a></li>
+    <li><a href="#contributors">Contributors</a></li>
   </ol>
 </details>
 
