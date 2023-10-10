@@ -93,7 +93,7 @@ After this, you will be ready to run the project!
 
 First, you should create an account with a username, email and password of your choice. Your password must be at least 8 characters long, contain lowercase and uppercase letters, and numbers or symbols.
 <details>
-  ![image](https://github.com/CodecoolGlobal/el-proyecte-grande-sprint-1-csharp-StrangerDeer/assets/113454591/e87da6f6-3c87-4632-97c1-d1e75b97e73e)
+   <img src="https://github.com/CodecoolGlobal/el-proyecte-grande-sprint-1-csharp-StrangerDeer/assets/113454591/e87da6f6-3c87-4632-97c1-d1e75b97e73e" />
 </details>
 Then you will be ready to log in!
 After this, you will be able to access movie details and upload your own movie. Rating movies will update the badge on your profile.
