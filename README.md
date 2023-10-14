@@ -63,27 +63,23 @@ For the dockerization:
 
 ### Prerequisites
 
-You will need node and npm to use this project
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+You will need Docker to run this project. 
 
 ### Installation
 1. Clone the repo
    ```sh
    git clone https://github.com/CodecoolGlobal/el-proyecte-grande-sprint-1-csharp-StrangerDeer.git
    ```
-2. Install packages on the Backend
+2. Use docker compose in the project's folder to run the project
    ```sh
-   dotnet restore
+   docker-compose up
    ```
-3. Install NPM packages on the Frontend
-   ```js
-   cd ClientApp/.
-   npm install
+3. Open the project at this url in your browser
    ```
-After this, you will be ready to run the project!
+   http://localhost:8088
+   ```
+
+The project is now ready!
 
 #### /!\ If the application appears to be slow, you may want to switch to another browser. /!\ 
 
