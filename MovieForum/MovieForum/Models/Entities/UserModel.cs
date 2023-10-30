@@ -18,7 +18,7 @@ public class UserModel
         UserName = userName;
         EmailAddress = emailAddress;
         Role = role;
-        Password = password;
+        Password = BCrypt.Net.BCrypt.EnhancedHashPassword(password, 13);
         Rates = 0;
         Badge = "Newbie";
     }
