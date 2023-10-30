@@ -11,6 +11,7 @@ const Login = () =>{
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [userConfirmPassword, setUserConfirmPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
     
     const registerUser = (event) => {
         event.preventDefault()
@@ -48,7 +49,17 @@ const Login = () =>{
                 "Content-Type": "application/json"
             }
         })
-            .then(() => navigate("/"))
+            .then((res) => {
+                if(res.ok){
+                    setErrorMessage("");
+                    navigate("/")
+                } else {
+                    res.json().then((data) => {
+                        setErrorMessage(data.message);
+                    })
+                }
+            })
+            
             
     }
     
@@ -70,6 +81,8 @@ const Login = () =>{
                 <form className="login-form" action="#">
                     <h1 className={"login-h1"}>Sign in</h1>
                     <br></br>
+                    <div>{errorMessage}</div>
+                    <br/>
                     <input className="login-input" type="text" placeholder="Username" onChange={(e) => setUserName(e.target.value)}/>
                     <input className="login-input" type="password" placeholder="Password" onChange={(e) => setUserPassword(e.target.value)}/>
                     <a href="#">Forgot your password?</a>

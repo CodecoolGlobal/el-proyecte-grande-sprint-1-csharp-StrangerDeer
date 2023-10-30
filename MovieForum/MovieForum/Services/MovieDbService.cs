@@ -85,10 +85,16 @@ public class MovieDbService : IMovieService
         }
     }
 
-    public async Task<UserModel?> AuthenticateUser(LoginModel loginModel)
+    public async Task<UserModel> AuthenticateUser(LoginModel loginModel)
     {
-        var currentUser = await _context.users.FirstOrDefaultAsync(user =>
-            user.UserName == loginModel.Username && user.Password == loginModel.Password);
+        UserModel? currentUser = await _context.users.FirstOrDefaultAsync(user =>
+            user.UserName == loginModel.Username);
+
+        if (currentUser == null)
+        {
+            throw new Exception("User not found");
+        }
+        
         return currentUser;
     }
 
