@@ -116,9 +116,9 @@ public class MovieDbService : IMovieService
         UserPasswordValidator(registerModel.Password, registerModel.PasswordConfirmation);
 
        
-        /*var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", registerModel.Password);
+        var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", registerModel.Password);
         _context.users.Add(newUser);
-        await _context.SaveChangesAsync().ConfigureAwait(true);*/
+        await _context.SaveChangesAsync().ConfigureAwait(true);
         
     }
 
