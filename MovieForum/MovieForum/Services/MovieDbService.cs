@@ -115,14 +115,11 @@ public class MovieDbService : IMovieService
         await UsernameValidator(registerModel.Username);
         UserPasswordValidator(registerModel.Password, registerModel.PasswordConfirmation);
 
-        /*if (!registerModel.Username.IsNullOrEmpty()
-            && !registerModel.Password.IsNullOrEmpty()
-            && !registerModel.EmailAddress.IsNullOrEmpty())
-        {
-            var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", registerModel.Password);
-            _context.users.Add(newUser);
-            await _context.SaveChangesAsync().ConfigureAwait(true);
-        }*/
+       
+        var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", registerModel.Password);
+        _context.users.Add(newUser);
+        await _context.SaveChangesAsync().ConfigureAwait(true);
+        
     }
 
     public async Task UpdateUserRatings(string username)
