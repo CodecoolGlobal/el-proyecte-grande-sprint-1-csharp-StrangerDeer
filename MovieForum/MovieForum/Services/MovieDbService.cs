@@ -1,14 +1,17 @@
 ﻿using System.Reflection;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using MovieForum.Models;
 using MovieForum.Models.Entities;
+using Exception = System.Exception;
 
 namespace MovieForum.Services;
 
 public class MovieDbService : IMovieService
 {
     private readonly MovieContext _context;
+    private static readonly string ErrorMessageSpace = "// ";
 
     public MovieDbService(MovieContext context)
     {
@@ -100,16 +103,26 @@ public class MovieDbService : IMovieService
 
     public async Task RegisterUser(RegisterModel registerModel)
     {
-        if (!registerModel.Username.IsNullOrEmpty()
+
+        if (registerModel.Username.IsNullOrEmpty()
+            || registerModel.EmailAddress.IsNullOrEmpty()
+            || registerModel.Password.IsNullOrEmpty()
+            || registerModel.PasswordConfirmation.IsNullOrEmpty())
+        {
+            throw new Exception("One of the field is empty");
+        }
+
+        await UsernameValidator(registerModel.Username);
+        UserPasswordValidator(registerModel.Password, registerModel.PasswordConfirmation);
+
+        /*if (!registerModel.Username.IsNullOrEmpty()
             && !registerModel.Password.IsNullOrEmpty()
             && !registerModel.EmailAddress.IsNullOrEmpty())
         {
             var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", registerModel.Password);
-            var transaction = await _context.Database.BeginTransactionAsync();
             _context.users.Add(newUser);
             await _context.SaveChangesAsync().ConfigureAwait(true);
-            await transaction.CommitAsync();
-        }
+        }*/
     }
 
     public async Task UpdateUserRatings(string username)
@@ -164,6 +177,96 @@ public class MovieDbService : IMovieService
         if (userRatings > 5)
         {
             user.Badge = "Movie Guru";
+        }
+    }
+
+    private async Task UsernameValidator(string username)
+    {
+        bool isUsernameHasSpace = username.Contains(" ");
+        bool isUsernameLessMinLength = username.Length < 4;
+        bool isUsernameMoreMaxLength = username.Length > 25;
+        bool isUsernameExists = await _context.users.FirstOrDefaultAsync(user => user.UserName.Equals(username)) == null;
+
+        List<string> messages = new List<string>();
+
+        if (isUsernameHasSpace)
+        {
+            messages.Add("Username cannot contain space");
+        }
+
+        if (isUsernameLessMinLength)
+        {
+            messages.Add("Username has to be minimum 4 characters");
+        }
+
+        if (isUsernameMoreMaxLength)
+        {
+            messages.Add("Username can be maximum 25 characters");
+        }
+        
+        if (!isUsernameExists)
+        {
+            messages.Add("Username already exists");
+        }
+
+        if (messages.Count > 0)
+        {
+            throw new Exception(string.Join(ErrorMessageSpace, messages));
+        }
+
+    }
+
+    private void UserPasswordValidator(string password, string confirmPassword)
+    {
+        bool isPasswordHasSpace = password.Contains(" ");
+        bool isPasswordLessMinLength = password.Length < 8;
+        bool isPasswordContainsUppercase = password.Any(char.IsUpper);
+        bool isPasswordContainsLowercase = password.Any(char.IsLower);
+        bool isPasswordContainsNumber = password.Any(char.IsDigit);
+        bool isPasswordContainsSpecialCharacter = password.Any(char.IsLetterOrDigit);
+        bool isPasswordMatchConfirmPassword = password.Equals(confirmPassword);
+
+        List<string> messages = new List<string>();
+
+        if (isPasswordHasSpace)
+        {
+            messages.Add("Password cannot contain space");
+        }
+
+        if (isPasswordLessMinLength)
+        {
+            messages.Add("Password has to be minimum 8 characters");
+        }
+
+        if (!isPasswordContainsUppercase)
+        {
+            messages.Add("Password must have at least one uppercase character");
+        }
+        
+        if (!isPasswordContainsLowercase)
+        {
+            messages.Add("Password must have at least one lowercase character");
+        }
+        
+        if (!isPasswordContainsNumber)
+        {
+            messages.Add("Password must have at least one number");
+        }
+        
+        if (isPasswordContainsSpecialCharacter)
+        {
+            messages.Add("Password must have at least one special character like: ;, !, ?, ), (");
+        }
+        
+        if (!isPasswordMatchConfirmPassword)
+        {
+            messages.Add("Confirm password is not matching with password");
+        }
+
+        if (messages.Count > 0)
+        {
+            string errorMessages = string.Join(ErrorMessageSpace, messages);
+            throw new Exception(errorMessages);
         }
     }
 }

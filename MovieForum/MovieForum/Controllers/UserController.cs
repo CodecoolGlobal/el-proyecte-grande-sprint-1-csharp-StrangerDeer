@@ -3,6 +3,7 @@ using System.Net;
 using System.Runtime.InteropServices.JavaScript;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -31,10 +32,24 @@ public class UserController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost("registration")]
-    public async Task<IActionResult> Registration([FromBody] RegisterModel registerModel)
+    public async Task<IActionResult> Registration([FromBody] JsonElement body)
     {
-        await _movieService.RegisterUser(registerModel);
-        return Ok();
+        RegisterModel? registerModel = body.Deserialize<RegisterModel>();
+
+        if (registerModel == null)
+        {
+            return BadRequest(new { message = "Something went wrong" });
+        }
+        
+        try
+        {
+            await _movieService.RegisterUser(registerModel);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new { message = e.Message });
+        }
     }
 
     [AllowAnonymous]
