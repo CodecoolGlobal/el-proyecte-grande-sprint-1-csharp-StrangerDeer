@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using BCrypt.Net;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -12,7 +13,6 @@ public class MovieDbService : IMovieService
 {
     private readonly MovieContext _context;
     private static readonly string ErrorMessageSpace = "// ";
-
     public MovieDbService(MovieContext context)
     {
         _context = context;
@@ -97,6 +97,11 @@ public class MovieDbService : IMovieService
         {
             throw new Exception("User not found");
         }
+
+        if (!BCrypt.Net.BCrypt.EnhancedVerify(loginModel.Password, currentUser.Password))
+        {
+            throw new Exception("Wrong Password");
+        }
         
         return currentUser;
     }
@@ -114,9 +119,11 @@ public class MovieDbService : IMovieService
 
         await UsernameValidator(registerModel.Username);
         UserPasswordValidator(registerModel.Password, registerModel.PasswordConfirmation);
+        
+        string password = BCrypt.Net.BCrypt.EnhancedHashPassword(registerModel.Password);
 
        
-        var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", registerModel.Password);
+        var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", password);
         _context.users.Add(newUser);
         await _context.SaveChangesAsync().ConfigureAwait(true);
         

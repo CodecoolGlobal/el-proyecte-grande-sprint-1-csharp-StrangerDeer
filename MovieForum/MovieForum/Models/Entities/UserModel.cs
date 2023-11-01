@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
+using BCrypt.Net;
 using Microsoft.EntityFrameworkCore;
 
 namespace MovieForum;
@@ -19,7 +20,7 @@ public class UserModel
         UserName = userName;
         EmailAddress = emailAddress;
         Role = role;
-        Password = BCrypt.Net.BCrypt.EnhancedHashPassword(password, 13);
+        Password = password;
         Rates = 0;
         Badge = "Newbie";
     }

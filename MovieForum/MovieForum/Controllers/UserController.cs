@@ -54,8 +54,21 @@ public class UserController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
+    public async Task<IActionResult> Login([FromBody] JsonElement body)
     {
+        LoginModel? loginModel = body.Deserialize<LoginModel>();
+
+        if (loginModel == null)
+        {
+            return BadRequest(new { message = "Something wrong here" });
+        }
+        
+        if (loginModel.Username.IsNullOrEmpty()
+            || loginModel.Password.IsNullOrEmpty())
+        {
+            return BadRequest(new { message = "Missing Username or Password" });
+        }
+        
         try
         {
             UserModel user = await _movieService.AuthenticateUser(loginModel);
