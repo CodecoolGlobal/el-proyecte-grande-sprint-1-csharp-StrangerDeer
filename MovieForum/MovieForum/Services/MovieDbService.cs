@@ -121,8 +121,7 @@ public class MovieDbService : IMovieService
         UserPasswordValidator(registerModel.Password, registerModel.PasswordConfirmation);
         
         string password = BCrypt.Net.BCrypt.EnhancedHashPassword(registerModel.Password);
-
-       
+        
         var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", password);
         _context.users.Add(newUser);
         await _context.SaveChangesAsync().ConfigureAwait(true);
