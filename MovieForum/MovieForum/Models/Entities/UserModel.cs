@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using BCrypt.Net;
+using Microsoft.EntityFrameworkCore;
 
 namespace MovieForum;
 

@@ -27,10 +27,6 @@ const NavMenu = ({userObj, loggedIn, setLoggedIn, setUserObj}) => {
             .then(() => setUserObj(null));
     }
     
-   
-    
-  console.log(userObj)
-    
     return (
         <div>
             <header>

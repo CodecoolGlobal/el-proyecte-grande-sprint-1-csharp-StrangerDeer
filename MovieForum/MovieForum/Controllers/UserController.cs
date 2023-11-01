@@ -1,8 +1,12 @@
 ﻿using System.IdentityModel.Tokens.Jwt;
+using System.Net;
+using System.Runtime.InteropServices.JavaScript;
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using MovieForum.Models.Entities;
@@ -28,26 +32,56 @@ public class UserController : ControllerBase
 
     [AllowAnonymous]
     [HttpPost("registration")]
-    public async Task<IActionResult> Registration([FromBody] RegisterModel registerModel)
+    public async Task<IActionResult> Registration([FromBody] JsonElement body)
     {
-        await _movieService.RegisterUser(registerModel);
-        return Ok();
+        RegisterModel? registerModel = body.Deserialize<RegisterModel>();
+
+        if (registerModel == null)
+        {
+            return BadRequest(new { message = "Something went wrong" });
+        }
+        
+        try
+        {
+            await _movieService.RegisterUser(registerModel);
+            return Ok();
+        }
+        catch (Exception e)
+        {
+            return BadRequest(new { message = e.Message });
+        }
     }
 
     [AllowAnonymous]
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
+    public async Task<IActionResult> Login([FromBody] JsonElement body)
     {
-        var user = await _movieService.AuthenticateUser(loginModel);
+        LoginModel? loginModel = body.Deserialize<LoginModel>();
 
-        if (user != null)
+        if (loginModel == null)
         {
+            return BadRequest(new { message = "Something wrong here" });
+        }
+        
+        if (loginModel.Username.IsNullOrEmpty()
+            || loginModel.Password.IsNullOrEmpty())
+        {
+            return BadRequest(new { message = "Missing Username or Password" });
+        }
+        
+        try
+        {
+            UserModel user = await _movieService.AuthenticateUser(loginModel);
+            
             var token = GenerateToken(user);
             HttpContext.Response.Cookies.Append("token", token);
             return Ok();
         }
-
-        return NotFound("User not found");
+        catch (Exception e)
+        {
+            return BadRequest(new { message = e.Message });
+        }
+        
     }
 
     [Authorize(Roles = "User")]
