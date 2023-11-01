@@ -116,9 +116,9 @@ public class MovieDbService : IMovieService
         UserPasswordValidator(registerModel.Password, registerModel.PasswordConfirmation);
 
        
-        var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", registerModel.Password);
+        /*var newUser = new UserModel(registerModel.Username, registerModel.EmailAddress, "User", registerModel.Password);
         _context.users.Add(newUser);
-        await _context.SaveChangesAsync().ConfigureAwait(true);
+        await _context.SaveChangesAsync().ConfigureAwait(true);*/
         
     }
 
@@ -220,7 +220,7 @@ public class MovieDbService : IMovieService
         bool isPasswordContainsUppercase = password.Any(char.IsUpper);
         bool isPasswordContainsLowercase = password.Any(char.IsLower);
         bool isPasswordContainsNumber = password.Any(char.IsDigit);
-        bool isPasswordContainsSpecialCharacter = password.Any(char.IsLetterOrDigit);
+        bool isPasswordContainsSpecialCharacter = password.Any(ch => Char.IsPunctuation(ch) || Char.IsSymbol(ch));
         bool isPasswordMatchConfirmPassword = password.Equals(confirmPassword);
 
         List<string> messages = new List<string>();
@@ -250,7 +250,7 @@ public class MovieDbService : IMovieService
             messages.Add("Password must have at least one number");
         }
         
-        if (isPasswordContainsSpecialCharacter)
+        if (!isPasswordContainsSpecialCharacter)
         {
             messages.Add("Password must have at least one special character like: ;, !, ?, ), (");
         }
